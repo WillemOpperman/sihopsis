@@ -11,6 +11,6 @@ class LockSessionController < ApplicationController
 
   def unlock
 
-    redirect_to root_path
+    redirect_to '/'
   end
 end
