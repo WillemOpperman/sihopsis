@@ -1,0 +1,75 @@
+.page-header
+  %h3
+    Media_owner_frequency_cap_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_owner_frequency_cap_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_owner_frequency_cap_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_owner_frequency_cap_type_path(@media_owner_frequency_cap_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_owner_frequency_cap_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_owner_frequency_cap_type.code
+        .row-fluid
+          .span2
+            %b
+              Media owner
+          .span10
+            = @media_owner_frequency_cap_type.media_owner
+        .row-fluid
+          .span2
+            %b
+              Media frequency cap type
+          .span10
+            = @media_owner_frequency_cap_type.media_frequency_cap_type
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_owner_frequency_cap_type.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_owner_frequency_cap_type.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_owner_frequency_cap_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_owner_frequency_cap_type.updated_at)

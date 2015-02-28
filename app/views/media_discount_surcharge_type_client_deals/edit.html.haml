@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Media_discount_surcharge_type_client_deals
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_discount_surcharge_type_client_deals_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_discount_surcharge_type_client_deal_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @media_discount_surcharge_type_client_deal do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

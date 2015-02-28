@@ -1,0 +1,1 @@
+json.extract! @campaign_schedule_placement_routing_address, :id, :uid, :code, :name, :campaign_schedule_placement_id, :routing_address_source_type_id, :routing_address_type_id, :routing_address_id, :notes, :eis_sync_date, :created_at, :updated_at

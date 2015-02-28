@@ -1,0 +1,17 @@
+= simple_form_for(@communication_status, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_emailed
+    = f.input :is_printed
+    = f.input :is_default
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @communication_status,
+               :cancel => communication_statuses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

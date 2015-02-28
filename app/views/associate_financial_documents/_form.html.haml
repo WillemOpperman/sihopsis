@@ -1,0 +1,38 @@
+= simple_form_for(@associate_financial_document, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :code_external
+    = f.association :company
+    = f.association :company_division
+    = f.association :associate
+    = f.association :contact
+    = f.association :campaign
+    = f.association :campaign_schedule
+    = f.association :owner_user
+    = f.association :currency
+    = f.association :creation_source
+    = f.association :status
+    = f.association :communication_status
+    = f.association :company_cost_centre
+    = f.input :actual_date
+    = f.input :posting_date
+    = f.input :amount
+    = f.input :amount_home
+    = f.input :tax_amount
+    = f.input :amount_inc_tax_amount
+    = f.input :amount_inc_tax_home_amount
+    = f.association :tax_type
+    = f.input :exchange_rate
+    = f.input :notes
+    = f.input :status_reason
+    = f.input :grid_layout_x_m_l
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @associate_financial_document,
+               :cancel => associate_financial_documents_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

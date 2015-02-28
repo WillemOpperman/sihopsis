@@ -1,0 +1,14 @@
+= simple_form_for(@campaign_schedule_placement_advance_view_profile, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :custom_layout_name
+    = f.input :custom_layout_x_m_l
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_advance_view_profile,
+               :cancel => campaign_schedule_placement_advance_view_profiles_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

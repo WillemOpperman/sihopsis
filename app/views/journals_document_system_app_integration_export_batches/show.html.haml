@@ -1,0 +1,69 @@
+.page-header
+  %h3
+    Journals_document_system_app_integration_export_batches
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to journals_document_system_app_integration_export_batches_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_journals_document_system_app_integration_export_batch_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_journals_document_system_app_integration_export_batch_path(@journals_document_system_app_integration_export_batch) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @journals_document_system_app_integration_export_batch.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @journals_document_system_app_integration_export_batch.code
+        .row-fluid
+          .span2
+            %b
+              Journals document
+          .span10
+            = @journals_document_system_app_integration_export_batch.journals_document
+        .row-fluid
+          .span2
+            %b
+              Is success
+          .span10
+            = @journals_document_system_app_integration_export_batch.is_success
+        .row-fluid
+          .span2
+            %b
+              Result message
+          .span10
+            = @journals_document_system_app_integration_export_batch.result_message
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@journals_document_system_app_integration_export_batch.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@journals_document_system_app_integration_export_batch.updated_at)

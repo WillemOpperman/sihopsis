@@ -1,0 +1,4 @@
+json.array!(@campaign_schedule_placement_service_provider_digital_proofs) do |campaign_schedule_placement_service_provider_digital_proof|
+  json.extract! campaign_schedule_placement_service_provider_digital_proof, :id, :code, :uid, :campaign_schedule_placement_id, :service_prover_digital_proof_id, :service_provider_size, :service_provider_columns, :service_provider_colour, :service_provider_position, :service_provider_position_no, :service_provider_advert_no, :service_provider_advert_title, :service_provider_advert_language, :media_agency_status, :is_accepted_by_media_agency, :service_provider_modified_date, :status_system_app_user_id, :status_date, :eis_sync_date
+  json.url campaign_schedule_placement_service_provider_digital_proof_url(campaign_schedule_placement_service_provider_digital_proof, format: :json)
+end

@@ -1,0 +1,1 @@
+json.extract! @associate_financial_document_status, :id, :uid, :code, :name, :is_status_active, :is_cancelled, :is_approved, :is_default, :is_exported, :is_active, :eis_sync_date, :created_at, :updated_at

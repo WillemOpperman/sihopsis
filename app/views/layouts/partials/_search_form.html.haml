@@ -1,0 +1,12 @@
+%form#search_form.navbar-form
+  .form-group.has-feedback
+    %input.form-control{:placeholder => "Type and hit enter..", :type => "text"}
+      .fa.fa-times.form-control-feedback#search-dismiss
+  %button.hidden.btn.btn-default{:type => "submit"} Submit
+
+:javascript
+  $(document).ready(function() {
+    $('#search-dismiss').on('click', function(e){
+      document.getElementById("search_form").style["top"] = "-120%";
+    });
+  });

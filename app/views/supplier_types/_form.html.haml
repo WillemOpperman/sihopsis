@@ -1,0 +1,16 @@
+= simple_form_for(@supplier_type, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_media
+    = f.input :is_media_production
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_type,
+               :cancel => supplier_types_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

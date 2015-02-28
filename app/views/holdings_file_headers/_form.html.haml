@@ -1,0 +1,22 @@
+= simple_form_for(@holdings_file_header, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :generation_date
+    = f.input :generation_time
+    = f.input :network_name
+    = f.input :agency_name
+    = f.input :detail_record_counter
+    = f.input :gross_rate
+    = f.input :gross_decimals
+    = f.input :eis_sync_date
+    = f.input :network_code
+    = f.input :agency_code
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @holdings_file_header,
+               :cancel => holdings_file_headers_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,1 @@
+json.extract! @campaign_schedule_placement_financial_status, :id, :uid, :code, :name, :is_placement_active, :is_placement_billed, :is_placement_amended, :is_placement_transitioning, :is_reason_required_to_change_to, :eis_sync_date, :created_at, :updated_at

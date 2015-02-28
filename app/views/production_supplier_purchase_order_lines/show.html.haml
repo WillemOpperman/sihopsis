@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Production_supplier_purchase_order_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to production_supplier_purchase_order_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_production_supplier_purchase_order_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_production_supplier_purchase_order_line_path(@production_supplier_purchase_order_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @production_supplier_purchase_order_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @production_supplier_purchase_order_line.code
+        .row-fluid
+          .span2
+            %b
+              Production supplier purchase order
+          .span10
+            = @production_supplier_purchase_order_line.production_supplier_purchase_order
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement production cost
+          .span10
+            = @production_supplier_purchase_order_line.campaign_schedule_placement_production_cost
+        .row-fluid
+          .span2
+            %b
+              Percentage ordered
+          .span10
+            = @production_supplier_purchase_order_line.percentage_ordered
+        .row-fluid
+          .span2
+            %b
+              Unit cost amount
+          .span10
+            = @production_supplier_purchase_order_line.unit_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Units
+          .span10
+            = @production_supplier_purchase_order_line.units
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @production_supplier_purchase_order_line.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @production_supplier_purchase_order_line.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @production_supplier_purchase_order_line.notes
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @production_supplier_purchase_order_line.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_supplier_purchase_order_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_supplier_purchase_order_line.updated_at)

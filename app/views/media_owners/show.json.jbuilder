@@ -1,0 +1,1 @@
+json.extract! @media_owner, :id, :code, :code_external, :uid, :name, :offical_name, :default_contact_id, :creation_source_id, :phone_number, :fax_number, :e_mail, :postal_address, :physical_address, :default_commission_percentage, :default_material_deadline_days_id, :default_cancellation_days_id, :is_active, :eis_sync_date, :company_division_id, :created_at, :updated_at

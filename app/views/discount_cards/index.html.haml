@@ -1,0 +1,149 @@
+.page-header
+  %h3
+    Discount_cards
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), discount_cards_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), discount_cards_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => discount_cards_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Discount standard
+          %th
+            Discount negotiated
+          %th
+            Discount early booking
+          %th
+            Discount other1
+          %th
+            Discount other2
+          %th
+            Specific company division
+          %th
+            Supplier group
+          %th
+            Supplier
+          %th
+            Supplier product
+          %th
+            Client group
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Media space
+          %th
+            Media space part
+          %th
+            Media space section
+          %th
+            Media category size
+          %th
+            Media category format
+          %th
+            Is active
+          %th
+            Start date
+          %th
+            Expiry date
+          %th
+            Description
+          %th
+            Supplier contact
+          %th
+            Is calculated
+          %th
+            Is gross
+          %th.button3
+      %tbody
+        - @discount_cards.each do |discount_card|
+          %tr
+            %td
+              = discount_card.uid
+            %td
+              = discount_card.discount_standard
+            %td
+              = discount_card.discount_negotiated
+            %td
+              = discount_card.discount_early_booking
+            %td
+              = discount_card.discount_other1
+            %td
+              = discount_card.discount_other2
+            %td
+              = discount_card.specific_company_division
+            %td
+              = discount_card.supplier_group
+            %td
+              = discount_card.supplier
+            %td
+              = discount_card.supplier_product
+            %td
+              = discount_card.client_group
+            %td
+              = discount_card.client
+            %td
+              = discount_card.client_product
+            %td
+              = discount_card.media_space
+            %td
+              = discount_card.media_space_part
+            %td
+              = discount_card.media_space_section
+            %td
+              = discount_card.media_category_size
+            %td
+              = discount_card.media_category_format
+            %td
+              = discount_card.is_active
+            %td
+              = discount_card.start_date
+            %td
+              = discount_card.expiry_date
+            %td
+              = discount_card.description
+            %td
+              = discount_card.supplier_contact
+            %td
+              = discount_card.is_calculated
+            %td
+              = discount_card.is_gross
+            %td
+              .btn-group
+                = link_to discount_card, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_discount_card_path(discount_card), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to discount_card, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@discount_cards)
+
+  #new.tab-pane
+    = render 'form'

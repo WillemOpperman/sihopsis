@@ -1,0 +1,233 @@
+.page-header
+  %h3
+    Supplier_recon_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), supplier_recon_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), supplier_recon_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => supplier_recon_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Supplier recon
+          %th
+            Supplier
+          %th
+            Supplier financial document line
+          %th
+            Production supplier financial document line
+          %th
+            Notes
+          %th
+            Media payable gross amount
+          %th
+            Media payable gross home amount
+          %th
+            Media payable commission amount
+          %th
+            Media payable commission home amount
+          %th
+            Media payable nett amount
+          %th
+            Media payable nett home amount
+          %th
+            Media payable intermediary margin amount
+          %th
+            Media payable intermediary margin home amount
+          %th
+            Media payable actual nett amount
+          %th
+            Media payable actual nett home amount
+          %th
+            Production cost amount
+          %th
+            Production cost home amount
+          %th
+            Payable recon amount
+          %th
+            Payable recon home amount
+          %th
+            Payable recon tax amount
+          %th
+            Payable recon tax home amount
+          %th
+            Payable recon inc tax amount
+          %th
+            Payable recon inc tax home amount
+          %th
+            Wanted media payable gross amount
+          %th
+            Wanted media payable gross home amount
+          %th
+            Wanted media payable commission amount
+          %th
+            Wanted media payable commission home amount
+          %th
+            Wanted media payable nett amount
+          %th
+            Wanted media payable nett home amount
+          %th
+            Wanted media payable intermediary margin amount
+          %th
+            Wanted media payable intermediary margin home amount
+          %th
+            Wanted media payable actual nett amount
+          %th
+            Wanted media payable actual nett home amount
+          %th
+            Wanted production cost amount
+          %th
+            Wanted production cost home amount
+          %th
+            Wanted recon amount
+          %th
+            Wanted recon home amount
+          %th
+            Wanted recon tax amount
+          %th
+            Wanted recon tax home amount
+          %th
+            Wanted recon inc tax amount
+          %th
+            Wanted recon inc tax home amount
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @supplier_recon_lines.each do |supplier_recon_line|
+          %tr
+            %td
+              = supplier_recon_line.uid
+            %td
+              = supplier_recon_line.code
+            %td
+              = supplier_recon_line.name
+            %td
+              = supplier_recon_line.supplier_recon
+            %td
+              = supplier_recon_line.supplier
+            %td
+              = supplier_recon_line.supplier_financial_document_line
+            %td
+              = supplier_recon_line.production_supplier_financial_document_line
+            %td
+              = supplier_recon_line.notes
+            %td
+              = supplier_recon_line.media_payable_gross_amount
+            %td
+              = supplier_recon_line.media_payable_gross_home_amount
+            %td
+              = supplier_recon_line.media_payable_commission_amount
+            %td
+              = supplier_recon_line.media_payable_commission_home_amount
+            %td
+              = supplier_recon_line.media_payable_nett_amount
+            %td
+              = supplier_recon_line.media_payable_nett_home_amount
+            %td
+              = supplier_recon_line.media_payable_intermediary_margin_amount
+            %td
+              = supplier_recon_line.media_payable_intermediary_margin_home_amount
+            %td
+              = supplier_recon_line.media_payable_actual_nett_amount
+            %td
+              = supplier_recon_line.media_payable_actual_nett_home_amount
+            %td
+              = supplier_recon_line.production_cost_amount
+            %td
+              = supplier_recon_line.production_cost_home_amount
+            %td
+              = supplier_recon_line.payable_recon_amount
+            %td
+              = supplier_recon_line.payable_recon_home_amount
+            %td
+              = supplier_recon_line.payable_recon_tax_amount
+            %td
+              = supplier_recon_line.payable_recon_tax_home_amount
+            %td
+              = supplier_recon_line.payable_recon_inc_tax_amount
+            %td
+              = supplier_recon_line.payable_recon_inc_tax_home_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_gross_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_gross_home_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_commission_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_commission_home_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_nett_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_nett_home_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_intermediary_margin_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_intermediary_margin_home_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_actual_nett_amount
+            %td
+              = supplier_recon_line.wanted_media_payable_actual_nett_home_amount
+            %td
+              = supplier_recon_line.wanted_production_cost_amount
+            %td
+              = supplier_recon_line.wanted_production_cost_home_amount
+            %td
+              = supplier_recon_line.wanted_recon_amount
+            %td
+              = supplier_recon_line.wanted_recon_home_amount
+            %td
+              = supplier_recon_line.wanted_recon_tax_amount
+            %td
+              = supplier_recon_line.wanted_recon_tax_home_amount
+            %td
+              = supplier_recon_line.wanted_recon_inc_tax_amount
+            %td
+              = supplier_recon_line.wanted_recon_inc_tax_home_amount
+            %td
+              = supplier_recon_line.creation_source
+            %td
+              = supplier_recon_line.eis_sync_date
+            %td
+              .btn-group
+                = link_to supplier_recon_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_supplier_recon_line_path(supplier_recon_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to supplier_recon_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@supplier_recon_lines)
+
+  #new.tab-pane
+    = render 'form'

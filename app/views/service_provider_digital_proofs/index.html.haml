@@ -1,0 +1,93 @@
+.page-header
+  %h3
+    Service_provider_digital_proofs
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), service_provider_digital_proofs_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), service_provider_digital_proofs_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => service_provider_digital_proofs_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Uid
+          %th
+            Service prover
+          %th
+            Url
+          %th
+            Source name
+          %th
+            Source location
+          %th
+            Source location2
+          %th
+            Local server file name
+          %th
+            Appearance date
+          %th
+            Service provider modified date
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @service_provider_digital_proofs.each do |service_provider_digital_proof|
+          %tr
+            %td
+              = service_provider_digital_proof.code
+            %td
+              = service_provider_digital_proof.uid
+            %td
+              = service_provider_digital_proof.service_prover
+            %td
+              = service_provider_digital_proof.url
+            %td
+              = service_provider_digital_proof.source_name
+            %td
+              = service_provider_digital_proof.source_location
+            %td
+              = service_provider_digital_proof.source_location2
+            %td
+              = service_provider_digital_proof.local_server_file_name
+            %td
+              = service_provider_digital_proof.appearance_date
+            %td
+              = service_provider_digital_proof.service_provider_modified_date
+            %td
+              = service_provider_digital_proof.eis_sync_date
+            %td
+              .btn-group
+                = link_to service_provider_digital_proof, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_service_provider_digital_proof_path(service_provider_digital_proof), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to service_provider_digital_proof, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@service_provider_digital_proofs)
+
+  #new.tab-pane
+    = render 'form'

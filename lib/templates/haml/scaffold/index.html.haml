@@ -1,0 +1,57 @@
+.page-header
+  %h3
+    <%= plural_table_name.capitalize %>
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), <%= plural_table_name %>_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), <%= plural_table_name %>_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => <%= plural_table_name %>_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          <%- attributes.each do |attribute| -%>
+          %th
+            <%= attribute.human_name %>
+          <%- end -%>
+          %th.button3
+      %tbody
+        - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+          %tr
+          <%- attributes.each do |attribute| -%>
+            %td
+              = <%= singular_table_name %>.<%= attribute.name %>
+          <%- end -%>
+            %td
+              .btn-group
+                = link_to <%= singular_table_name %>, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to <%= singular_table_name %>, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@<%= plural_table_name %>)
+
+  #new.tab-pane
+    = render 'form'

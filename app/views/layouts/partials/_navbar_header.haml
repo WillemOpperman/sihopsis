@@ -1,0 +1,8 @@
+.navbar-header
+  %a.navbar-brand{:href => "#/"}
+    .brand-logo
+      - url = asset_url('logo.png')
+      %img.img-responsive{:alt => "App Logo", :src => url}
+    .brand-logo-collapsed
+      - url = asset_url('logo-single.png')
+      %img.img-responsive{:alt => "App Logo", :src => url}

@@ -1,0 +1,73 @@
+.page-header
+  %h3
+    Client_commission_deal_associate_members
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_commission_deal_associate_members_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_commission_deal_associate_members_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_commission_deal_associate_members_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Client commission deal
+          %th
+            Associate
+          %th
+            Associate product
+          %th
+            Member commission split percentage
+          %th.button3
+      %tbody
+        - @client_commission_deal_associate_members.each do |client_commission_deal_associate_member|
+          %tr
+            %td
+              = client_commission_deal_associate_member.uid
+            %td
+              = client_commission_deal_associate_member.code
+            %td
+              = client_commission_deal_associate_member.client_commission_deal
+            %td
+              = client_commission_deal_associate_member.associate
+            %td
+              = client_commission_deal_associate_member.associate_product
+            %td
+              = client_commission_deal_associate_member.member_commission_split_percentage
+            %td
+              .btn-group
+                = link_to client_commission_deal_associate_member, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_commission_deal_associate_member_path(client_commission_deal_associate_member), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_commission_deal_associate_member, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_commission_deal_associate_members)
+
+  #new.tab-pane
+    = render 'form'

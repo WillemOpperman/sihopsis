@@ -1,0 +1,189 @@
+.page-header
+  %h3
+    Campaigns
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaigns_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_path(@campaign) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @campaign.code_external
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @campaign.name
+        .row-fluid
+          .span2
+            %b
+              Additional name
+          .span10
+            = @campaign.additional_name
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @campaign.company_division
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @campaign.status
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @campaign.client
+        .row-fluid
+          .span2
+            %b
+              Default client product
+          .span10
+            = @campaign.default_client_product
+        .row-fluid
+          .span2
+            %b
+              Default client product sub
+          .span10
+            = @campaign.default_client_product_sub
+        .row-fluid
+          .span2
+            %b
+              Default creative agency
+          .span10
+            = @campaign.default_creative_agency
+        .row-fluid
+          .span2
+            %b
+              Default media agency client
+          .span10
+            = @campaign.default_media_agency_client
+        .row-fluid
+          .span2
+            %b
+              Default natural client
+          .span10
+            = @campaign.default_natural_client
+        .row-fluid
+          .span2
+            %b
+              Default natural client product
+          .span10
+            = @campaign.default_natural_client_product
+        .row-fluid
+          .span2
+            %b
+              Owner user
+          .span10
+            = @campaign.owner_user
+        .row-fluid
+          .span2
+            %b
+              Manager user
+          .span10
+            = @campaign.manager_user
+        .row-fluid
+          .span2
+            %b
+              Default client contact
+          .span10
+            = @campaign.default_client_contact
+        .row-fluid
+          .span2
+            %b
+              Default creative agency contact
+          .span10
+            = @campaign.default_creative_agency_contact
+        .row-fluid
+          .span2
+            %b
+              Default media agency client contact
+          .span10
+            = @campaign.default_media_agency_client_contact
+        .row-fluid
+          .span2
+            %b
+              Default natural client contact
+          .span10
+            = @campaign.default_natural_client_contact
+        .row-fluid
+          .span2
+            %b
+              Client purchase order
+          .span10
+            = @campaign.client_purchase_order
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @campaign.creation_source
+        .row-fluid
+          .span2
+            %b
+              Start date
+          .span10
+            = @campaign.start_date
+        .row-fluid
+          .span2
+            %b
+              Finish date
+          .span10
+            = @campaign.finish_date
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign.updated_at)

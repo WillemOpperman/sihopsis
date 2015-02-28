@@ -1,0 +1,181 @@
+.page-header
+  %h3
+    Supplier_financial_document_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), supplier_financial_document_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), supplier_financial_document_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => supplier_financial_document_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Supplier financial document
+          %th
+            Campaign schedule placement
+          %th
+            Payable gross amount
+          %th
+            Payable gross home amount
+          %th
+            Payable commission amount
+          %th
+            Payable commission home amount
+          %th
+            Payable nett amount
+          %th
+            Payable nett home amount
+          %th
+            Payable intermediary margin amount
+          %th
+            Payable intermediary margin home amount
+          %th
+            Payable actual nett amount
+          %th
+            Payable actual nett home amount
+          %th
+            Wanted gross amount
+          %th
+            Wanted home gross amount
+          %th
+            Wanted commission amount
+          %th
+            Wanted commission home amount
+          %th
+            Wanted nett amount
+          %th
+            Wanted nett home amount
+          %th
+            Wanted intermediary margin amount
+          %th
+            Wanted intermediary margin home amount
+          %th
+            Wanted actual nett amount
+          %th
+            Wanted actual nett home amount
+          %th
+            Provision exchange rate
+          %th
+            Provision gross home amount
+          %th
+            Provision commission home amount
+          %th
+            Provision nett home amount
+          %th
+            Eis sync date
+          %th
+            Additional company cost centre
+          %th
+            Company cost centre
+          %th
+            Payable intermediary margin percentage
+          %th
+            Wanted intermediary margin percentage
+          %th.button3
+      %tbody
+        - @supplier_financial_document_lines.each do |supplier_financial_document_line|
+          %tr
+            %td
+              = supplier_financial_document_line.uid
+            %td
+              = supplier_financial_document_line.code
+            %td
+              = supplier_financial_document_line.supplier_financial_document
+            %td
+              = supplier_financial_document_line.campaign_schedule_placement
+            %td
+              = supplier_financial_document_line.payable_gross_amount
+            %td
+              = supplier_financial_document_line.payable_gross_home_amount
+            %td
+              = supplier_financial_document_line.payable_commission_amount
+            %td
+              = supplier_financial_document_line.payable_commission_home_amount
+            %td
+              = supplier_financial_document_line.payable_nett_amount
+            %td
+              = supplier_financial_document_line.payable_nett_home_amount
+            %td
+              = supplier_financial_document_line.payable_intermediary_margin_amount
+            %td
+              = supplier_financial_document_line.payable_intermediary_margin_home_amount
+            %td
+              = supplier_financial_document_line.payable_actual_nett_amount
+            %td
+              = supplier_financial_document_line.payable_actual_nett_home_amount
+            %td
+              = supplier_financial_document_line.wanted_gross_amount
+            %td
+              = supplier_financial_document_line.wanted_home_gross_amount
+            %td
+              = supplier_financial_document_line.wanted_commission_amount
+            %td
+              = supplier_financial_document_line.wanted_commission_home_amount
+            %td
+              = supplier_financial_document_line.wanted_nett_amount
+            %td
+              = supplier_financial_document_line.wanted_nett_home_amount
+            %td
+              = supplier_financial_document_line.wanted_intermediary_margin_amount
+            %td
+              = supplier_financial_document_line.wanted_intermediary_margin_home_amount
+            %td
+              = supplier_financial_document_line.wanted_actual_nett_amount
+            %td
+              = supplier_financial_document_line.wanted_actual_nett_home_amount
+            %td
+              = supplier_financial_document_line.provision_exchange_rate
+            %td
+              = supplier_financial_document_line.provision_gross_home_amount
+            %td
+              = supplier_financial_document_line.provision_commission_home_amount
+            %td
+              = supplier_financial_document_line.provision_nett_home_amount
+            %td
+              = supplier_financial_document_line.eis_sync_date
+            %td
+              = supplier_financial_document_line.additional_company_cost_centre
+            %td
+              = supplier_financial_document_line.company_cost_centre
+            %td
+              = supplier_financial_document_line.payable_intermediary_margin_percentage
+            %td
+              = supplier_financial_document_line.wanted_intermediary_margin_percentage
+            %td
+              .btn-group
+                = link_to supplier_financial_document_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_supplier_financial_document_line_path(supplier_financial_document_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to supplier_financial_document_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@supplier_financial_document_lines)
+
+  #new.tab-pane
+    = render 'form'

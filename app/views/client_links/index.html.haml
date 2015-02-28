@@ -1,0 +1,77 @@
+.page-header
+  %h3
+    Client_links
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_links_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_links_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_links_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Is to advertiser
+          %th
+            Is to media agency
+          %th
+            Is to natural client
+          %th
+            Is default
+          %th.button3
+      %tbody
+        - @client_links.each do |client_link|
+          %tr
+            %td
+              = client_link.uid
+            %td
+              = client_link.code
+            %td
+              = client_link.name
+            %td
+              = client_link.is_to_advertiser
+            %td
+              = client_link.is_to_media_agency
+            %td
+              = client_link.is_to_natural_client
+            %td
+              = client_link.is_default
+            %td
+              .btn-group
+                = link_to client_link, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_link_path(client_link), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_link, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_links)
+
+  #new.tab-pane
+    = render 'form'

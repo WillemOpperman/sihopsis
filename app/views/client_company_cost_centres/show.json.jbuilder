@@ -1,0 +1,1 @@
+json.extract! @client_company_cost_centre, :id, :uid, :code, :name, :client_id, :company_cost_centre_id, :is_active, :creation_source_id, :eis_sync_date, :additional_company_cost_centre_id, :created_at, :updated_at

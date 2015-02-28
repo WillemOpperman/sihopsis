@@ -1,0 +1,1 @@
+json.extract! @campaign_schedule_brief, :id, :uid, :code, :company_division_id, :campaign_schedule_id, :contact_id, :communication_status_id, :creation_source_id, :description, :eis_sync_date, :created_at, :updated_at

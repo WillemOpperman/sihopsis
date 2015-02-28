@@ -1,0 +1,189 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_production_costs
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), campaign_schedule_placement_production_costs_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), campaign_schedule_placement_production_costs_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => campaign_schedule_placement_production_costs_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Campaign schedule placement
+          %th
+            Supplier
+          %th
+            Supplier contact
+          %th
+            Production cost type
+          %th
+            Unit cost amount
+          %th
+            Units
+          %th
+            Production cost amount
+          %th
+            Production cost home amount
+          %th
+            Ordered production cost amount to date
+          %th
+            Ordered production cost amount to date home
+          %th
+            Supplier invoiced production cost to date amount
+          %th
+            Supplier invoiced production cost to date home amount
+          %th
+            Production cost margin percentage
+          %th
+            Production cost margin amount
+          %th
+            Production cost margin home amount
+          %th
+            Production client billable amount
+          %th
+            Production client billable home amount
+          %th
+            Production client billable inc tax amount
+          %th
+            Production client billable inc tax home amount
+          %th
+            Production cost margin to date amount
+          %th
+            Production cost margin to date home amount
+          %th
+            Production client invoiced to date amount
+          %th
+            Production client invoiced to date home amount
+          %th
+            Production client invoiced inc tax to date amount
+          %th
+            Production client invoiced inc tax to date home amount
+          %th
+            Tax type
+          %th
+            Currency
+          %th
+            Exchange rate
+          %th
+            Notes
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th
+            Material production date
+          %th
+            Quantity per unit cost
+          %th.button3
+      %tbody
+        - @campaign_schedule_placement_production_costs.each do |campaign_schedule_placement_production_cost|
+          %tr
+            %td
+              = campaign_schedule_placement_production_cost.uid
+            %td
+              = campaign_schedule_placement_production_cost.code
+            %td
+              = campaign_schedule_placement_production_cost.campaign_schedule_placement
+            %td
+              = campaign_schedule_placement_production_cost.supplier
+            %td
+              = campaign_schedule_placement_production_cost.supplier_contact
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_type
+            %td
+              = campaign_schedule_placement_production_cost.unit_cost_amount
+            %td
+              = campaign_schedule_placement_production_cost.units
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.ordered_production_cost_amount_to_date
+            %td
+              = campaign_schedule_placement_production_cost.ordered_production_cost_amount_to_date_home
+            %td
+              = campaign_schedule_placement_production_cost.supplier_invoiced_production_cost_to_date_amount
+            %td
+              = campaign_schedule_placement_production_cost.supplier_invoiced_production_cost_to_date_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_margin_percentage
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_margin_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_margin_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_billable_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_billable_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_billable_inc_tax_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_billable_inc_tax_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_margin_to_date_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_cost_margin_to_date_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_invoiced_to_date_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_invoiced_to_date_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_invoiced_inc_tax_to_date_amount
+            %td
+              = campaign_schedule_placement_production_cost.production_client_invoiced_inc_tax_to_date_home_amount
+            %td
+              = campaign_schedule_placement_production_cost.tax_type
+            %td
+              = campaign_schedule_placement_production_cost.currency
+            %td
+              = campaign_schedule_placement_production_cost.exchange_rate
+            %td
+              = campaign_schedule_placement_production_cost.notes
+            %td
+              = campaign_schedule_placement_production_cost.creation_source
+            %td
+              = campaign_schedule_placement_production_cost.eis_sync_date
+            %td
+              = campaign_schedule_placement_production_cost.material_production_date
+            %td
+              = campaign_schedule_placement_production_cost.quantity_per_unit_cost
+            %td
+              .btn-group
+                = link_to campaign_schedule_placement_production_cost, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_campaign_schedule_placement_production_cost_path(campaign_schedule_placement_production_cost), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to campaign_schedule_placement_production_cost, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@campaign_schedule_placement_production_costs)
+
+  #new.tab-pane
+    = render 'form'

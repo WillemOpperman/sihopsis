@@ -1,0 +1,75 @@
+.page-header
+  %h3
+    Routing_address_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to routing_address_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_routing_address_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_routing_address_type_path(@routing_address_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @routing_address_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @routing_address_type.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @routing_address_type.name
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @routing_address_type.company
+        .row-fluid
+          .span2
+            %b
+              Default routing address source type
+          .span10
+            = @routing_address_type.default_routing_address_source_type
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @routing_address_type.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@routing_address_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@routing_address_type.updated_at)

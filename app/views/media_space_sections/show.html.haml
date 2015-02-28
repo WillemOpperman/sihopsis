@@ -1,0 +1,87 @@
+.page-header
+  %h3
+    Media_space_sections
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_space_sections_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_section_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_section_path(@media_space_section) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space_section.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space_section.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_space_section.name
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @media_space_section.media_space
+        .row-fluid
+          .span2
+            %b
+              Default material deadline days
+          .span10
+            = @media_space_section.default_material_deadline_days
+        .row-fluid
+          .span2
+            %b
+              Default cancellation days
+          .span10
+            = @media_space_section.default_cancellation_days
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_space_section.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_space_section.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_section.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_section.updated_at)

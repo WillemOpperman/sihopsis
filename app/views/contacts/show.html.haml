@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Contacts
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to contacts_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_contact_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_contact_path(@contact) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @contact.code
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @contact.uid
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @contact.name
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @contact.is_active
+        .row-fluid
+          .span2
+            %b
+              Birthdate
+          .span10
+            = @contact.birthdate
+        .row-fluid
+          .span2
+            %b
+              Designation
+          .span10
+            = @contact.designation
+        .row-fluid
+          .span2
+            %b
+              Phone number
+          .span10
+            = @contact.phone_number
+        .row-fluid
+          .span2
+            %b
+              Phone number2
+          .span10
+            = @contact.phone_number2
+        .row-fluid
+          .span2
+            %b
+              Mobile number
+          .span10
+            = @contact.mobile_number
+        .row-fluid
+          .span2
+            %b
+              Fax number
+          .span10
+            = @contact.fax_number
+        .row-fluid
+          .span2
+            %b
+              E mail
+          .span10
+            = @contact.e_mail
+        .row-fluid
+          .span2
+            %b
+              Postal address
+          .span10
+            = @contact.postal_address
+        .row-fluid
+          .span2
+            %b
+              Physical address
+          .span10
+            = @contact.physical_address
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @contact.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@contact.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@contact.updated_at)

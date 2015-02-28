@@ -1,0 +1,69 @@
+.page-header
+  %h3
+    Media_space_supplier_aliases
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_space_supplier_aliases_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_supplier_alias_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_supplier_alias_path(@media_space_supplier_alias) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space_supplier_alias.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space_supplier_alias.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_space_supplier_alias.name
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @media_space_supplier_alias.media_space
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @media_space_supplier_alias.supplier
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_supplier_alias.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_supplier_alias.updated_at)

@@ -1,0 +1,113 @@
+.page-header
+  %h3
+    Creative_agency_chase_list_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), creative_agency_chase_list_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), creative_agency_chase_list_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => creative_agency_chase_list_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Creative agency chase list
+          %th
+            Campaign schedule placement
+          %th
+            Material contact
+          %th
+            Material delivery method
+          %th
+            Material delivery address
+          %th
+            Routing address summary
+          %th
+            Material production date
+          %th
+            Media space part type
+          %th
+            Revision no
+          %th
+            Is changed in current revision
+          %th
+            Revision change details
+          %th
+            Eis sync date
+          %th
+            Notes
+          %th.button3
+      %tbody
+        - @creative_agency_chase_list_lines.each do |creative_agency_chase_list_line|
+          %tr
+            %td
+              = creative_agency_chase_list_line.uid
+            %td
+              = creative_agency_chase_list_line.code
+            %td
+              = creative_agency_chase_list_line.name
+            %td
+              = creative_agency_chase_list_line.creative_agency_chase_list
+            %td
+              = creative_agency_chase_list_line.campaign_schedule_placement
+            %td
+              = creative_agency_chase_list_line.material_contact
+            %td
+              = creative_agency_chase_list_line.material_delivery_method
+            %td
+              = creative_agency_chase_list_line.material_delivery_address
+            %td
+              = creative_agency_chase_list_line.routing_address_summary
+            %td
+              = creative_agency_chase_list_line.material_production_date
+            %td
+              = creative_agency_chase_list_line.media_space_part_type
+            %td
+              = creative_agency_chase_list_line.revision_no
+            %td
+              = creative_agency_chase_list_line.is_changed_in_current_revision
+            %td
+              = creative_agency_chase_list_line.revision_change_details
+            %td
+              = creative_agency_chase_list_line.eis_sync_date
+            %td
+              = creative_agency_chase_list_line.notes
+            %td
+              .btn-group
+                = link_to creative_agency_chase_list_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_creative_agency_chase_list_line_path(creative_agency_chase_list_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to creative_agency_chase_list_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@creative_agency_chase_list_lines)
+
+  #new.tab-pane
+    = render 'form'

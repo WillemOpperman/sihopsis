@@ -1,0 +1,1 @@
+json.extract! @campaign_schedule_placement_client_material, :id, :uid, :code, :campaign_schedule_placement_id, :client_material_id, :is_primary, :creation_source_id, :eis_sync_date, :created_at, :updated_at

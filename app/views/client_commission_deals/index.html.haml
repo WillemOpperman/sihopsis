@@ -1,0 +1,117 @@
+.page-header
+  %h3
+    Client_commission_deals
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_commission_deals_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_commission_deals_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_commission_deals_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Uid
+          %th
+            Company division
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Media category
+          %th
+            Supplier
+          %th
+            Media space
+          %th
+            Start date
+          %th
+            Expiry date
+          %th
+            Agency commission percentage
+          %th
+            Client share commission percentage
+          %th
+            Members share sum commission percentage
+          %th
+            Remaining share revenue commission percentage
+          %th
+            Is active
+          %th
+            Is calc commission share after discount deal
+          %th
+            Media category size
+          %th.button3
+      %tbody
+        - @client_commission_deals.each do |client_commission_deal|
+          %tr
+            %td
+              = client_commission_deal.code
+            %td
+              = client_commission_deal.uid
+            %td
+              = client_commission_deal.company_division
+            %td
+              = client_commission_deal.client
+            %td
+              = client_commission_deal.client_product
+            %td
+              = client_commission_deal.media_category
+            %td
+              = client_commission_deal.supplier
+            %td
+              = client_commission_deal.media_space
+            %td
+              = client_commission_deal.start_date
+            %td
+              = client_commission_deal.expiry_date
+            %td
+              = client_commission_deal.agency_commission_percentage
+            %td
+              = client_commission_deal.client_share_commission_percentage
+            %td
+              = client_commission_deal.members_share_sum_commission_percentage
+            %td
+              = client_commission_deal.remaining_share_revenue_commission_percentage
+            %td
+              = client_commission_deal.is_active
+            %td
+              = client_commission_deal.is_calc_commission_share_after_discount_deal
+            %td
+              = client_commission_deal.media_category_size
+            %td
+              .btn-group
+                = link_to client_commission_deal, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_commission_deal_path(client_commission_deal), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_commission_deal, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_commission_deals)
+
+  #new.tab-pane
+    = render 'form'

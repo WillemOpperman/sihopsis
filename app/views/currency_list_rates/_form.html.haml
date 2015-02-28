@@ -1,0 +1,18 @@
+= simple_form_for(@currency_list_rate, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :currency_list
+    = f.association :currency
+    = f.input :buying_rate
+    = f.input :selling_rate
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @currency_list_rate,
+               :cancel => currency_list_rates_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

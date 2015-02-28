@@ -1,0 +1,18 @@
+= simple_form_for(@supplier_default_contact, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :supplier
+    = f.association :contact
+    = f.input :is_active
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_default_contact,
+               :cancel => supplier_default_contacts_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

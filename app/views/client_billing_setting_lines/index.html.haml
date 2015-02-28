@@ -1,0 +1,125 @@
+.page-header
+  %h3
+    Client_billing_setting_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_billing_setting_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_billing_setting_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_billing_setting_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Client billing setting
+          %th
+            Client billing type
+          %th
+            Media category
+          %th
+            Is order no required
+          %th
+            Is m i required
+          %th
+            Is media space contract code required to bill
+          %th
+            Is d p i required to bill
+          %th
+            Is billed by billable days
+          %th
+            Is billing restricted to live start date
+          %th
+            M inv custom report
+          %th
+            M inv ad nt custom report
+          %th
+            M cr nt custom report
+          %th
+            M cr nt ad nt custom report
+          %th
+            M com cr dr nt report
+          %th
+            Is placement ordered required to bill
+          %th
+            Is billable
+          %th
+            Custom logo path
+          %th.button3
+      %tbody
+        - @client_billing_setting_lines.each do |client_billing_setting_line|
+          %tr
+            %td
+              = client_billing_setting_line.uid
+            %td
+              = client_billing_setting_line.code
+            %td
+              = client_billing_setting_line.client_billing_setting
+            %td
+              = client_billing_setting_line.client_billing_type
+            %td
+              = client_billing_setting_line.media_category
+            %td
+              = client_billing_setting_line.is_order_no_required
+            %td
+              = client_billing_setting_line.is_m_i_required
+            %td
+              = client_billing_setting_line.is_media_space_contract_code_required_to_bill
+            %td
+              = client_billing_setting_line.is_d_p_i_required_to_bill
+            %td
+              = client_billing_setting_line.is_billed_by_billable_days
+            %td
+              = client_billing_setting_line.is_billing_restricted_to_live_start_date
+            %td
+              = client_billing_setting_line.m_inv_custom_report
+            %td
+              = client_billing_setting_line.m_inv_ad_nt_custom_report
+            %td
+              = client_billing_setting_line.m_cr_nt_custom_report
+            %td
+              = client_billing_setting_line.m_cr_nt_ad_nt_custom_report
+            %td
+              = client_billing_setting_line.m_com_cr_dr_nt_report
+            %td
+              = client_billing_setting_line.is_placement_ordered_required_to_bill
+            %td
+              = client_billing_setting_line.is_billable
+            %td
+              = client_billing_setting_line.custom_logo_path
+            %td
+              .btn-group
+                = link_to client_billing_setting_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_billing_setting_line_path(client_billing_setting_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_billing_setting_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_billing_setting_lines)
+
+  #new.tab-pane
+    = render 'form'

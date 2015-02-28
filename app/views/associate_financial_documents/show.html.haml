@@ -1,0 +1,207 @@
+.page-header
+  %h3
+    Associate_financial_documents
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to associate_financial_documents_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_associate_financial_document_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_associate_financial_document_path(@associate_financial_document) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @associate_financial_document.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @associate_financial_document.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @associate_financial_document.code_external
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @associate_financial_document.company
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @associate_financial_document.company_division
+        .row-fluid
+          .span2
+            %b
+              Associate
+          .span10
+            = @associate_financial_document.associate
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @associate_financial_document.contact
+        .row-fluid
+          .span2
+            %b
+              Campaign
+          .span10
+            = @associate_financial_document.campaign
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @associate_financial_document.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Owner user
+          .span10
+            = @associate_financial_document.owner_user
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @associate_financial_document.currency
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @associate_financial_document.creation_source
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @associate_financial_document.status
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @associate_financial_document.communication_status
+        .row-fluid
+          .span2
+            %b
+              Company cost centre
+          .span10
+            = @associate_financial_document.company_cost_centre
+        .row-fluid
+          .span2
+            %b
+              Actual date
+          .span10
+            = @associate_financial_document.actual_date
+        .row-fluid
+          .span2
+            %b
+              Posting date
+          .span10
+            = @associate_financial_document.posting_date
+        .row-fluid
+          .span2
+            %b
+              Amount
+          .span10
+            = @associate_financial_document.amount
+        .row-fluid
+          .span2
+            %b
+              Amount home
+          .span10
+            = @associate_financial_document.amount_home
+        .row-fluid
+          .span2
+            %b
+              Tax amount
+          .span10
+            = @associate_financial_document.tax_amount
+        .row-fluid
+          .span2
+            %b
+              Amount inc tax amount
+          .span10
+            = @associate_financial_document.amount_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Amount inc tax home amount
+          .span10
+            = @associate_financial_document.amount_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @associate_financial_document.tax_type
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @associate_financial_document.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @associate_financial_document.notes
+        .row-fluid
+          .span2
+            %b
+              Status reason
+          .span10
+            = @associate_financial_document.status_reason
+        .row-fluid
+          .span2
+            %b
+              Grid layout x m l
+          .span10
+            = @associate_financial_document.grid_layout_x_m_l
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @associate_financial_document.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate_financial_document.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate_financial_document.updated_at)

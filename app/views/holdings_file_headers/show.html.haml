@@ -1,0 +1,111 @@
+.page-header
+  %h3
+    Holdings_file_headers
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to holdings_file_headers_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_holdings_file_header_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_holdings_file_header_path(@holdings_file_header) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @holdings_file_header.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @holdings_file_header.code
+        .row-fluid
+          .span2
+            %b
+              Generation date
+          .span10
+            = @holdings_file_header.generation_date
+        .row-fluid
+          .span2
+            %b
+              Generation time
+          .span10
+            = @holdings_file_header.generation_time
+        .row-fluid
+          .span2
+            %b
+              Network name
+          .span10
+            = @holdings_file_header.network_name
+        .row-fluid
+          .span2
+            %b
+              Agency name
+          .span10
+            = @holdings_file_header.agency_name
+        .row-fluid
+          .span2
+            %b
+              Detail record counter
+          .span10
+            = @holdings_file_header.detail_record_counter
+        .row-fluid
+          .span2
+            %b
+              Gross rate
+          .span10
+            = @holdings_file_header.gross_rate
+        .row-fluid
+          .span2
+            %b
+              Gross decimals
+          .span10
+            = @holdings_file_header.gross_decimals
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @holdings_file_header.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Network code
+          .span10
+            = @holdings_file_header.network_code
+        .row-fluid
+          .span2
+            %b
+              Agency code
+          .span10
+            = @holdings_file_header.agency_code
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@holdings_file_header.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@holdings_file_header.updated_at)

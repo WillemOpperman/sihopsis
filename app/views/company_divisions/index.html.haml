@@ -1,0 +1,409 @@
+.page-header
+  %h3
+    Company_divisions
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), company_divisions_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), company_divisions_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => company_divisions_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Legal name
+          %th
+            Company
+          %th
+            Default media category
+          %th
+            Item no suffix
+          %th
+            Is active
+          %th
+            Is test division
+          %th
+            Contact
+          %th
+            Default media region
+          %th
+            Phone number
+          %th
+            Phone number2
+          %th
+            Fax number
+          %th
+            E mail
+          %th
+            Website
+          %th
+            Postal address
+          %th
+            Physical address
+          %th
+            Company registration no
+          %th
+            Tax registration no
+          %th
+            Default tax type
+          %th
+            Default agency commission type
+          %th
+            Default agency commission percentage
+          %th
+            Bank details
+          %th
+            Payment terms default
+          %th
+            Notes
+          %th
+            Report footer
+          %th
+            G l acc no sales
+          %th
+            G l acc no purchases
+          %th
+            G l acc no creditors control
+          %th
+            G l acc no receivable credit control
+          %th
+            G l acc no provision for costs
+          %th
+            G l acc no deferred commission
+          %th
+            G l acc no output tax type
+          %th
+            G l acc no output adjustment tax type
+          %th
+            G l acc no inter comp
+          %th
+            G l acc no local inter comp
+          %th
+            G l acc no receivable credit control3
+          %th
+            G l acc no cost of sales
+          %th
+            G l acc no stock
+          %th
+            Account default work type alt ref no
+          %th
+            Account default media fees alt ref no
+          %th
+            Logo file name
+          %th
+            Logo alignment
+          %th
+            Logo resizing
+          %th
+            M i show only revised placements
+          %th
+            M i create by media product
+          %th
+            Is m p with order no cancel allowed
+          %th
+            M p with order no cancel allowed exception
+          %th
+            Is placement book only allowed if product region specified
+          %th
+            Is placement exchange rate updated b4 billing
+          %th
+            Is placement size and columns controlled
+          %th
+            Is placement order no locked
+          %th
+            Is campaign order no copied to schedule
+          %th
+            Is order no required for billing default
+          %th
+            Is client credit profile system enabled
+          %th
+            Default currency
+          %th
+            Financial year end
+          %th
+            Is forex system enabled
+          %th
+            Is client fees system enabled
+          %th
+            Is rate cards system enabled
+          %th
+            Is discount cards system enabled
+          %th
+            Is global agency commission enforced
+          %th
+            Is supplier financial document finalize required
+          %th
+            Is chase list required to create production purchase order
+          %th
+            C eis sync date
+          %th
+            Allow overpay of placement
+          %th
+            Is campaign schedule end date end of month
+          %th
+            Server export path
+          %th
+            Client financial document footer
+          %th
+            Client cost estimate footer
+          %th
+            Legal notice
+          %th
+            Client purchase order footer
+          %th
+            Production supplier purchase order footer
+          %th
+            Supplier order request footer
+          %th
+            Supplier order footer
+          %th
+            Is quantity for display auto maintained
+          %th
+            Chase list footer
+          %th
+            Client contract footer
+          %th
+            Postal address1
+          %th
+            Postal address2
+          %th
+            Physical address1
+          %th
+            Physical address2
+          %th
+            Phone number3
+          %th
+            Phone number4
+          %th
+            Fax number1
+          %th
+            Fax number2
+          %th
+            E mail1
+          %th
+            E mail2
+          %th
+            Is campaign schedule placement grouped for chase list wizard
+          %th.button3
+      %tbody
+        - @company_divisions.each do |company_division|
+          %tr
+            %td
+              = company_division.uid
+            %td
+              = company_division.code
+            %td
+              = company_division.name
+            %td
+              = company_division.legal_name
+            %td
+              = company_division.company
+            %td
+              = company_division.default_media_category
+            %td
+              = company_division.item_no_suffix
+            %td
+              = company_division.is_active
+            %td
+              = company_division.is_test_division
+            %td
+              = company_division.contact
+            %td
+              = company_division.default_media_region
+            %td
+              = company_division.phone_number
+            %td
+              = company_division.phone_number2
+            %td
+              = company_division.fax_number
+            %td
+              = company_division.e_mail
+            %td
+              = company_division.website
+            %td
+              = company_division.postal_address
+            %td
+              = company_division.physical_address
+            %td
+              = company_division.company_registration_no
+            %td
+              = company_division.tax_registration_no
+            %td
+              = company_division.default_tax_type
+            %td
+              = company_division.default_agency_commission_type
+            %td
+              = company_division.default_agency_commission_percentage
+            %td
+              = company_division.bank_details
+            %td
+              = company_division.payment_terms_default
+            %td
+              = company_division.notes
+            %td
+              = company_division.report_footer
+            %td
+              = company_division.g_l_acc_no_sales
+            %td
+              = company_division.g_l_acc_no_purchases
+            %td
+              = company_division.g_l_acc_no_creditors_control
+            %td
+              = company_division.g_l_acc_no_receivable_credit_control
+            %td
+              = company_division.g_l_acc_no_provision_for_costs
+            %td
+              = company_division.g_l_acc_no_deferred_commission
+            %td
+              = company_division.g_l_acc_no_output_tax_type
+            %td
+              = company_division.g_l_acc_no_output_adjustment_tax_type
+            %td
+              = company_division.g_l_acc_no_inter_comp
+            %td
+              = company_division.g_l_acc_no_local_inter_comp
+            %td
+              = company_division.g_l_acc_no_receivable_credit_control3
+            %td
+              = company_division.g_l_acc_no_cost_of_sales
+            %td
+              = company_division.g_l_acc_no_stock
+            %td
+              = company_division.account_default_work_type_alt_ref_no
+            %td
+              = company_division.account_default_media_fees_alt_ref_no
+            %td
+              = company_division.logo_file_name
+            %td
+              = company_division.logo_alignment
+            %td
+              = company_division.logo_resizing
+            %td
+              = company_division.m_i_show_only_revised_placements
+            %td
+              = company_division.m_i_create_by_media_product
+            %td
+              = company_division.is_m_p_with_order_no_cancel_allowed
+            %td
+              = company_division.m_p_with_order_no_cancel_allowed_exception
+            %td
+              = company_division.is_placement_book_only_allowed_if_product_region_specified
+            %td
+              = company_division.is_placement_exchange_rate_updated_b4_billing
+            %td
+              = company_division.is_placement_size_and_columns_controlled
+            %td
+              = company_division.is_placement_order_no_locked
+            %td
+              = company_division.is_campaign_order_no_copied_to_schedule
+            %td
+              = company_division.is_order_no_required_for_billing_default
+            %td
+              = company_division.is_client_credit_profile_system_enabled
+            %td
+              = company_division.default_currency
+            %td
+              = company_division.financial_year_end
+            %td
+              = company_division.is_forex_system_enabled
+            %td
+              = company_division.is_client_fees_system_enabled
+            %td
+              = company_division.is_rate_cards_system_enabled
+            %td
+              = company_division.is_discount_cards_system_enabled
+            %td
+              = company_division.is_global_agency_commission_enforced
+            %td
+              = company_division.is_supplier_financial_document_finalize_required
+            %td
+              = company_division.is_chase_list_required_to_create_production_purchase_order
+            %td
+              = company_division.c_eis_sync_date
+            %td
+              = company_division.allow_overpay_of_placement
+            %td
+              = company_division.is_campaign_schedule_end_date_end_of_month
+            %td
+              = company_division.server_export_path
+            %td
+              = company_division.client_financial_document_footer
+            %td
+              = company_division.client_cost_estimate_footer
+            %td
+              = company_division.legal_notice
+            %td
+              = company_division.client_purchase_order_footer
+            %td
+              = company_division.production_supplier_purchase_order_footer
+            %td
+              = company_division.supplier_order_request_footer
+            %td
+              = company_division.supplier_order_footer
+            %td
+              = company_division.is_quantity_for_display_auto_maintained
+            %td
+              = company_division.chase_list_footer
+            %td
+              = company_division.client_contract_footer
+            %td
+              = company_division.postal_address1
+            %td
+              = company_division.postal_address2
+            %td
+              = company_division.physical_address1
+            %td
+              = company_division.physical_address2
+            %td
+              = company_division.phone_number3
+            %td
+              = company_division.phone_number4
+            %td
+              = company_division.fax_number1
+            %td
+              = company_division.fax_number2
+            %td
+              = company_division.e_mail1
+            %td
+              = company_division.e_mail2
+            %td
+              = company_division.is_campaign_schedule_placement_grouped_for_chase_list_wizard
+            %td
+              .btn-group
+                = link_to company_division, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_company_division_path(company_division), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to company_division, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@company_divisions)
+
+  #new.tab-pane
+    = render 'form'

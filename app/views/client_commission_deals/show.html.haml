@@ -1,0 +1,141 @@
+.page-header
+  %h3
+    Client_commission_deals
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_commission_deals_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_commission_deal_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_commission_deal_path(@client_commission_deal) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_commission_deal.code
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_commission_deal.uid
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @client_commission_deal.company_division
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @client_commission_deal.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @client_commission_deal.client_product
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @client_commission_deal.media_category
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @client_commission_deal.supplier
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @client_commission_deal.media_space
+        .row-fluid
+          .span2
+            %b
+              Start date
+          .span10
+            = @client_commission_deal.start_date
+        .row-fluid
+          .span2
+            %b
+              Expiry date
+          .span10
+            = @client_commission_deal.expiry_date
+        .row-fluid
+          .span2
+            %b
+              Agency commission percentage
+          .span10
+            = @client_commission_deal.agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Client share commission percentage
+          .span10
+            = @client_commission_deal.client_share_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Members share sum commission percentage
+          .span10
+            = @client_commission_deal.members_share_sum_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Remaining share revenue commission percentage
+          .span10
+            = @client_commission_deal.remaining_share_revenue_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @client_commission_deal.is_active
+        .row-fluid
+          .span2
+            %b
+              Is calc commission share after discount deal
+          .span10
+            = @client_commission_deal.is_calc_commission_share_after_discount_deal
+        .row-fluid
+          .span2
+            %b
+              Media category size
+          .span10
+            = @client_commission_deal.media_category_size
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_commission_deal.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_commission_deal.updated_at)

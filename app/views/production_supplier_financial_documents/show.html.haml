@@ -1,0 +1,171 @@
+.page-header
+  %h3
+    Production_supplier_financial_documents
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to production_supplier_financial_documents_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_production_supplier_financial_document_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_production_supplier_financial_document_path(@production_supplier_financial_document) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @production_supplier_financial_document.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @production_supplier_financial_document.code
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @production_supplier_financial_document.supplier
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @production_supplier_financial_document.contact
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @production_supplier_financial_document.status
+        .row-fluid
+          .span2
+            %b
+              Production wanted cost amount
+          .span10
+            = @production_supplier_financial_document.production_wanted_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production wanted cost home amount
+          .span10
+            = @production_supplier_financial_document.production_wanted_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @production_supplier_financial_document.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @production_supplier_financial_document.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost tax amount
+          .span10
+            = @production_supplier_financial_document.production_cost_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost tax home amount
+          .span10
+            = @production_supplier_financial_document.production_cost_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost inc tax amount
+          .span10
+            = @production_supplier_financial_document.production_cost_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost inc tax home amount
+          .span10
+            = @production_supplier_financial_document.production_cost_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @production_supplier_financial_document.currency
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @production_supplier_financial_document.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @production_supplier_financial_document.tax_type
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @production_supplier_financial_document.notes
+        .row-fluid
+          .span2
+            %b
+              Actual date
+          .span10
+            = @production_supplier_financial_document.actual_date
+        .row-fluid
+          .span2
+            %b
+              Posting date
+          .span10
+            = @production_supplier_financial_document.posting_date
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @production_supplier_financial_document.communication_status
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @production_supplier_financial_document.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @production_supplier_financial_document.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_supplier_financial_document.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_supplier_financial_document.updated_at)

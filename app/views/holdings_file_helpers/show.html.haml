@@ -1,0 +1,207 @@
+.page-header
+  %h3
+    Holdings_file_helpers
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to holdings_file_helpers_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_holdings_file_helper_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_holdings_file_helper_path(@holdings_file_helper) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @holdings_file_helper.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @holdings_file_helper.code
+        .row-fluid
+          .span2
+            %b
+              Holdings file header
+          .span10
+            = @holdings_file_helper.holdings_file_header
+        .row-fluid
+          .span2
+            %b
+              Holdings file client code
+          .span10
+            = @holdings_file_helper.holdings_file_client_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file client name
+          .span10
+            = @holdings_file_helper.holdings_file_client_name
+        .row-fluid
+          .span2
+            %b
+              Holdings file product code
+          .span10
+            = @holdings_file_helper.holdings_file_product_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file product name
+          .span10
+            = @holdings_file_helper.holdings_file_product_name
+        .row-fluid
+          .span2
+            %b
+              Holdings file medium code
+          .span10
+            = @holdings_file_helper.holdings_file_medium_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file medium name
+          .span10
+            = @holdings_file_helper.holdings_file_medium_name
+        .row-fluid
+          .span2
+            %b
+              Holdings file booked date
+          .span10
+            = @holdings_file_helper.holdings_file_booked_date
+        .row-fluid
+          .span2
+            %b
+              Holdings file day flags
+          .span10
+            = @holdings_file_helper.holdings_file_day_flags
+        .row-fluid
+          .span2
+            %b
+              Holdings file start time
+          .span10
+            = @holdings_file_helper.holdings_file_start_time
+        .row-fluid
+          .span2
+            %b
+              Holdings file end time
+          .span10
+            = @holdings_file_helper.holdings_file_end_time
+        .row-fluid
+          .span2
+            %b
+              Holdings file req days flags
+          .span10
+            = @holdings_file_helper.holdings_file_req_days_flags
+        .row-fluid
+          .span2
+            %b
+              Holdings file req start time
+          .span10
+            = @holdings_file_helper.holdings_file_req_start_time
+        .row-fluid
+          .span2
+            %b
+              Holdings file req end time
+          .span10
+            = @holdings_file_helper.holdings_file_req_end_time
+        .row-fluid
+          .span2
+            %b
+              Holdings file duration
+          .span10
+            = @holdings_file_helper.holdings_file_duration
+        .row-fluid
+          .span2
+            %b
+              Holdings file gross rate
+          .span10
+            = @holdings_file_helper.holdings_file_gross_rate
+        .row-fluid
+          .span2
+            %b
+              Holdings file gross decimal
+          .span10
+            = @holdings_file_helper.holdings_file_gross_decimal
+        .row-fluid
+          .span2
+            %b
+              Holdings file program name
+          .span10
+            = @holdings_file_helper.holdings_file_program_name
+        .row-fluid
+          .span2
+            %b
+              Holdings file req program name
+          .span10
+            = @holdings_file_helper.holdings_file_req_program_name
+        .row-fluid
+          .span2
+            %b
+              Holdings file name for matching
+          .span10
+            = @holdings_file_helper.holdings_file_name_for_matching
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @holdings_file_helper.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Holdings file temp code
+          .span10
+            = @holdings_file_helper.holdings_file_temp_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file booking code
+          .span10
+            = @holdings_file_helper.holdings_file_booking_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file top tailbooking code
+          .span10
+            = @holdings_file_helper.holdings_file_top_tailbooking_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file system client code
+          .span10
+            = @holdings_file_helper.holdings_file_system_client_code
+        .row-fluid
+          .span2
+            %b
+              Holdings file system client product code
+          .span10
+            = @holdings_file_helper.holdings_file_system_client_product_code
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@holdings_file_helper.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@holdings_file_helper.updated_at)

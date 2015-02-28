@@ -1,0 +1,281 @@
+.page-header
+  %h3
+    Clients
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), clients_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), clients_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => clients_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Uid
+          %th
+            Name
+          %th
+            Offical name
+          %th
+            Company division
+          %th
+            Creation source
+          %th
+            Company registration no
+          %th
+            Default contact
+          %th
+            Link
+          %th
+            Phone number
+          %th
+            Fax number
+          %th
+            E mail
+          %th
+            Postal address
+          %th
+            Physical address
+          %th
+            Payment terms
+          %th
+            Tax registration no
+          %th
+            Default tax type
+          %th
+            Financial year end
+          %th
+            Default agency commission type
+          %th
+            Default agency commission percentage
+          %th
+            Default currency
+          %th
+            Default creative agency
+          %th
+            Default creative agency contact
+          %th
+            Default media agency
+          %th
+            Default media agency contact
+          %th
+            Default natural
+          %th
+            Default natural contact
+          %th
+            Exposure current
+          %th
+            Exposure30
+          %th
+            Exposure60
+          %th
+            Exposure90
+          %th
+            Exposure120
+          %th
+            Exposure date modified
+          %th
+            Bank name
+          %th
+            Bank account no
+          %th
+            Bank branch no
+          %th
+            Bank branch name
+          %th
+            Media debit note name
+          %th
+            Media credit note name
+          %th
+            Is digital proof required
+          %th
+            Is digital proof preview required
+          %th
+            Is physical proof required
+          %th
+            Is purchase order user editable
+          %th
+            Is purchase order required to book
+          %th
+            Is purchase order approval required to use
+          %th
+            Is purchase order amount enforced
+          %th
+            Type
+          %th
+            Is active
+          %th
+            Eis sync date
+          %th
+            Default media advert source
+          %th
+            Default business channel
+          %th
+            Default billing
+          %th
+            Default billing contact
+          %th
+            Default natural product
+          %th
+            Name2
+          %th
+            Is agency retained commission displayed on invoice
+          %th
+            Is placement exchange rate updated b4 billing
+          %th.button3
+      %tbody
+        - @clients.each do |client|
+          %tr
+            %td
+              = client.code
+            %td
+              = client.code_external
+            %td
+              = client.uid
+            %td
+              = client.name
+            %td
+              = client.offical_name
+            %td
+              = client.company_division
+            %td
+              = client.creation_source
+            %td
+              = client.company_registration_no
+            %td
+              = client.default_contact
+            %td
+              = client.link
+            %td
+              = client.phone_number
+            %td
+              = client.fax_number
+            %td
+              = client.e_mail
+            %td
+              = client.postal_address
+            %td
+              = client.physical_address
+            %td
+              = client.payment_terms
+            %td
+              = client.tax_registration_no
+            %td
+              = client.default_tax_type
+            %td
+              = client.financial_year_end
+            %td
+              = client.default_agency_commission_type
+            %td
+              = client.default_agency_commission_percentage
+            %td
+              = client.default_currency
+            %td
+              = client.default_creative_agency
+            %td
+              = client.default_creative_agency_contact
+            %td
+              = client.default_media_agency
+            %td
+              = client.default_media_agency_contact
+            %td
+              = client.default_natural
+            %td
+              = client.default_natural_contact
+            %td
+              = client.exposure_current
+            %td
+              = client.exposure30
+            %td
+              = client.exposure60
+            %td
+              = client.exposure90
+            %td
+              = client.exposure120
+            %td
+              = client.exposure_date_modified
+            %td
+              = client.bank_name
+            %td
+              = client.bank_account_no
+            %td
+              = client.bank_branch_no
+            %td
+              = client.bank_branch_name
+            %td
+              = client.media_debit_note_name
+            %td
+              = client.media_credit_note_name
+            %td
+              = client.is_digital_proof_required
+            %td
+              = client.is_digital_proof_preview_required
+            %td
+              = client.is_physical_proof_required
+            %td
+              = client.is_purchase_order_user_editable
+            %td
+              = client.is_purchase_order_required_to_book
+            %td
+              = client.is_purchase_order_approval_required_to_use
+            %td
+              = client.is_purchase_order_amount_enforced
+            %td
+              = client.type
+            %td
+              = client.is_active
+            %td
+              = client.eis_sync_date
+            %td
+              = client.default_media_advert_source
+            %td
+              = client.default_business_channel
+            %td
+              = client.default_billing
+            %td
+              = client.default_billing_contact
+            %td
+              = client.default_natural_product
+            %td
+              = client.name2
+            %td
+              = client.is_agency_retained_commission_displayed_on_invoice
+            %td
+              = client.is_placement_exchange_rate_updated_b4_billing
+            %td
+              .btn-group
+                = link_to client, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_path(client), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@clients)
+
+  #new.tab-pane
+    = render 'form'

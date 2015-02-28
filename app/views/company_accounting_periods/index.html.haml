@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Company_accounting_periods
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), company_accounting_periods_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), company_accounting_periods_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => company_accounting_periods_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Company
+          %th
+            Start date
+          %th
+            End date
+          %th
+            Is open
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @company_accounting_periods.each do |company_accounting_period|
+          %tr
+            %td
+              = company_accounting_period.uid
+            %td
+              = company_accounting_period.code
+            %td
+              = company_accounting_period.name
+            %td
+              = company_accounting_period.company
+            %td
+              = company_accounting_period.start_date
+            %td
+              = company_accounting_period.end_date
+            %td
+              = company_accounting_period.is_open
+            %td
+              = company_accounting_period.eis_sync_date
+            %td
+              .btn-group
+                = link_to company_accounting_period, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_company_accounting_period_path(company_accounting_period), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to company_accounting_period, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@company_accounting_periods)
+
+  #new.tab-pane
+    = render 'form'

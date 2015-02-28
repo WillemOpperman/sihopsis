@@ -1,0 +1,171 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_billing_day_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_billing_day_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_billing_day_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_billing_day_line_path(@campaign_schedule_placement_billing_day_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_billing_day_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_billing_day_line.code
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_billing_day_line.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Percent of total
+          .span10
+            = @campaign_schedule_placement_billing_day_line.percent_of_total
+        .row-fluid
+          .span2
+            %b
+              Quantity
+          .span10
+            = @campaign_schedule_placement_billing_day_line.quantity
+        .row-fluid
+          .span2
+            %b
+              Gross amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.gross_amount
+        .row-fluid
+          .span2
+            %b
+              Commission amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.commission_amount
+        .row-fluid
+          .span2
+            %b
+              Fees amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.fees_amount
+        .row-fluid
+          .span2
+            %b
+              Nett amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.nett_amount
+        .row-fluid
+          .span2
+            %b
+              Is billed
+          .span10
+            = @campaign_schedule_placement_billing_day_line.is_billed
+        .row-fluid
+          .span2
+            %b
+              Is credited
+          .span10
+            = @campaign_schedule_placement_billing_day_line.is_credited
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @campaign_schedule_placement_billing_day_line.notes
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_billing_day_line.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Client financial document line
+          .span10
+            = @campaign_schedule_placement_billing_day_line.client_financial_document_line
+        .row-fluid
+          .span2
+            %b
+              Billing day start date
+          .span10
+            = @campaign_schedule_placement_billing_day_line.billing_day_start_date
+        .row-fluid
+          .span2
+            %b
+              Billing day end date
+          .span10
+            = @campaign_schedule_placement_billing_day_line.billing_day_end_date
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @campaign_schedule_placement_billing_day_line.creation_source
+        .row-fluid
+          .span2
+            %b
+              Gross home amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Commission home amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Fees home amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.fees_home_amount
+        .row-fluid
+          .span2
+            %b
+              Nett home amount
+          .span10
+            = @campaign_schedule_placement_billing_day_line.nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Parent
+          .span10
+            = @campaign_schedule_placement_billing_day_line.parent
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_billing_day_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_billing_day_line.updated_at)

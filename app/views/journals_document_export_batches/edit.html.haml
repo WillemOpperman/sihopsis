@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Journals_document_export_batches
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to journals_document_export_batches_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_journals_document_export_batch_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @journals_document_export_batch do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

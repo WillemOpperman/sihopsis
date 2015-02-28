@@ -1,0 +1,285 @@
+.page-header
+  %h3
+    Associates
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to associates_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_associate_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_associate_path(@associate) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @associate.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @associate.code_external
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @associate.uid
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @associate.name
+        .row-fluid
+          .span2
+            %b
+              Offical name
+          .span10
+            = @associate.offical_name
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @associate.company_division
+        .row-fluid
+          .span2
+            %b
+              Company registration no
+          .span10
+            = @associate.company_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default contact
+          .span10
+            = @associate.default_contact
+        .row-fluid
+          .span2
+            %b
+              Phone number
+          .span10
+            = @associate.phone_number
+        .row-fluid
+          .span2
+            %b
+              Fax number
+          .span10
+            = @associate.fax_number
+        .row-fluid
+          .span2
+            %b
+              E mail
+          .span10
+            = @associate.e_mail
+        .row-fluid
+          .span2
+            %b
+              Postal address
+          .span10
+            = @associate.postal_address
+        .row-fluid
+          .span2
+            %b
+              Physical address
+          .span10
+            = @associate.physical_address
+        .row-fluid
+          .span2
+            %b
+              Payment terms
+          .span10
+            = @associate.payment_terms
+        .row-fluid
+          .span2
+            %b
+              Tax registration no
+          .span10
+            = @associate.tax_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default tax type
+          .span10
+            = @associate.default_tax_type
+        .row-fluid
+          .span2
+            %b
+              Financial year end
+          .span10
+            = @associate.financial_year_end
+        .row-fluid
+          .span2
+            %b
+              Default agency commission percentage
+          .span10
+            = @associate.default_agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Default currency
+          .span10
+            = @associate.default_currency
+        .row-fluid
+          .span2
+            %b
+              Default creative agency
+          .span10
+            = @associate.default_creative_agency
+        .row-fluid
+          .span2
+            %b
+              Exposure current
+          .span10
+            = @associate.exposure_current
+        .row-fluid
+          .span2
+            %b
+              Exposure30
+          .span10
+            = @associate.exposure30
+        .row-fluid
+          .span2
+            %b
+              Exposure60
+          .span10
+            = @associate.exposure60
+        .row-fluid
+          .span2
+            %b
+              Exposure90
+          .span10
+            = @associate.exposure90
+        .row-fluid
+          .span2
+            %b
+              Exposure120
+          .span10
+            = @associate.exposure120
+        .row-fluid
+          .span2
+            %b
+              Exposure date modified
+          .span10
+            = @associate.exposure_date_modified
+        .row-fluid
+          .span2
+            %b
+              Bank name
+          .span10
+            = @associate.bank_name
+        .row-fluid
+          .span2
+            %b
+              Bank account no
+          .span10
+            = @associate.bank_account_no
+        .row-fluid
+          .span2
+            %b
+              Bank branch no
+          .span10
+            = @associate.bank_branch_no
+        .row-fluid
+          .span2
+            %b
+              Bank branch name
+          .span10
+            = @associate.bank_branch_name
+        .row-fluid
+          .span2
+            %b
+              Media debit note name
+          .span10
+            = @associate.media_debit_note_name
+        .row-fluid
+          .span2
+            %b
+              Media credit note name
+          .span10
+            = @associate.media_credit_note_name
+        .row-fluid
+          .span2
+            %b
+              Is digital proof required
+          .span10
+            = @associate.is_digital_proof_required
+        .row-fluid
+          .span2
+            %b
+              Is digital proof preview required
+          .span10
+            = @associate.is_digital_proof_preview_required
+        .row-fluid
+          .span2
+            %b
+              Is physical proof required
+          .span10
+            = @associate.is_physical_proof_required
+        .row-fluid
+          .span2
+            %b
+              Is purchase order user editable
+          .span10
+            = @associate.is_purchase_order_user_editable
+        .row-fluid
+          .span2
+            %b
+              Is purchase order required to book
+          .span10
+            = @associate.is_purchase_order_required_to_book
+        .row-fluid
+          .span2
+            %b
+              Is purchase order approval required to use
+          .span10
+            = @associate.is_purchase_order_approval_required_to_use
+        .row-fluid
+          .span2
+            %b
+              Is purchase order amount enforced
+          .span10
+            = @associate.is_purchase_order_amount_enforced
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @associate.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @associate.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate.updated_at)

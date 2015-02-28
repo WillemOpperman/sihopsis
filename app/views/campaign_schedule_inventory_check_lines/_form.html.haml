@@ -1,0 +1,20 @@
+= simple_form_for(@campaign_schedule_inventory_check_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :revision_no
+    = f.association :campaign_schedule_inventory_check
+    = f.association :campaign_schedule_placement
+    = f.input :gross_amount
+    = f.input :commission_amount
+    = f.input :nett_amount
+    = f.input :commission_percent
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_inventory_check_line,
+               :cancel => campaign_schedule_inventory_check_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

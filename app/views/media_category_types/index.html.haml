@@ -1,0 +1,225 @@
+.page-header
+  %h3
+    Media_category_types
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_category_types_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_category_types_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_category_types_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Name
+          %th
+            Is columns enabled
+          %th
+            Is order no enabled
+          %th
+            Is contract no enabled
+          %th
+            Is from to time enabled
+          %th
+            Is colour enabled
+          %th
+            Is edition enabled
+          %th
+            Is type size enabled
+          %th
+            Is trim size enabled
+          %th
+            Is bleed size enabled
+          %th
+            Is language enabled
+          %th
+            Is material type enabled
+          %th
+            Is added value enabled
+          %th
+            Instruction name
+          %th
+            Is only revised placements shown on m i
+          %th
+            Is valid for data entry
+          %th
+            Is size on media advert enabled
+          %th
+            Is colour on media advert enabled
+          %th
+            Is position no enabled
+          %th
+            Is quantity per unit rate enabled
+          %th
+            Quantity per unit rate default
+          %th
+            Is quantity enabled
+          %th
+            Quantity default
+          %th
+            Default material deadline days
+          %th
+            Default cancellation days
+          %th
+            Is m i required for billing default
+          %th
+            Is digital proof enabled
+          %th
+            Is contract no required for m i
+          %th
+            Is billed by live days
+          %th
+            Is multiple material allowed
+          %th
+            Eis sync date
+          %th
+            Is on street date enabled
+          %th
+            Is placement routing address required to book
+          %th
+            Is placement zero unit rate allowed
+          %th
+            Is client material required to bill
+          %th
+            Is client material required to create chase list
+          %th
+            Is client company cost center required to book
+          %th
+            Is placement ordered required to bill
+          %th
+            Is billable
+          %th
+            Is media space contract code required
+          %th
+            Is client contract placement code required
+          %th.button3
+      %tbody
+        - @media_category_types.each do |media_category_type|
+          %tr
+            %td
+              = media_category_type.uid
+            %td
+              = media_category_type.code
+            %td
+              = media_category_type.code_external
+            %td
+              = media_category_type.name
+            %td
+              = media_category_type.is_columns_enabled
+            %td
+              = media_category_type.is_order_no_enabled
+            %td
+              = media_category_type.is_contract_no_enabled
+            %td
+              = media_category_type.is_from_to_time_enabled
+            %td
+              = media_category_type.is_colour_enabled
+            %td
+              = media_category_type.is_edition_enabled
+            %td
+              = media_category_type.is_type_size_enabled
+            %td
+              = media_category_type.is_trim_size_enabled
+            %td
+              = media_category_type.is_bleed_size_enabled
+            %td
+              = media_category_type.is_language_enabled
+            %td
+              = media_category_type.is_material_type_enabled
+            %td
+              = media_category_type.is_added_value_enabled
+            %td
+              = media_category_type.instruction_name
+            %td
+              = media_category_type.is_only_revised_placements_shown_on_m_i
+            %td
+              = media_category_type.is_valid_for_data_entry
+            %td
+              = media_category_type.is_size_on_media_advert_enabled
+            %td
+              = media_category_type.is_colour_on_media_advert_enabled
+            %td
+              = media_category_type.is_position_no_enabled
+            %td
+              = media_category_type.is_quantity_per_unit_rate_enabled
+            %td
+              = media_category_type.quantity_per_unit_rate_default
+            %td
+              = media_category_type.is_quantity_enabled
+            %td
+              = media_category_type.quantity_default
+            %td
+              = media_category_type.default_material_deadline_days
+            %td
+              = media_category_type.default_cancellation_days
+            %td
+              = media_category_type.is_m_i_required_for_billing_default
+            %td
+              = media_category_type.is_digital_proof_enabled
+            %td
+              = media_category_type.is_contract_no_required_for_m_i
+            %td
+              = media_category_type.is_billed_by_live_days
+            %td
+              = media_category_type.is_multiple_material_allowed
+            %td
+              = media_category_type.eis_sync_date
+            %td
+              = media_category_type.is_on_street_date_enabled
+            %td
+              = media_category_type.is_placement_routing_address_required_to_book
+            %td
+              = media_category_type.is_placement_zero_unit_rate_allowed
+            %td
+              = media_category_type.is_client_material_required_to_bill
+            %td
+              = media_category_type.is_client_material_required_to_create_chase_list
+            %td
+              = media_category_type.is_client_company_cost_center_required_to_book
+            %td
+              = media_category_type.is_placement_ordered_required_to_bill
+            %td
+              = media_category_type.is_billable
+            %td
+              = media_category_type.is_media_space_contract_code_required
+            %td
+              = media_category_type.is_client_contract_placement_code_required
+            %td
+              .btn-group
+                = link_to media_category_type, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_category_type_path(media_category_type), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_category_type, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_category_types)
+
+  #new.tab-pane
+    = render 'form'

@@ -1,0 +1,161 @@
+.page-header
+  %h3
+    Client_contracts
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_contracts_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_contracts_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_contracts_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Company
+          %th
+            Company division
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Campaign
+          %th
+            Campaign schedule
+          %th
+            Client contact
+          %th
+            Owner user
+          %th
+            Currency
+          %th
+            Creation source
+          %th
+            Status
+          %th
+            Communication status
+          %th
+            Actual date
+          %th
+            Gross amount
+          %th
+            Commission amount
+          %th
+            Nett amount
+          %th
+            Tax type
+          %th
+            Tax gross amount
+          %th
+            Tax nett amount
+          %th
+            Exchange rate
+          %th
+            Notes
+          %th
+            Status reason
+          %th
+            Grid layout x m l
+          %th
+            Eis sync date
+          %th
+            Revision no
+          %th.button3
+      %tbody
+        - @client_contracts.each do |client_contract|
+          %tr
+            %td
+              = client_contract.uid
+            %td
+              = client_contract.code
+            %td
+              = client_contract.code_external
+            %td
+              = client_contract.company
+            %td
+              = client_contract.company_division
+            %td
+              = client_contract.client
+            %td
+              = client_contract.client_product
+            %td
+              = client_contract.campaign
+            %td
+              = client_contract.campaign_schedule
+            %td
+              = client_contract.client_contact
+            %td
+              = client_contract.owner_user
+            %td
+              = client_contract.currency
+            %td
+              = client_contract.creation_source
+            %td
+              = client_contract.status
+            %td
+              = client_contract.communication_status
+            %td
+              = client_contract.actual_date
+            %td
+              = client_contract.gross_amount
+            %td
+              = client_contract.commission_amount
+            %td
+              = client_contract.nett_amount
+            %td
+              = client_contract.tax_type
+            %td
+              = client_contract.tax_gross_amount
+            %td
+              = client_contract.tax_nett_amount
+            %td
+              = client_contract.exchange_rate
+            %td
+              = client_contract.notes
+            %td
+              = client_contract.status_reason
+            %td
+              = client_contract.grid_layout_x_m_l
+            %td
+              = client_contract.eis_sync_date
+            %td
+              = client_contract.revision_no
+            %td
+              .btn-group
+                = link_to client_contract, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_contract_path(client_contract), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_contract, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_contracts)
+
+  #new.tab-pane
+    = render 'form'

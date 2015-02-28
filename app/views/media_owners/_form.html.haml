@@ -1,0 +1,28 @@
+= simple_form_for(@media_owner, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :code
+    = f.input :code_external
+    = f.input :uid
+    = f.input :name
+    = f.input :offical_name
+    = f.association :default_contact
+    = f.association :creation_source
+    = f.input :phone_number
+    = f.input :fax_number
+    = f.input :e_mail
+    = f.input :postal_address
+    = f.input :physical_address
+    = f.input :default_commission_percentage
+    = f.association :default_material_deadline_days
+    = f.association :default_cancellation_days
+    = f.input :is_active
+    = f.input :eis_sync_date
+    = f.association :company_division
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_owner,
+               :cancel => media_owners_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Media_spaces
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_spaces_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @media_space do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

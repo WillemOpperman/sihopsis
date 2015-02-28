@@ -1,0 +1,121 @@
+.page-header
+  %h3
+    Media_owners
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_owners_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_owners_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_owners_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Uid
+          %th
+            Name
+          %th
+            Offical name
+          %th
+            Default contact
+          %th
+            Creation source
+          %th
+            Phone number
+          %th
+            Fax number
+          %th
+            E mail
+          %th
+            Postal address
+          %th
+            Physical address
+          %th
+            Default commission percentage
+          %th
+            Default material deadline days
+          %th
+            Default cancellation days
+          %th
+            Is active
+          %th
+            Eis sync date
+          %th
+            Company division
+          %th.button3
+      %tbody
+        - @media_owners.each do |media_owner|
+          %tr
+            %td
+              = media_owner.code
+            %td
+              = media_owner.code_external
+            %td
+              = media_owner.uid
+            %td
+              = media_owner.name
+            %td
+              = media_owner.offical_name
+            %td
+              = media_owner.default_contact
+            %td
+              = media_owner.creation_source
+            %td
+              = media_owner.phone_number
+            %td
+              = media_owner.fax_number
+            %td
+              = media_owner.e_mail
+            %td
+              = media_owner.postal_address
+            %td
+              = media_owner.physical_address
+            %td
+              = media_owner.default_commission_percentage
+            %td
+              = media_owner.default_material_deadline_days
+            %td
+              = media_owner.default_cancellation_days
+            %td
+              = media_owner.is_active
+            %td
+              = media_owner.eis_sync_date
+            %td
+              = media_owner.company_division
+            %td
+              .btn-group
+                = link_to media_owner, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_owner_path(media_owner), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_owner, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_owners)
+
+  #new.tab-pane
+    = render 'form'

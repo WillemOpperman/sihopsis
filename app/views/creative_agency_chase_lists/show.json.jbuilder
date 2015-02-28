@@ -1,0 +1,1 @@
+json.extract! @creative_agency_chase_list, :id, :uid, :code, :name, :status_id, :material_contact_id, :creative_agency_id, :creative_agency_contact_id, :media_category_id, :issued_date, :notes, :revision_no, :creation_source_id, :communication_status_id, :eis_sync_date, :created_at, :updated_at

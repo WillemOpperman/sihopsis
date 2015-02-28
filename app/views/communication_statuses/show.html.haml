@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Communication_statuses
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to communication_statuses_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_communication_status_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_communication_status_path(@communication_status) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @communication_status.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @communication_status.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @communication_status.name
+        .row-fluid
+          .span2
+            %b
+              Is emailed
+          .span10
+            = @communication_status.is_emailed
+        .row-fluid
+          .span2
+            %b
+              Is printed
+          .span10
+            = @communication_status.is_printed
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @communication_status.is_default
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @communication_status.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@communication_status.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@communication_status.updated_at)

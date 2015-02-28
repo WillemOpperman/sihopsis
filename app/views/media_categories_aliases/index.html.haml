@@ -1,0 +1,69 @@
+.page-header
+  %h3
+    Media_categories_aliases
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_categories_aliases_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_categories_aliases_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_categories_aliases_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Media category
+          %th
+            Creation source
+          %th.button3
+      %tbody
+        - @media_categories_aliases.each do |media_categories_alias|
+          %tr
+            %td
+              = media_categories_alias.uid
+            %td
+              = media_categories_alias.code
+            %td
+              = media_categories_alias.name
+            %td
+              = media_categories_alias.media_category
+            %td
+              = media_categories_alias.creation_source
+            %td
+              .btn-group
+                = link_to media_categories_alias, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_categories_alias_path(media_categories_alias), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_categories_alias, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_categories_aliases)
+
+  #new.tab-pane
+    = render 'form'

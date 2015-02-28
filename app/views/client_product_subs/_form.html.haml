@@ -1,0 +1,22 @@
+= simple_form_for(@client_product_sub, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :code
+    = f.input :code_external
+    = f.input :uid
+    = f.input :name
+    = f.association :client_product
+    = f.association :default_contact
+    = f.association :creation_source
+    = f.input :default_agency_commission_percentage
+    = f.input :tax_registration_no
+    = f.input :region
+    = f.input :is_active
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_product_sub,
+               :cancel => client_product_subs_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,47 @@
+.page-header
+  %h3
+    <%= plural_table_name.capitalize %>
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to <%= plural_table_name %>_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_<%= singular_table_name %>_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+      <%- attributes.each do |attribute| -%>
+        .row-fluid
+          .span2
+            %b
+              <%= attribute.human_name %>
+          .span10
+            = @<%= singular_table_name %>.<%= attribute.name %>
+      <%- end -%>
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@<%= singular_table_name %>.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@<%= singular_table_name %>.updated_at)

@@ -1,0 +1,69 @@
+.page-header
+  %h3
+    Currencies
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to currencies_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_currency_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_currency_path(@currency) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @currency.code
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @currency.uid
+        .row-fluid
+          .span2
+            %b
+              Default tax type
+          .span10
+            = @currency.default_tax_type
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @currency.name
+        .row-fluid
+          .span2
+            %b
+              Symbol
+          .span10
+            = @currency.symbol
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@currency.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@currency.updated_at)

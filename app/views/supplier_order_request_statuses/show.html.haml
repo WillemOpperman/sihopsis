@@ -1,0 +1,99 @@
+.page-header
+  %h3
+    Supplier_order_request_statuses
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_order_request_statuses_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_order_request_status_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_order_request_status_path(@supplier_order_request_status) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_order_request_status.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_order_request_status.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @supplier_order_request_status.name
+        .row-fluid
+          .span2
+            %b
+              Is status active
+          .span10
+            = @supplier_order_request_status.is_status_active
+        .row-fluid
+          .span2
+            %b
+              Is issued
+          .span10
+            = @supplier_order_request_status.is_issued
+        .row-fluid
+          .span2
+            %b
+              Is cancelled
+          .span10
+            = @supplier_order_request_status.is_cancelled
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @supplier_order_request_status.is_default
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @supplier_order_request_status.is_active
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier_order_request_status.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_order_request_status.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_order_request_status.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_order_request_status.updated_at)

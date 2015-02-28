@@ -1,0 +1,21 @@
+= simple_form_for(@production_supplier_purchase_order_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :production_supplier_purchase_order
+    = f.association :campaign_schedule_placement_production_cost
+    = f.input :percentage_ordered
+    = f.input :unit_cost_amount
+    = f.association :units
+    = f.input :production_cost_amount
+    = f.input :production_cost_home_amount
+    = f.input :notes
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @production_supplier_purchase_order_line,
+               :cancel => production_supplier_purchase_order_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Eis_service_providers
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to eis_service_providers_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_eis_service_provider_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @eis_service_provider do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

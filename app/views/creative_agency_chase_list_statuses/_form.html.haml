@@ -1,0 +1,18 @@
+= simple_form_for(@creative_agency_chase_list_status, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_active
+    = f.input :is_cancelled
+    = f.input :is_revised
+    = f.input :is_default
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @creative_agency_chase_list_status,
+               :cancel => creative_agency_chase_list_statuses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

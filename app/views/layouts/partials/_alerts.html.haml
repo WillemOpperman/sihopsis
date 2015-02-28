@@ -1,0 +1,35 @@
+%ul.dropdown-menu
+  %li
+    -# START list group
+    .list-group
+      -# list item
+      %a.list-group-item{:href => "#"}
+        .media-box
+          .pull-left
+            %span{:class => icon_class('twitter fa-2x text-info')}
+          .media-box-body.clearfix
+            %p.m0 New followers
+            %p.m0.text-muted
+              %small 1 new follower
+      -# list item
+      %a.list-group-item{:href => "#"}
+        .media-box
+          .pull-left
+            %span{:class => icon_class('envelope fa-2x text-warning')}
+          .media-box-body.clearfix
+            %p.m0 New e-mails
+            %p.m0.text-muted
+              %small You have 10 new emails
+      -# list item
+      %a.list-group-item{:href => "#"}
+        .media-box
+          .pull-left
+            %span{:class => icon_class('tasks fa-2x text-success')}
+          .media-box-body.clearfix
+            %p.m0 Pending Tasks
+            %p.m0.text-muted
+              %small 11 pending task
+      -# last list item
+      %a.list-group-item{:href => "#"}
+        %small{:translate => "topbar.notification.MORE"} More notifications
+        %span.label.label-danger.pull-right 14

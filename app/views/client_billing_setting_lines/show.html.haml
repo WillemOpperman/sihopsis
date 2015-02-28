@@ -1,0 +1,153 @@
+.page-header
+  %h3
+    Client_billing_setting_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_billing_setting_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_billing_setting_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_billing_setting_line_path(@client_billing_setting_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_billing_setting_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_billing_setting_line.code
+        .row-fluid
+          .span2
+            %b
+              Client billing setting
+          .span10
+            = @client_billing_setting_line.client_billing_setting
+        .row-fluid
+          .span2
+            %b
+              Client billing type
+          .span10
+            = @client_billing_setting_line.client_billing_type
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @client_billing_setting_line.media_category
+        .row-fluid
+          .span2
+            %b
+              Is order no required
+          .span10
+            = @client_billing_setting_line.is_order_no_required
+        .row-fluid
+          .span2
+            %b
+              Is m i required
+          .span10
+            = @client_billing_setting_line.is_m_i_required
+        .row-fluid
+          .span2
+            %b
+              Is media space contract code required to bill
+          .span10
+            = @client_billing_setting_line.is_media_space_contract_code_required_to_bill
+        .row-fluid
+          .span2
+            %b
+              Is d p i required to bill
+          .span10
+            = @client_billing_setting_line.is_d_p_i_required_to_bill
+        .row-fluid
+          .span2
+            %b
+              Is billed by billable days
+          .span10
+            = @client_billing_setting_line.is_billed_by_billable_days
+        .row-fluid
+          .span2
+            %b
+              Is billing restricted to live start date
+          .span10
+            = @client_billing_setting_line.is_billing_restricted_to_live_start_date
+        .row-fluid
+          .span2
+            %b
+              M inv custom report
+          .span10
+            = @client_billing_setting_line.m_inv_custom_report
+        .row-fluid
+          .span2
+            %b
+              M inv ad nt custom report
+          .span10
+            = @client_billing_setting_line.m_inv_ad_nt_custom_report
+        .row-fluid
+          .span2
+            %b
+              M cr nt custom report
+          .span10
+            = @client_billing_setting_line.m_cr_nt_custom_report
+        .row-fluid
+          .span2
+            %b
+              M cr nt ad nt custom report
+          .span10
+            = @client_billing_setting_line.m_cr_nt_ad_nt_custom_report
+        .row-fluid
+          .span2
+            %b
+              M com cr dr nt report
+          .span10
+            = @client_billing_setting_line.m_com_cr_dr_nt_report
+        .row-fluid
+          .span2
+            %b
+              Is placement ordered required to bill
+          .span10
+            = @client_billing_setting_line.is_placement_ordered_required_to_bill
+        .row-fluid
+          .span2
+            %b
+              Is billable
+          .span10
+            = @client_billing_setting_line.is_billable
+        .row-fluid
+          .span2
+            %b
+              Custom logo path
+          .span10
+            = @client_billing_setting_line.custom_logo_path
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_billing_setting_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_billing_setting_line.updated_at)

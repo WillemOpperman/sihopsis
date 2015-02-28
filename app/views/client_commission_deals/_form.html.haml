@@ -1,0 +1,27 @@
+= simple_form_for(@client_commission_deal, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :code
+    = f.input :uid
+    = f.association :company_division
+    = f.association :client
+    = f.association :client_product
+    = f.association :media_category
+    = f.association :supplier
+    = f.association :media_space
+    = f.input :start_date
+    = f.input :expiry_date
+    = f.input :agency_commission_percentage
+    = f.input :client_share_commission_percentage
+    = f.input :members_share_sum_commission_percentage
+    = f.input :remaining_share_revenue_commission_percentage
+    = f.input :is_active
+    = f.input :is_calc_commission_share_after_discount_deal
+    = f.association :media_category_size
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_commission_deal,
+               :cancel => client_commission_deals_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

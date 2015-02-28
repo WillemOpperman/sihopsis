@@ -1,0 +1,18 @@
+= simple_form_for(@campaign_schedule_placement_status_change_rule, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :change_from_campaign_schedule_placement_status
+    = f.association :change_to_campaign_schedule_placement_status
+    = f.input :is_allowed
+    = f.input :is_allowed_in_change_wizard
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_status_change_rule,
+               :cancel => campaign_schedule_placement_status_change_rules_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

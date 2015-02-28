@@ -1,0 +1,1 @@
+json.extract! @campaign_schedule_placement_fee_line, :id, :uid, :code, :campaign_schedule_placement_id, :media_fee_type_id, :fee_percent, :fee_amount, :fee_home_amount, :eis_sync_date, :created_at, :updated_at

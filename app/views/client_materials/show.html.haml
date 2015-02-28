@@ -1,0 +1,153 @@
+.page-header
+  %h3
+    Client_materials
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_materials_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_material_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_material_path(@client_material) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_material.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_material.code
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @client_material.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @client_material.client_product
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @client_material.media_category
+        .row-fluid
+          .span2
+            %b
+              Advert no
+          .span10
+            = @client_material.advert_no
+        .row-fluid
+          .span2
+            %b
+              Advert name
+          .span10
+            = @client_material.advert_name
+        .row-fluid
+          .span2
+            %b
+              Advert title
+          .span10
+            = @client_material.advert_title
+        .row-fluid
+          .span2
+            %b
+              Media category size
+          .span10
+            = @client_material.media_category_size
+        .row-fluid
+          .span2
+            %b
+              Media category format
+          .span10
+            = @client_material.media_category_format
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @client_material.notes
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @client_material.creation_source
+        .row-fluid
+          .span2
+            %b
+              Creative agency
+          .span10
+            = @client_material.creative_agency
+        .row-fluid
+          .span2
+            %b
+              Is advert title auto maintained
+          .span10
+            = @client_material.is_advert_title_auto_maintained
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @client_material.is_active
+        .row-fluid
+          .span2
+            %b
+              Expiry date
+          .span10
+            = @client_material.expiry_date
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_material.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is advert name auto maintained
+          .span10
+            = @client_material.is_advert_name_auto_maintained
+        .row-fluid
+          .span2
+            %b
+              Is ad vert number derived from code
+          .span10
+            = @client_material.is_ad_vert_number_derived_from_code
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_material.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_material.updated_at)

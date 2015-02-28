@@ -1,0 +1,45 @@
+= simple_form_for(@campaign_schedule_placement_production_cost, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :campaign_schedule_placement
+    = f.association :supplier
+    = f.association :supplier_contact
+    = f.association :production_cost_type
+    = f.input :unit_cost_amount
+    = f.association :units
+    = f.input :production_cost_amount
+    = f.input :production_cost_home_amount
+    = f.input :ordered_production_cost_amount_to_date
+    = f.input :ordered_production_cost_amount_to_date_home
+    = f.input :supplier_invoiced_production_cost_to_date_amount
+    = f.input :supplier_invoiced_production_cost_to_date_home_amount
+    = f.input :production_cost_margin_percentage
+    = f.input :production_cost_margin_amount
+    = f.input :production_cost_margin_home_amount
+    = f.input :production_client_billable_amount
+    = f.input :production_client_billable_home_amount
+    = f.input :production_client_billable_inc_tax_amount
+    = f.input :production_client_billable_inc_tax_home_amount
+    = f.input :production_cost_margin_to_date_amount
+    = f.input :production_cost_margin_to_date_home_amount
+    = f.input :production_client_invoiced_to_date_amount
+    = f.input :production_client_invoiced_to_date_home_amount
+    = f.input :production_client_invoiced_inc_tax_to_date_amount
+    = f.input :production_client_invoiced_inc_tax_to_date_home_amount
+    = f.association :tax_type
+    = f.association :currency
+    = f.input :exchange_rate
+    = f.input :notes
+    = f.association :creation_source
+    = f.input :eis_sync_date
+    = f.input :material_production_date
+    = f.input :quantity_per_unit_cost
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_production_cost,
+               :cancel => campaign_schedule_placement_production_costs_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,505 @@
+.page-header
+  %h3
+    Campaign_schedule_placements
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), campaign_schedule_placements_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), campaign_schedule_placements_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => campaign_schedule_placements_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Media category
+          %th
+            Campaign
+          %th
+            Campaign schedule
+          %th
+            Client product
+          %th
+            Client product sub
+          %th
+            Client contact
+          %th
+            Creative agency
+          %th
+            Creative agency contact
+          %th
+            Media agency client
+          %th
+            Media agency client contact
+          %th
+            Natural client
+          %th
+            Natural client product
+          %th
+            Natural client contact
+          %th
+            Media space
+          %th
+            Business unit
+          %th
+            Media space section
+          %th
+            Media space part
+          %th
+            Media category size
+          %th
+            Media category format
+          %th
+            Media frequency cap type
+          %th
+            Supplier
+          %th
+            Supplier contact
+          %th
+            Owner user
+          %th
+            Manager user
+          %th
+            Currency
+          %th
+            Exchange rate
+          %th
+            Rate type
+          %th
+            Rate card line
+          %th
+            Cost type
+          %th
+            Quantity per unit rate
+          %th
+            Quantity
+          %th
+            Rate card unit cost gross
+          %th
+            Rate card unit cost gross home
+          %th
+            Rate card unit cost nett
+          %th
+            Rate card unit cost nett home
+          %th
+            Rate card cost gross
+          %th
+            Rate card cost gross home
+          %th
+            Rate card cost nett
+          %th
+            Rate card cost nett home
+          %th
+            Commission supplier percentage
+          %th
+            Commission supplier amount
+          %th
+            Commission supplier home amount
+          %th
+            Commission agency percentage
+          %th
+            Commission agency amount
+          %th
+            Commission agency home amount
+          %th
+            Effective discount percentage
+          %th
+            Effective discount amount
+          %th
+            Effective discount home amount
+          %th
+            Effective discount to client percentage
+          %th
+            Effective discount to client amount
+          %th
+            Effective discount to client home amount
+          %th
+            Cost gross
+          %th
+            Cost gross home
+          %th
+            Cost nett
+          %th
+            Cost nett home
+          %th
+            Minimum intermediary margin percentage
+          %th
+            Minimum intermediary margin amount
+          %th
+            Minimum intermediary margin home amount
+          %th
+            Effective intermediary margin percentage
+          %th
+            Effective intermediary margin amount
+          %th
+            Effective intermediary margin home amount
+          %th
+            Actual cost nett
+          %th
+            Actual cost nett home
+          %th
+            Supplier invoiced cost to date amount
+          %th
+            Supplier invoiced cost to date home amount
+          %th
+            Supplier invoiced cost commission to date amount
+          %th
+            Supplier invoiced cost commission to date home amount
+          %th
+            Supplier invoiced cost nett to date amount
+          %th
+            Supplier invoiced cost nett to date home amount
+          %th
+            Supplier invoiced intermediary margin to date amount
+          %th
+            Supplier invoiced intermediary margin to date home amount
+          %th
+            Supplier invoiced actual cost nett to date amount
+          %th
+            Supplier invoiced actual cost nett to date home amount
+          %th
+            Fees
+          %th
+            Fees home
+          %th
+            Fees to date
+          %th
+            Fees to date home
+          %th
+            Production cost amount
+          %th
+            Production cost home amount
+          %th
+            Ordered production cost amount to date
+          %th
+            Ordered production cost amount to date home
+          %th
+            Supplier invoiced production cost to date amount
+          %th
+            Supplier invoiced production cost to date home amount
+          %th
+            Effective production cost margin percentage
+          %th
+            Production cost margin amount
+          %th
+            Production cost margin home amount
+          %th
+            Production cost margin to date amount
+          %th
+            Production cost margin to date home amount
+          %th
+            Production client billable amount
+          %th
+            Production client billable home amount
+          %th
+            Production client invoiced to date amount
+          %th
+            Production client invoiced to date home amount
+          %th
+            Client billable gross amount
+          %th
+            Client billable gross home amount
+          %th
+            Client billable nett amount
+          %th
+            Client billable nett home amount
+          %th
+            Client invoiced to date cost gross home amount
+          %th
+            Client invoiced to date cost commission home amount
+          %th
+            Client invoiced to date cost nett home amount
+          %th
+            Client invoiced to date gross amount
+          %th
+            Client invoiced to date gross home amount
+          %th
+            Client invoiced to date fees amount
+          %th
+            Client invoiced to date fees home amount
+          %th
+            Client invoiced to date production costs with margin amount
+          %th
+            Client invoiced to date production costs with margin home amount
+          %th
+            Client invoiced to date nett amount
+          %th
+            Client invoiced to date nett home amount
+          %th
+            Cost billing gross home difference amount
+          %th
+            Cost billing commission home difference amount
+          %th
+            Cost billing nett home difference amount
+          %th
+            Supplier invoiced provision gross home amount
+          %th.button3
+      %tbody
+        - @campaign_schedule_placements.each do |campaign_schedule_placement|
+          %tr
+            %td
+              = campaign_schedule_placement.uid
+            %td
+              = campaign_schedule_placement.code
+            %td
+              = campaign_schedule_placement.code_external
+            %td
+              = campaign_schedule_placement.media_category
+            %td
+              = campaign_schedule_placement.campaign
+            %td
+              = campaign_schedule_placement.campaign_schedule
+            %td
+              = campaign_schedule_placement.client_product
+            %td
+              = campaign_schedule_placement.client_product_sub
+            %td
+              = campaign_schedule_placement.client_contact
+            %td
+              = campaign_schedule_placement.creative_agency
+            %td
+              = campaign_schedule_placement.creative_agency_contact
+            %td
+              = campaign_schedule_placement.media_agency_client
+            %td
+              = campaign_schedule_placement.media_agency_client_contact
+            %td
+              = campaign_schedule_placement.natural_client
+            %td
+              = campaign_schedule_placement.natural_client_product
+            %td
+              = campaign_schedule_placement.natural_client_contact
+            %td
+              = campaign_schedule_placement.media_space
+            %td
+              = campaign_schedule_placement.business_unit
+            %td
+              = campaign_schedule_placement.media_space_section
+            %td
+              = campaign_schedule_placement.media_space_part
+            %td
+              = campaign_schedule_placement.media_category_size
+            %td
+              = campaign_schedule_placement.media_category_format
+            %td
+              = campaign_schedule_placement.media_frequency_cap_type
+            %td
+              = campaign_schedule_placement.supplier
+            %td
+              = campaign_schedule_placement.supplier_contact
+            %td
+              = campaign_schedule_placement.owner_user
+            %td
+              = campaign_schedule_placement.manager_user
+            %td
+              = campaign_schedule_placement.currency
+            %td
+              = campaign_schedule_placement.exchange_rate
+            %td
+              = campaign_schedule_placement.rate_type
+            %td
+              = campaign_schedule_placement.rate_card_line
+            %td
+              = campaign_schedule_placement.cost_type
+            %td
+              = campaign_schedule_placement.quantity_per_unit_rate
+            %td
+              = campaign_schedule_placement.quantity
+            %td
+              = campaign_schedule_placement.rate_card_unit_cost_gross
+            %td
+              = campaign_schedule_placement.rate_card_unit_cost_gross_home
+            %td
+              = campaign_schedule_placement.rate_card_unit_cost_nett
+            %td
+              = campaign_schedule_placement.rate_card_unit_cost_nett_home
+            %td
+              = campaign_schedule_placement.rate_card_cost_gross
+            %td
+              = campaign_schedule_placement.rate_card_cost_gross_home
+            %td
+              = campaign_schedule_placement.rate_card_cost_nett
+            %td
+              = campaign_schedule_placement.rate_card_cost_nett_home
+            %td
+              = campaign_schedule_placement.commission_supplier_percentage
+            %td
+              = campaign_schedule_placement.commission_supplier_amount
+            %td
+              = campaign_schedule_placement.commission_supplier_home_amount
+            %td
+              = campaign_schedule_placement.commission_agency_percentage
+            %td
+              = campaign_schedule_placement.commission_agency_amount
+            %td
+              = campaign_schedule_placement.commission_agency_home_amount
+            %td
+              = campaign_schedule_placement.effective_discount_percentage
+            %td
+              = campaign_schedule_placement.effective_discount_amount
+            %td
+              = campaign_schedule_placement.effective_discount_home_amount
+            %td
+              = campaign_schedule_placement.effective_discount_to_client_percentage
+            %td
+              = campaign_schedule_placement.effective_discount_to_client_amount
+            %td
+              = campaign_schedule_placement.effective_discount_to_client_home_amount
+            %td
+              = campaign_schedule_placement.cost_gross
+            %td
+              = campaign_schedule_placement.cost_gross_home
+            %td
+              = campaign_schedule_placement.cost_nett
+            %td
+              = campaign_schedule_placement.cost_nett_home
+            %td
+              = campaign_schedule_placement.minimum_intermediary_margin_percentage
+            %td
+              = campaign_schedule_placement.minimum_intermediary_margin_amount
+            %td
+              = campaign_schedule_placement.minimum_intermediary_margin_home_amount
+            %td
+              = campaign_schedule_placement.effective_intermediary_margin_percentage
+            %td
+              = campaign_schedule_placement.effective_intermediary_margin_amount
+            %td
+              = campaign_schedule_placement.effective_intermediary_margin_home_amount
+            %td
+              = campaign_schedule_placement.actual_cost_nett
+            %td
+              = campaign_schedule_placement.actual_cost_nett_home
+            %td
+              = campaign_schedule_placement.supplier_invoiced_cost_to_date_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_cost_to_date_home_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_cost_commission_to_date_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_cost_commission_to_date_home_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_cost_nett_to_date_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_cost_nett_to_date_home_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_intermediary_margin_to_date_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_intermediary_margin_to_date_home_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_actual_cost_nett_to_date_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_actual_cost_nett_to_date_home_amount
+            %td
+              = campaign_schedule_placement.fees
+            %td
+              = campaign_schedule_placement.fees_home
+            %td
+              = campaign_schedule_placement.fees_to_date
+            %td
+              = campaign_schedule_placement.fees_to_date_home
+            %td
+              = campaign_schedule_placement.production_cost_amount
+            %td
+              = campaign_schedule_placement.production_cost_home_amount
+            %td
+              = campaign_schedule_placement.ordered_production_cost_amount_to_date
+            %td
+              = campaign_schedule_placement.ordered_production_cost_amount_to_date_home
+            %td
+              = campaign_schedule_placement.supplier_invoiced_production_cost_to_date_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_production_cost_to_date_home_amount
+            %td
+              = campaign_schedule_placement.effective_production_cost_margin_percentage
+            %td
+              = campaign_schedule_placement.production_cost_margin_amount
+            %td
+              = campaign_schedule_placement.production_cost_margin_home_amount
+            %td
+              = campaign_schedule_placement.production_cost_margin_to_date_amount
+            %td
+              = campaign_schedule_placement.production_cost_margin_to_date_home_amount
+            %td
+              = campaign_schedule_placement.production_client_billable_amount
+            %td
+              = campaign_schedule_placement.production_client_billable_home_amount
+            %td
+              = campaign_schedule_placement.production_client_invoiced_to_date_amount
+            %td
+              = campaign_schedule_placement.production_client_invoiced_to_date_home_amount
+            %td
+              = campaign_schedule_placement.client_billable_gross_amount
+            %td
+              = campaign_schedule_placement.client_billable_gross_home_amount
+            %td
+              = campaign_schedule_placement.client_billable_nett_amount
+            %td
+              = campaign_schedule_placement.client_billable_nett_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_cost_gross_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_cost_commission_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_cost_nett_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_gross_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_gross_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_fees_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_fees_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_production_costs_with_margin_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_production_costs_with_margin_home_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_nett_amount
+            %td
+              = campaign_schedule_placement.client_invoiced_to_date_nett_home_amount
+            %td
+              = campaign_schedule_placement.cost_billing_gross_home_difference_amount
+            %td
+              = campaign_schedule_placement.cost_billing_commission_home_difference_amount
+            %td
+              = campaign_schedule_placement.cost_billing_nett_home_difference_amount
+            %td
+              = campaign_schedule_placement.supplier_invoiced_provision_gross_home_amount
+            %td
+              .btn-group
+                = link_to campaign_schedule_placement, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_campaign_schedule_placement_path(campaign_schedule_placement), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to campaign_schedule_placement, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@campaign_schedule_placements)
+
+  #new.tab-pane
+    = render 'form'

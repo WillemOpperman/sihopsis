@@ -1,0 +1,87 @@
+.page-header
+  %h3
+    Campaign_statuses
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_statuses_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_status_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_status_path(@campaign_status) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_status.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_status.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @campaign_status.name
+        .row-fluid
+          .span2
+            %b
+              Is open
+          .span10
+            = @campaign_status.is_open
+        .row-fluid
+          .span2
+            %b
+              Is closed
+          .span10
+            = @campaign_status.is_closed
+        .row-fluid
+          .span2
+            %b
+              Is cancelled
+          .span10
+            = @campaign_status.is_cancelled
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @campaign_status.is_default
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_status.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_status.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_status.updated_at)

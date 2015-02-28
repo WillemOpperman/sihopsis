@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Service_provider_digital_proofs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to service_provider_digital_proofs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_service_provider_digital_proof_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @service_provider_digital_proof do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

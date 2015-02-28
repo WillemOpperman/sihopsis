@@ -1,0 +1,38 @@
+FactoryGirl.define do
+  factory :campaign_schedule_placement_status do
+    uid ""
+code "MyString"
+name "MyString"
+is_placement_active false
+is_placement_proposed false
+is_placement_client_ordered false
+is_placement_client_approved false
+is_placement_requested false
+is_placement_ordered false
+is_placement_rescheduled false
+is_placement_live false
+is_placement_paused false
+is_placement_suspended false
+is_placement_restarted false
+is_placement_stopped false
+is_placement_finished false
+is_placement_instructed false
+is_placement_part_of_credit_exposure false
+is_placement_part_of_p_o_exposure false
+is_placement_rejected false
+is_placement_taken_to_super_profit false
+is_placement_temporary false
+is_reason_required_to_change_to false
+is_attachment_required_to_change_to false
+is_default false
+eis_sync_date "2014-12-25 16:41:13"
+is_active false
+media_category nil
+is_placement_disputed false
+is_placement_reviewed false
+is_placement_awaiting_client_material false
+company_division nil
+is_placement_billable false
+  end
+
+end

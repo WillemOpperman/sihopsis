@@ -1,0 +1,73 @@
+.page-header
+  %h3
+    Media_space_part_targets
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_space_part_targets_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_space_part_targets_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_space_part_targets_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Media space part
+          %th
+            Media target
+          %th
+            Is active
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @media_space_part_targets.each do |media_space_part_target|
+          %tr
+            %td
+              = media_space_part_target.uid
+            %td
+              = media_space_part_target.code
+            %td
+              = media_space_part_target.media_space_part
+            %td
+              = media_space_part_target.media_target
+            %td
+              = media_space_part_target.is_active
+            %td
+              = media_space_part_target.eis_sync_date
+            %td
+              .btn-group
+                = link_to media_space_part_target, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_space_part_target_path(media_space_part_target), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_space_part_target, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_space_part_targets)
+
+  #new.tab-pane
+    = render 'form'

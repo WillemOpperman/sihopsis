@@ -1,0 +1,401 @@
+.page-header
+  %h3
+    Supplier_financial_documents
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), supplier_financial_documents_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), supplier_financial_documents_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => supplier_financial_documents_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Company
+          %th
+            Company division
+          %th
+            Supplier
+          %th
+            Related
+          %th
+            Media category
+          %th
+            Owner user
+          %th
+            Media space
+          %th
+            Media space part name
+          %th
+            Currency
+          %th
+            Creation source
+          %th
+            Status
+          %th
+            Communication status
+          %th
+            Actual date
+          %th
+            Posting date
+          %th
+            Range start date
+          %th
+            Range end date
+          %th
+            Tax type
+          %th
+            Exchange rate
+          %th
+            Payable gross amount
+          %th
+            Payable gross home amount
+          %th
+            Payable commission amount
+          %th
+            Payable commission home amount
+          %th
+            Payable nett amount
+          %th
+            Payable nett home amount
+          %th
+            Payable intermediary margin amount
+          %th
+            Payable intermediary margin home amount
+          %th
+            Payable actual nett amount
+          %th
+            Payable actual nett home amount
+          %th
+            Payable actual nett tax amount
+          %th
+            Payable actual nett tax home amount
+          %th
+            Payable actual nett inc tax amount
+          %th
+            Payable actual nett inc tax home amount
+          %th
+            Wanted gross amount
+          %th
+            Wanted home gross amount
+          %th
+            Wanted commission amount
+          %th
+            Wanted commission home amount
+          %th
+            Wanted nett amount
+          %th
+            Wanted nett home amount
+          %th
+            Wanted intermediary margin amount
+          %th
+            Wanted intermediary margin home amount
+          %th
+            Wanted actual nett amount
+          %th
+            Wanted actual nett home amount
+          %th
+            Wanted actual nett tax amount
+          %th
+            Wanted actual nett tax home amount
+          %th
+            Wanted actual nett inc tax amount
+          %th
+            Wanted actual nett inc tax home amount
+          %th
+            Recon gross amount
+          %th
+            Recon gross home amount
+          %th
+            Recon gross tax amount
+          %th
+            Recon gross tax home amount
+          %th
+            Recon gross inc tax amount
+          %th
+            Recon gross inc tax home amount
+          %th
+            Recon commission percentage
+          %th
+            Recon commission amount
+          %th
+            Recon commission home amount
+          %th
+            Recon nett amount
+          %th
+            Recon nett home amount
+          %th
+            Recon nett tax amount
+          %th
+            Recon nett tax home amount
+          %th
+            Recon nett inc tax amount
+          %th
+            Recon nett inc tax home amount
+          %th
+            Recon intermediary margin percentage
+          %th
+            Recon intermediary margin amount
+          %th
+            Recon intermediary margin home amount
+          %th
+            Recon actual nett amount
+          %th
+            Recon actual nett home amount
+          %th
+            Recon actual nett tax amount
+          %th
+            Recon actual nett tax home amount
+          %th
+            Recon actual nett inc tax amount
+          %th
+            Recon actual nett inc tax home amount
+          %th
+            Provision gross home amount
+          %th
+            Provision commission home amount
+          %th
+            Provision nett home amount
+          %th
+            Notes
+          %th
+            Campaign schedule placement code
+          %th
+            Campaign code
+          %th
+            Media space contract code
+          %th
+            Client invoice code
+          %th
+            Advert no
+          %th
+            Supplier order request code
+          %th
+            Supplier order code
+          %th
+            Client search name
+          %th
+            Status reason
+          %th
+            Grid layout x m l
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @supplier_financial_documents.each do |supplier_financial_document|
+          %tr
+            %td
+              = supplier_financial_document.uid
+            %td
+              = supplier_financial_document.code
+            %td
+              = supplier_financial_document.code_external
+            %td
+              = supplier_financial_document.company
+            %td
+              = supplier_financial_document.company_division
+            %td
+              = supplier_financial_document.supplier
+            %td
+              = supplier_financial_document.related
+            %td
+              = supplier_financial_document.media_category
+            %td
+              = supplier_financial_document.owner_user
+            %td
+              = supplier_financial_document.media_space
+            %td
+              = supplier_financial_document.media_space_part_name
+            %td
+              = supplier_financial_document.currency
+            %td
+              = supplier_financial_document.creation_source
+            %td
+              = supplier_financial_document.status
+            %td
+              = supplier_financial_document.communication_status
+            %td
+              = supplier_financial_document.actual_date
+            %td
+              = supplier_financial_document.posting_date
+            %td
+              = supplier_financial_document.range_start_date
+            %td
+              = supplier_financial_document.range_end_date
+            %td
+              = supplier_financial_document.tax_type
+            %td
+              = supplier_financial_document.exchange_rate
+            %td
+              = supplier_financial_document.payable_gross_amount
+            %td
+              = supplier_financial_document.payable_gross_home_amount
+            %td
+              = supplier_financial_document.payable_commission_amount
+            %td
+              = supplier_financial_document.payable_commission_home_amount
+            %td
+              = supplier_financial_document.payable_nett_amount
+            %td
+              = supplier_financial_document.payable_nett_home_amount
+            %td
+              = supplier_financial_document.payable_intermediary_margin_amount
+            %td
+              = supplier_financial_document.payable_intermediary_margin_home_amount
+            %td
+              = supplier_financial_document.payable_actual_nett_amount
+            %td
+              = supplier_financial_document.payable_actual_nett_home_amount
+            %td
+              = supplier_financial_document.payable_actual_nett_tax_amount
+            %td
+              = supplier_financial_document.payable_actual_nett_tax_home_amount
+            %td
+              = supplier_financial_document.payable_actual_nett_inc_tax_amount
+            %td
+              = supplier_financial_document.payable_actual_nett_inc_tax_home_amount
+            %td
+              = supplier_financial_document.wanted_gross_amount
+            %td
+              = supplier_financial_document.wanted_home_gross_amount
+            %td
+              = supplier_financial_document.wanted_commission_amount
+            %td
+              = supplier_financial_document.wanted_commission_home_amount
+            %td
+              = supplier_financial_document.wanted_nett_amount
+            %td
+              = supplier_financial_document.wanted_nett_home_amount
+            %td
+              = supplier_financial_document.wanted_intermediary_margin_amount
+            %td
+              = supplier_financial_document.wanted_intermediary_margin_home_amount
+            %td
+              = supplier_financial_document.wanted_actual_nett_amount
+            %td
+              = supplier_financial_document.wanted_actual_nett_home_amount
+            %td
+              = supplier_financial_document.wanted_actual_nett_tax_amount
+            %td
+              = supplier_financial_document.wanted_actual_nett_tax_home_amount
+            %td
+              = supplier_financial_document.wanted_actual_nett_inc_tax_amount
+            %td
+              = supplier_financial_document.wanted_actual_nett_inc_tax_home_amount
+            %td
+              = supplier_financial_document.recon_gross_amount
+            %td
+              = supplier_financial_document.recon_gross_home_amount
+            %td
+              = supplier_financial_document.recon_gross_tax_amount
+            %td
+              = supplier_financial_document.recon_gross_tax_home_amount
+            %td
+              = supplier_financial_document.recon_gross_inc_tax_amount
+            %td
+              = supplier_financial_document.recon_gross_inc_tax_home_amount
+            %td
+              = supplier_financial_document.recon_commission_percentage
+            %td
+              = supplier_financial_document.recon_commission_amount
+            %td
+              = supplier_financial_document.recon_commission_home_amount
+            %td
+              = supplier_financial_document.recon_nett_amount
+            %td
+              = supplier_financial_document.recon_nett_home_amount
+            %td
+              = supplier_financial_document.recon_nett_tax_amount
+            %td
+              = supplier_financial_document.recon_nett_tax_home_amount
+            %td
+              = supplier_financial_document.recon_nett_inc_tax_amount
+            %td
+              = supplier_financial_document.recon_nett_inc_tax_home_amount
+            %td
+              = supplier_financial_document.recon_intermediary_margin_percentage
+            %td
+              = supplier_financial_document.recon_intermediary_margin_amount
+            %td
+              = supplier_financial_document.recon_intermediary_margin_home_amount
+            %td
+              = supplier_financial_document.recon_actual_nett_amount
+            %td
+              = supplier_financial_document.recon_actual_nett_home_amount
+            %td
+              = supplier_financial_document.recon_actual_nett_tax_amount
+            %td
+              = supplier_financial_document.recon_actual_nett_tax_home_amount
+            %td
+              = supplier_financial_document.recon_actual_nett_inc_tax_amount
+            %td
+              = supplier_financial_document.recon_actual_nett_inc_tax_home_amount
+            %td
+              = supplier_financial_document.provision_gross_home_amount
+            %td
+              = supplier_financial_document.provision_commission_home_amount
+            %td
+              = supplier_financial_document.provision_nett_home_amount
+            %td
+              = supplier_financial_document.notes
+            %td
+              = supplier_financial_document.campaign_schedule_placement_code
+            %td
+              = supplier_financial_document.campaign_code
+            %td
+              = supplier_financial_document.media_space_contract_code
+            %td
+              = supplier_financial_document.client_invoice_code
+            %td
+              = supplier_financial_document.advert_no
+            %td
+              = supplier_financial_document.supplier_order_request_code
+            %td
+              = supplier_financial_document.supplier_order_code
+            %td
+              = supplier_financial_document.client_search_name
+            %td
+              = supplier_financial_document.status_reason
+            %td
+              = supplier_financial_document.grid_layout_x_m_l
+            %td
+              = supplier_financial_document.eis_sync_date
+            %td
+              .btn-group
+                = link_to supplier_financial_document, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_supplier_financial_document_path(supplier_financial_document), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to supplier_financial_document, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@supplier_financial_documents)
+
+  #new.tab-pane
+    = render 'form'

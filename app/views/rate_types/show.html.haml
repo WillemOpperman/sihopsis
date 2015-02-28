@@ -1,0 +1,111 @@
+.page-header
+  %h3
+    Rate_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to rate_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_rate_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_rate_type_path(@rate_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @rate_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @rate_type.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @rate_type.name
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @rate_type.media_category
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @rate_type.is_default
+        .row-fluid
+          .span2
+            %b
+              Is calculated as rate x size x columns
+          .span10
+            = @rate_type.is_calculated_as_rate_x_size_x_columns
+        .row-fluid
+          .span2
+            %b
+              Is calculated as rate x size x columns over quantity per unit rate x quantity
+          .span10
+            = @rate_type.is_calculated_as_rate_x_size_x_columns_over_quantity_per_unit_rate_x_quantity
+        .row-fluid
+          .span2
+            %b
+              Is calculated as rate over quantity per unit rate x quantity
+          .span10
+            = @rate_type.is_calculated_as_rate_over_quantity_per_unit_rate_x_quantity
+        .row-fluid
+          .span2
+            %b
+              Is added value
+          .span10
+            = @rate_type.is_added_value
+        .row-fluid
+          .span2
+            %b
+              Default quantity per unit rate
+          .span10
+            = @rate_type.default_quantity_per_unit_rate
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @rate_type.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @rate_type.is_active
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@rate_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@rate_type.updated_at)

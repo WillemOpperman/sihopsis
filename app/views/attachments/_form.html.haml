@@ -1,0 +1,19 @@
+= simple_form_for(@attachment, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :type
+    = f.input :is_stored_in_document_share
+    = f.input :file_path
+    = f.input :description
+    = f.association :item_entity_view
+    = f.association :related_item
+    = f.input :is_auto_attached_when_parent_is_emailed
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @attachment,
+               :cancel => attachments_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

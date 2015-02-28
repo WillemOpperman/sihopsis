@@ -1,0 +1,16 @@
+= simple_form_for(@creation_source, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_user
+    = f.input :is_user_import
+    = f.input :is_system_import
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @creation_source,
+               :cancel => creation_sources_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

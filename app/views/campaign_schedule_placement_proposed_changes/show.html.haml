@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_proposed_changes
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_proposed_changes_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_proposed_change_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_proposed_change_path(@campaign_schedule_placement_proposed_change) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_proposed_change.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_proposed_change.code
+        .row-fluid
+          .span2
+            %b
+              Original campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_proposed_change.original_campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Proposed campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_proposed_change.proposed_campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Proposed user
+          .span10
+            = @campaign_schedule_placement_proposed_change.proposed_user
+        .row-fluid
+          .span2
+            %b
+              Approval user
+          .span10
+            = @campaign_schedule_placement_proposed_change.approval_user
+        .row-fluid
+          .span2
+            %b
+              Is cancellation request
+          .span10
+            = @campaign_schedule_placement_proposed_change.is_cancellation_request
+        .row-fluid
+          .span2
+            %b
+              Is approved
+          .span10
+            = @campaign_schedule_placement_proposed_change.is_approved
+        .row-fluid
+          .span2
+            %b
+              Is rejected
+          .span10
+            = @campaign_schedule_placement_proposed_change.is_rejected
+        .row-fluid
+          .span2
+            %b
+              Status reason
+          .span10
+            = @campaign_schedule_placement_proposed_change.status_reason
+        .row-fluid
+          .span2
+            %b
+              Status date
+          .span10
+            = @campaign_schedule_placement_proposed_change.status_date
+        .row-fluid
+          .span2
+            %b
+              Change reason
+          .span10
+            = @campaign_schedule_placement_proposed_change.change_reason
+        .row-fluid
+          .span2
+            %b
+              Is closed
+          .span10
+            = @campaign_schedule_placement_proposed_change.is_closed
+        .row-fluid
+          .span2
+            %b
+              Client financial document line
+          .span10
+            = @campaign_schedule_placement_proposed_change.client_financial_document_line
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_proposed_change.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_proposed_change.updated_at)

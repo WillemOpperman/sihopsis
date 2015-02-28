@@ -1,0 +1,17 @@
+= simple_form_for(@campaign_schedule_placement_client_material, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :campaign_schedule_placement
+    = f.association :client_material
+    = f.input :is_primary
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_client_material,
+               :cancel => campaign_schedule_placement_client_materials_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,23 @@
+= simple_form_for(@rate_card, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :specific_company_division
+    = f.association :supplier_group
+    = f.association :supplier
+    = f.association :media_space
+    = f.association :client_group
+    = f.association :client
+    = f.association :client_product
+    = f.input :is_active
+    = f.input :start_date
+    = f.input :expiry_date
+    = f.association :supplier_contact
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @rate_card,
+               :cancel => rate_cards_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

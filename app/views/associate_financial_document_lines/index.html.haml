@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Associate_financial_document_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), associate_financial_document_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), associate_financial_document_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => associate_financial_document_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Associate financial document
+          %th
+            Client financial document line
+          %th
+            Campaign schedule placement
+          %th
+            Client commission deal associate member
+          %th
+            Client billing setting line
+          %th
+            Media category
+          %th
+            Amount
+          %th
+            Amount home
+          %th
+            Tax amount
+          %th
+            Amount inc tax amount
+          %th
+            Amount inc tax home amount
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @associate_financial_document_lines.each do |associate_financial_document_line|
+          %tr
+            %td
+              = associate_financial_document_line.uid
+            %td
+              = associate_financial_document_line.code
+            %td
+              = associate_financial_document_line.associate_financial_document
+            %td
+              = associate_financial_document_line.client_financial_document_line
+            %td
+              = associate_financial_document_line.campaign_schedule_placement
+            %td
+              = associate_financial_document_line.client_commission_deal_associate_member
+            %td
+              = associate_financial_document_line.client_billing_setting_line
+            %td
+              = associate_financial_document_line.media_category
+            %td
+              = associate_financial_document_line.amount
+            %td
+              = associate_financial_document_line.amount_home
+            %td
+              = associate_financial_document_line.tax_amount
+            %td
+              = associate_financial_document_line.amount_inc_tax_amount
+            %td
+              = associate_financial_document_line.amount_inc_tax_home_amount
+            %td
+              = associate_financial_document_line.eis_sync_date
+            %td
+              .btn-group
+                = link_to associate_financial_document_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_associate_financial_document_line_path(associate_financial_document_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to associate_financial_document_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@associate_financial_document_lines)
+
+  #new.tab-pane
+    = render 'form'

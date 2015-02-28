@@ -1,0 +1,129 @@
+.page-header
+  %h3
+    Media_spaces
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_spaces_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_path(@media_space) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_space.name
+        .row-fluid
+          .span2
+            %b
+              Media owner
+          .span10
+            = @media_space.media_owner
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @media_space.media_category
+        .row-fluid
+          .span2
+            %b
+              Frequency type
+          .span10
+            = @media_space.frequency_type
+        .row-fluid
+          .span2
+            %b
+              Is arbitrage
+          .span10
+            = @media_space.is_arbitrage
+        .row-fluid
+          .span2
+            %b
+              Default material deadline days
+          .span10
+            = @media_space.default_material_deadline_days
+        .row-fluid
+          .span2
+            %b
+              Default cancellation days
+          .span10
+            = @media_space.default_cancellation_days
+        .row-fluid
+          .span2
+            %b
+              Business unit
+          .span10
+            = @media_space.business_unit
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @media_space.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_space.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_space.is_active
+        .row-fluid
+          .span2
+            %b
+              M b r integration export prover
+          .span10
+            = @media_space.m_b_r_integration_export_prover
+        .row-fluid
+          .span2
+            %b
+              M i integration export prover
+          .span10
+            = @media_space.m_i_integration_export_prover
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space.updated_at)

@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Tax_types
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), tax_types_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), tax_types_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => tax_types_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Creation source
+          %th
+            Tax rate
+          %th
+            Is locked
+          %th
+            Is active
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @tax_types.each do |tax_type|
+          %tr
+            %td
+              = tax_type.uid
+            %td
+              = tax_type.code
+            %td
+              = tax_type.name
+            %td
+              = tax_type.creation_source
+            %td
+              = tax_type.tax_rate
+            %td
+              = tax_type.is_locked
+            %td
+              = tax_type.is_active
+            %td
+              = tax_type.eis_sync_date
+            %td
+              .btn-group
+                = link_to tax_type, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_tax_type_path(tax_type), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to tax_type, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@tax_types)
+
+  #new.tab-pane
+    = render 'form'

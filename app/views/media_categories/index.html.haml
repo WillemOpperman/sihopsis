@@ -1,0 +1,121 @@
+.page-header
+  %h3
+    Media_categories
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_categories_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_categories_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_categories_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Name
+          %th
+            Type
+          %th
+            Parent
+          %th
+            G l acc no media rev by media type
+          %th
+            G l acc no media billing control
+          %th
+            G l acc no commission revenue
+          %th
+            G l acc no commission revenue rebate to client
+          %th
+            G l acc no commission to associates expense
+          %th
+            Default material deadline days
+          %th
+            Default cancellation days
+          %th
+            Colour
+          %th
+            Default d p i e i s service prover
+          %th
+            Eis sync date
+          %th
+            Default media advert source
+          %th
+            Is active
+          %th.button3
+      %tbody
+        - @media_categories.each do |media_category|
+          %tr
+            %td
+              = media_category.uid
+            %td
+              = media_category.code
+            %td
+              = media_category.code_external
+            %td
+              = media_category.name
+            %td
+              = media_category.type
+            %td
+              = media_category.parent
+            %td
+              = media_category.g_l_acc_no_media_rev_by_media_type
+            %td
+              = media_category.g_l_acc_no_media_billing_control
+            %td
+              = media_category.g_l_acc_no_commission_revenue
+            %td
+              = media_category.g_l_acc_no_commission_revenue_rebate_to_client
+            %td
+              = media_category.g_l_acc_no_commission_to_associates_expense
+            %td
+              = media_category.default_material_deadline_days
+            %td
+              = media_category.default_cancellation_days
+            %td
+              = media_category.colour
+            %td
+              = media_category.default_d_p_i_e_i_s_service_prover
+            %td
+              = media_category.eis_sync_date
+            %td
+              = media_category.default_media_advert_source
+            %td
+              = media_category.is_active
+            %td
+              .btn-group
+                = link_to media_category, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_category_path(media_category), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_category, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_categories)
+
+  #new.tab-pane
+    = render 'form'

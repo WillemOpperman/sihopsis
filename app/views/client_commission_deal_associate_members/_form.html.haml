@@ -1,0 +1,16 @@
+= simple_form_for(@client_commission_deal_associate_member, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :client_commission_deal
+    = f.association :associate
+    = f.association :associate_product
+    = f.input :member_commission_split_percentage
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_commission_deal_associate_member,
+               :cancel => client_commission_deal_associate_members_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

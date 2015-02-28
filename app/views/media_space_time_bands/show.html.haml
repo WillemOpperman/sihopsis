@@ -1,0 +1,117 @@
+.page-header
+  %h3
+    Media_space_time_bands
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_space_time_bands_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_time_band_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_time_band_path(@media_space_time_band) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space_time_band.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space_time_band.code
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @media_space_time_band.media_space
+        .row-fluid
+          .span2
+            %b
+              Time band name
+          .span10
+            = @media_space_time_band.time_band_name
+        .row-fluid
+          .span2
+            %b
+              From time
+          .span10
+            = @media_space_time_band.from_time
+        .row-fluid
+          .span2
+            %b
+              To time
+          .span10
+            = @media_space_time_band.to_time
+        .row-fluid
+          .span2
+            %b
+              Is monday
+          .span10
+            = @media_space_time_band.is_monday
+        .row-fluid
+          .span2
+            %b
+              Is tuesday
+          .span10
+            = @media_space_time_band.is_tuesday
+        .row-fluid
+          .span2
+            %b
+              Is wednesday
+          .span10
+            = @media_space_time_band.is_wednesday
+        .row-fluid
+          .span2
+            %b
+              Is thursday
+          .span10
+            = @media_space_time_band.is_thursday
+        .row-fluid
+          .span2
+            %b
+              Is friday
+          .span10
+            = @media_space_time_band.is_friday
+        .row-fluid
+          .span2
+            %b
+              Is saturday
+          .span10
+            = @media_space_time_band.is_saturday
+        .row-fluid
+          .span2
+            %b
+              Is sunday
+          .span10
+            = @media_space_time_band.is_sunday
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_time_band.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_time_band.updated_at)

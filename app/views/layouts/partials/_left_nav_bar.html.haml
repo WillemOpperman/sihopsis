@@ -1,0 +1,18 @@
+%ul.nav.navbar-nav
+  %li
+    -# Button used to collapse the left sidebar. Only visible on tablet and desktops
+    %a.hidden-xs{:href => "#", "ng-click" => "app.layout.isCollapsed = !app.layout.isCollapsed"}
+      %span{:class => icon_class('navicon')}
+    -# Button to show/hide the sidebar on mobile. Visible on mobile only.
+    %a.visible-xs.sidebar-toggle{:href => "#", "no-persist" => "no-persist", "toggle-state" => "aside-toggled"}
+      %span{:class => icon_class('navicon')}
+  -# START User avatar toggle
+  %li
+    -# Button used to collapse the left sidebar. Only visible on tablet and desktops
+    %a{:href => "#", "ng-click" => "toggleUserBlock()"}
+      %span{:class => icon_class('user')}
+  -# END User avatar toggle
+  -# START lock screen
+  %li
+    = link_to lock_session_path, :title => 'Lock screen' do
+      = icon_tag('lock')

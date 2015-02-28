@@ -1,0 +1,21 @@
+= simple_form_for(@media_target, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :type
+    = f.input :rate_increase_percentage
+    = f.input :rate_increase_amount
+    = f.input :range_from_amount
+    = f.input :range_to_amount
+    = f.input :is_name_auto_maintained
+    = f.input :is_active
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_target,
+               :cancel => media_targets_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,249 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_production_costs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_production_costs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_production_cost_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_production_cost_path(@campaign_schedule_placement_production_cost) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_production_cost.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_production_cost.code
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_production_cost.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @campaign_schedule_placement_production_cost.supplier
+        .row-fluid
+          .span2
+            %b
+              Supplier contact
+          .span10
+            = @campaign_schedule_placement_production_cost.supplier_contact
+        .row-fluid
+          .span2
+            %b
+              Production cost type
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_type
+        .row-fluid
+          .span2
+            %b
+              Unit cost amount
+          .span10
+            = @campaign_schedule_placement_production_cost.unit_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Units
+          .span10
+            = @campaign_schedule_placement_production_cost.units
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Ordered production cost amount to date
+          .span10
+            = @campaign_schedule_placement_production_cost.ordered_production_cost_amount_to_date
+        .row-fluid
+          .span2
+            %b
+              Ordered production cost amount to date home
+          .span10
+            = @campaign_schedule_placement_production_cost.ordered_production_cost_amount_to_date_home
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced production cost to date amount
+          .span10
+            = @campaign_schedule_placement_production_cost.supplier_invoiced_production_cost_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced production cost to date home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.supplier_invoiced_production_cost_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin percentage
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Production cost margin amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production client billable amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_billable_amount
+        .row-fluid
+          .span2
+            %b
+              Production client billable home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_billable_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production client billable inc tax amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_billable_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Production client billable inc tax home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_billable_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin to date amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_margin_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin to date home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_cost_margin_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production client invoiced to date amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_invoiced_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Production client invoiced to date home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_invoiced_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production client invoiced inc tax to date amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_invoiced_inc_tax_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Production client invoiced inc tax to date home amount
+          .span10
+            = @campaign_schedule_placement_production_cost.production_client_invoiced_inc_tax_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @campaign_schedule_placement_production_cost.tax_type
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @campaign_schedule_placement_production_cost.currency
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @campaign_schedule_placement_production_cost.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @campaign_schedule_placement_production_cost.notes
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @campaign_schedule_placement_production_cost.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_production_cost.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Material production date
+          .span10
+            = @campaign_schedule_placement_production_cost.material_production_date
+        .row-fluid
+          .span2
+            %b
+              Quantity per unit cost
+          .span10
+            = @campaign_schedule_placement_production_cost.quantity_per_unit_cost
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_production_cost.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_production_cost.updated_at)

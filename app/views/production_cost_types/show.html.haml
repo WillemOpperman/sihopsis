@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Production_cost_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to production_cost_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_production_cost_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_production_cost_type_path(@production_cost_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @production_cost_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @production_cost_type.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @production_cost_type.name
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @production_cost_type.currency
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @production_cost_type.supplier
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @production_cost_type.company
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @production_cost_type.company_division
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @production_cost_type.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @production_cost_type.client_product
+        .row-fluid
+          .span2
+            %b
+              Unit cost amount
+          .span10
+            = @production_cost_type.unit_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin percentage
+          .span10
+            = @production_cost_type.production_cost_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @production_cost_type.is_active
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @production_cost_type.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @production_cost_type.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_cost_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_cost_type.updated_at)

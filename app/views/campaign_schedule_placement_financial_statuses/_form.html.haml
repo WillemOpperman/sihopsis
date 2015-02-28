@@ -1,0 +1,19 @@
+= simple_form_for(@campaign_schedule_placement_financial_status, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_placement_active
+    = f.input :is_placement_billed
+    = f.input :is_placement_amended
+    = f.input :is_placement_transitioning
+    = f.input :is_reason_required_to_change_to
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_financial_status,
+               :cancel => campaign_schedule_placement_financial_statuses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,161 @@
+.page-header
+  %h3
+    Client_cost_estimates
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_cost_estimates_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_cost_estimates_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_cost_estimates_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Company
+          %th
+            Company division
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Campaign
+          %th
+            Campaign schedule
+          %th
+            Client contact
+          %th
+            Owner user
+          %th
+            Currency
+          %th
+            Creation source
+          %th
+            Status
+          %th
+            Communication status
+          %th
+            Actual date
+          %th
+            Gross amount
+          %th
+            Commission amount
+          %th
+            Nett amount
+          %th
+            Tax type
+          %th
+            Tax gross amount
+          %th
+            Tax nett amount
+          %th
+            Exchange rate
+          %th
+            Notes
+          %th
+            Status reason
+          %th
+            Grid layout x m l
+          %th
+            Eis sync date
+          %th
+            Revision no
+          %th.button3
+      %tbody
+        - @client_cost_estimates.each do |client_cost_estimate|
+          %tr
+            %td
+              = client_cost_estimate.uid
+            %td
+              = client_cost_estimate.code
+            %td
+              = client_cost_estimate.code_external
+            %td
+              = client_cost_estimate.company
+            %td
+              = client_cost_estimate.company_division
+            %td
+              = client_cost_estimate.client
+            %td
+              = client_cost_estimate.client_product
+            %td
+              = client_cost_estimate.campaign
+            %td
+              = client_cost_estimate.campaign_schedule
+            %td
+              = client_cost_estimate.client_contact
+            %td
+              = client_cost_estimate.owner_user
+            %td
+              = client_cost_estimate.currency
+            %td
+              = client_cost_estimate.creation_source
+            %td
+              = client_cost_estimate.status
+            %td
+              = client_cost_estimate.communication_status
+            %td
+              = client_cost_estimate.actual_date
+            %td
+              = client_cost_estimate.gross_amount
+            %td
+              = client_cost_estimate.commission_amount
+            %td
+              = client_cost_estimate.nett_amount
+            %td
+              = client_cost_estimate.tax_type
+            %td
+              = client_cost_estimate.tax_gross_amount
+            %td
+              = client_cost_estimate.tax_nett_amount
+            %td
+              = client_cost_estimate.exchange_rate
+            %td
+              = client_cost_estimate.notes
+            %td
+              = client_cost_estimate.status_reason
+            %td
+              = client_cost_estimate.grid_layout_x_m_l
+            %td
+              = client_cost_estimate.eis_sync_date
+            %td
+              = client_cost_estimate.revision_no
+            %td
+              .btn-group
+                = link_to client_cost_estimate, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_cost_estimate_path(client_cost_estimate), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_cost_estimate, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_cost_estimates)
+
+  #new.tab-pane
+    = render 'form'

@@ -1,0 +1,32 @@
+= simple_form_for(@client_purchase_order, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :code_external
+    = f.input :description
+    = f.association :client
+    = f.association :client_product
+    = f.association :status
+    = f.input :gross_amount
+    = f.input :commission_amount
+    = f.input :nett_amount
+    = f.input :order_date
+    = f.input :order_expiry_date
+    = f.association :owner_user
+    = f.association :related
+    = f.association :creation_source
+    = f.input :eis_sync_date
+    = f.association :currency
+    = f.input :exchange_rate
+    = f.input :gross_home_amount
+    = f.input :commission_home_amount
+    = f.input :nett_home_amount
+    = f.input :pre_billing_manual_client_financial_document_code
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_purchase_order,
+               :cancel => client_purchase_orders_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

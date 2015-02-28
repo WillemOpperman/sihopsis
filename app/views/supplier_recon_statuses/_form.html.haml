@@ -1,0 +1,19 @@
+= simple_form_for(@supplier_recon_status, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_active
+    = f.input :is_cancelled
+    = f.input :is_on_hold
+    = f.input :is_approved
+    = f.input :is_default
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_recon_status,
+               :cancel => supplier_recon_statuses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

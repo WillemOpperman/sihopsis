@@ -1,0 +1,1 @@
+json.extract! @client_financial_document_line_discount_line, :id, :uid, :code, :client_financial_document_line_id, :discount_amount, :discount_home_amount, :discount_to_client_amount, :discount_to_client_home_amount, :eis_sync_date, :created_at, :updated_at

@@ -1,0 +1,1 @@
+json.extract! @client_financial_document_line_fee_line, :id, :uid, :code, :client_financial_document_line_id, :campaign_schedule_placement_fee_line_id, :fee_amount, :fee_home_amount, :eis_sync_date, :created_at, :updated_at

@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Supplier_financial_document_payment_receipts
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_financial_document_payment_receipts_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_financial_document_payment_receipt_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_financial_document_payment_receipt_path(@supplier_financial_document_payment_receipt) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_financial_document_payment_receipt.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_financial_document_payment_receipt.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @supplier_financial_document_payment_receipt.name
+        .row-fluid
+          .span2
+            %b
+              Supplier financial document
+          .span10
+            = @supplier_financial_document_payment_receipt.supplier_financial_document
+        .row-fluid
+          .span2
+            %b
+              Payment receipt
+          .span10
+            = @supplier_financial_document_payment_receipt.payment_receipt
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier_financial_document_payment_receipt.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_financial_document_payment_receipt.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_financial_document_payment_receipt.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_financial_document_payment_receipt.updated_at)

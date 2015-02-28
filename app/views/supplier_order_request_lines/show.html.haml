@@ -1,0 +1,147 @@
+.page-header
+  %h3
+    Supplier_order_request_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_order_request_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_order_request_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_order_request_line_path(@supplier_order_request_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_order_request_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_order_request_line.code
+        .row-fluid
+          .span2
+            %b
+              Revision no
+          .span10
+            = @supplier_order_request_line.revision_no
+        .row-fluid
+          .span2
+            %b
+              Supplier order request
+          .span10
+            = @supplier_order_request_line.supplier_order_request
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @supplier_order_request_line.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Order gross amount
+          .span10
+            = @supplier_order_request_line.order_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Order commission amount
+          .span10
+            = @supplier_order_request_line.order_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Order nett amount
+          .span10
+            = @supplier_order_request_line.order_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Commission percent
+          .span10
+            = @supplier_order_request_line.commission_percent
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_order_request_line.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Order gross amount home
+          .span10
+            = @supplier_order_request_line.order_gross_amount_home
+        .row-fluid
+          .span2
+            %b
+              Order commission amount home
+          .span10
+            = @supplier_order_request_line.order_commission_amount_home
+        .row-fluid
+          .span2
+            %b
+              Order nett amount home
+          .span10
+            = @supplier_order_request_line.order_nett_amount_home
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @supplier_order_request_line.is_active
+        .row-fluid
+          .span2
+            %b
+              Is changed in current revision
+          .span10
+            = @supplier_order_request_line.is_changed_in_current_revision
+        .row-fluid
+          .span2
+            %b
+              Revision change details
+          .span10
+            = @supplier_order_request_line.revision_change_details
+        .row-fluid
+          .span2
+            %b
+              Change reason
+          .span10
+            = @supplier_order_request_line.change_reason
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @supplier_order_request_line.notes
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_order_request_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_order_request_line.updated_at)

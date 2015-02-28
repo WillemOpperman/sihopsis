@@ -1,0 +1,23 @@
+= simple_form_for(@campaign_schedule_placement_cost_allocation_split, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :campaign_schedule_placement
+    = f.association :company_cost_centre
+    = f.association :company_accounting_period
+    = f.input :split_percentage
+    = f.input :is_taken
+    = f.input :taken_date_time
+    = f.association :creation_source
+    = f.input :eis_sync_date
+    = f.association :additional_company_cost_centre
+    = f.association :journals_document_line
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_cost_allocation_split,
+               :cancel => campaign_schedule_placement_cost_allocation_splits_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

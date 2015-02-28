@@ -1,0 +1,315 @@
+.page-header
+  %h3
+    Supplier_recon_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_recon_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_recon_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_recon_line_path(@supplier_recon_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_recon_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_recon_line.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @supplier_recon_line.name
+        .row-fluid
+          .span2
+            %b
+              Supplier recon
+          .span10
+            = @supplier_recon_line.supplier_recon
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @supplier_recon_line.supplier
+        .row-fluid
+          .span2
+            %b
+              Supplier financial document line
+          .span10
+            = @supplier_recon_line.supplier_financial_document_line
+        .row-fluid
+          .span2
+            %b
+              Production supplier financial document line
+          .span10
+            = @supplier_recon_line.production_supplier_financial_document_line
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @supplier_recon_line.notes
+        .row-fluid
+          .span2
+            %b
+              Media payable gross amount
+          .span10
+            = @supplier_recon_line.media_payable_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable gross home amount
+          .span10
+            = @supplier_recon_line.media_payable_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable commission amount
+          .span10
+            = @supplier_recon_line.media_payable_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable commission home amount
+          .span10
+            = @supplier_recon_line.media_payable_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable nett amount
+          .span10
+            = @supplier_recon_line.media_payable_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable nett home amount
+          .span10
+            = @supplier_recon_line.media_payable_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable intermediary margin amount
+          .span10
+            = @supplier_recon_line.media_payable_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable intermediary margin home amount
+          .span10
+            = @supplier_recon_line.media_payable_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable actual nett amount
+          .span10
+            = @supplier_recon_line.media_payable_actual_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Media payable actual nett home amount
+          .span10
+            = @supplier_recon_line.media_payable_actual_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @supplier_recon_line.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @supplier_recon_line.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable recon amount
+          .span10
+            = @supplier_recon_line.payable_recon_amount
+        .row-fluid
+          .span2
+            %b
+              Payable recon home amount
+          .span10
+            = @supplier_recon_line.payable_recon_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable recon tax amount
+          .span10
+            = @supplier_recon_line.payable_recon_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Payable recon tax home amount
+          .span10
+            = @supplier_recon_line.payable_recon_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable recon inc tax amount
+          .span10
+            = @supplier_recon_line.payable_recon_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Payable recon inc tax home amount
+          .span10
+            = @supplier_recon_line.payable_recon_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable gross amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable gross home amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable commission amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable commission home amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable nett amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable nett home amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable intermediary margin amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable intermediary margin home amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable actual nett amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_actual_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted media payable actual nett home amount
+          .span10
+            = @supplier_recon_line.wanted_media_payable_actual_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted production cost amount
+          .span10
+            = @supplier_recon_line.wanted_production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted production cost home amount
+          .span10
+            = @supplier_recon_line.wanted_production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted recon amount
+          .span10
+            = @supplier_recon_line.wanted_recon_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted recon home amount
+          .span10
+            = @supplier_recon_line.wanted_recon_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted recon tax amount
+          .span10
+            = @supplier_recon_line.wanted_recon_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted recon tax home amount
+          .span10
+            = @supplier_recon_line.wanted_recon_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted recon inc tax amount
+          .span10
+            = @supplier_recon_line.wanted_recon_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted recon inc tax home amount
+          .span10
+            = @supplier_recon_line.wanted_recon_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier_recon_line.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_recon_line.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_recon_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_recon_line.updated_at)

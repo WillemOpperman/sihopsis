@@ -1,0 +1,387 @@
+.page-header
+  %h3
+    Clients
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to clients_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_path(@client) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @client.code_external
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client.uid
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @client.name
+        .row-fluid
+          .span2
+            %b
+              Offical name
+          .span10
+            = @client.offical_name
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @client.company_division
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @client.creation_source
+        .row-fluid
+          .span2
+            %b
+              Company registration no
+          .span10
+            = @client.company_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default contact
+          .span10
+            = @client.default_contact
+        .row-fluid
+          .span2
+            %b
+              Link
+          .span10
+            = @client.link
+        .row-fluid
+          .span2
+            %b
+              Phone number
+          .span10
+            = @client.phone_number
+        .row-fluid
+          .span2
+            %b
+              Fax number
+          .span10
+            = @client.fax_number
+        .row-fluid
+          .span2
+            %b
+              E mail
+          .span10
+            = @client.e_mail
+        .row-fluid
+          .span2
+            %b
+              Postal address
+          .span10
+            = @client.postal_address
+        .row-fluid
+          .span2
+            %b
+              Physical address
+          .span10
+            = @client.physical_address
+        .row-fluid
+          .span2
+            %b
+              Payment terms
+          .span10
+            = @client.payment_terms
+        .row-fluid
+          .span2
+            %b
+              Tax registration no
+          .span10
+            = @client.tax_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default tax type
+          .span10
+            = @client.default_tax_type
+        .row-fluid
+          .span2
+            %b
+              Financial year end
+          .span10
+            = @client.financial_year_end
+        .row-fluid
+          .span2
+            %b
+              Default agency commission type
+          .span10
+            = @client.default_agency_commission_type
+        .row-fluid
+          .span2
+            %b
+              Default agency commission percentage
+          .span10
+            = @client.default_agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Default currency
+          .span10
+            = @client.default_currency
+        .row-fluid
+          .span2
+            %b
+              Default creative agency
+          .span10
+            = @client.default_creative_agency
+        .row-fluid
+          .span2
+            %b
+              Default creative agency contact
+          .span10
+            = @client.default_creative_agency_contact
+        .row-fluid
+          .span2
+            %b
+              Default media agency
+          .span10
+            = @client.default_media_agency
+        .row-fluid
+          .span2
+            %b
+              Default media agency contact
+          .span10
+            = @client.default_media_agency_contact
+        .row-fluid
+          .span2
+            %b
+              Default natural
+          .span10
+            = @client.default_natural
+        .row-fluid
+          .span2
+            %b
+              Default natural contact
+          .span10
+            = @client.default_natural_contact
+        .row-fluid
+          .span2
+            %b
+              Exposure current
+          .span10
+            = @client.exposure_current
+        .row-fluid
+          .span2
+            %b
+              Exposure30
+          .span10
+            = @client.exposure30
+        .row-fluid
+          .span2
+            %b
+              Exposure60
+          .span10
+            = @client.exposure60
+        .row-fluid
+          .span2
+            %b
+              Exposure90
+          .span10
+            = @client.exposure90
+        .row-fluid
+          .span2
+            %b
+              Exposure120
+          .span10
+            = @client.exposure120
+        .row-fluid
+          .span2
+            %b
+              Exposure date modified
+          .span10
+            = @client.exposure_date_modified
+        .row-fluid
+          .span2
+            %b
+              Bank name
+          .span10
+            = @client.bank_name
+        .row-fluid
+          .span2
+            %b
+              Bank account no
+          .span10
+            = @client.bank_account_no
+        .row-fluid
+          .span2
+            %b
+              Bank branch no
+          .span10
+            = @client.bank_branch_no
+        .row-fluid
+          .span2
+            %b
+              Bank branch name
+          .span10
+            = @client.bank_branch_name
+        .row-fluid
+          .span2
+            %b
+              Media debit note name
+          .span10
+            = @client.media_debit_note_name
+        .row-fluid
+          .span2
+            %b
+              Media credit note name
+          .span10
+            = @client.media_credit_note_name
+        .row-fluid
+          .span2
+            %b
+              Is digital proof required
+          .span10
+            = @client.is_digital_proof_required
+        .row-fluid
+          .span2
+            %b
+              Is digital proof preview required
+          .span10
+            = @client.is_digital_proof_preview_required
+        .row-fluid
+          .span2
+            %b
+              Is physical proof required
+          .span10
+            = @client.is_physical_proof_required
+        .row-fluid
+          .span2
+            %b
+              Is purchase order user editable
+          .span10
+            = @client.is_purchase_order_user_editable
+        .row-fluid
+          .span2
+            %b
+              Is purchase order required to book
+          .span10
+            = @client.is_purchase_order_required_to_book
+        .row-fluid
+          .span2
+            %b
+              Is purchase order approval required to use
+          .span10
+            = @client.is_purchase_order_approval_required_to_use
+        .row-fluid
+          .span2
+            %b
+              Is purchase order amount enforced
+          .span10
+            = @client.is_purchase_order_amount_enforced
+        .row-fluid
+          .span2
+            %b
+              Type
+          .span10
+            = @client.type
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @client.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Default media advert source
+          .span10
+            = @client.default_media_advert_source
+        .row-fluid
+          .span2
+            %b
+              Default business channel
+          .span10
+            = @client.default_business_channel
+        .row-fluid
+          .span2
+            %b
+              Default billing
+          .span10
+            = @client.default_billing
+        .row-fluid
+          .span2
+            %b
+              Default billing contact
+          .span10
+            = @client.default_billing_contact
+        .row-fluid
+          .span2
+            %b
+              Default natural product
+          .span10
+            = @client.default_natural_product
+        .row-fluid
+          .span2
+            %b
+              Name2
+          .span10
+            = @client.name2
+        .row-fluid
+          .span2
+            %b
+              Is agency retained commission displayed on invoice
+          .span10
+            = @client.is_agency_retained_commission_displayed_on_invoice
+        .row-fluid
+          .span2
+            %b
+              Is placement exchange rate updated b4 billing
+          .span10
+            = @client.is_placement_exchange_rate_updated_b4_billing
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client.updated_at)

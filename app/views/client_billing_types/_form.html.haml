@@ -1,0 +1,27 @@
+= simple_form_for(@client_billing_type, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :company_division
+    = f.input :name
+    = f.association :sort_order
+    = f.input :is_split_by_client
+    = f.input :is_split_by_campaign
+    = f.input :is_split_by_campaign_schedule
+    = f.input :is_split_by_order_no
+    = f.input :is_split_by_campaign_schedule_placement
+    = f.input :is_split_by_media_space
+    = f.input :is_split_by_client_material
+    = f.input :is_split_by_week
+    = f.association :company
+    = f.input :is_default
+    = f.input :is_split_by_month
+    = f.input :is_split_by_year
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_billing_type,
+               :cancel => client_billing_types_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

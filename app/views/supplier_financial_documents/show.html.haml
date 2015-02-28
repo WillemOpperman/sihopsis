@@ -1,0 +1,567 @@
+.page-header
+  %h3
+    Supplier_financial_documents
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_financial_documents_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_financial_document_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_financial_document_path(@supplier_financial_document) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_financial_document.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_financial_document.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @supplier_financial_document.code_external
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @supplier_financial_document.company
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @supplier_financial_document.company_division
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @supplier_financial_document.supplier
+        .row-fluid
+          .span2
+            %b
+              Related
+          .span10
+            = @supplier_financial_document.related
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @supplier_financial_document.media_category
+        .row-fluid
+          .span2
+            %b
+              Owner user
+          .span10
+            = @supplier_financial_document.owner_user
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @supplier_financial_document.media_space
+        .row-fluid
+          .span2
+            %b
+              Media space part name
+          .span10
+            = @supplier_financial_document.media_space_part_name
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @supplier_financial_document.currency
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier_financial_document.creation_source
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @supplier_financial_document.status
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @supplier_financial_document.communication_status
+        .row-fluid
+          .span2
+            %b
+              Actual date
+          .span10
+            = @supplier_financial_document.actual_date
+        .row-fluid
+          .span2
+            %b
+              Posting date
+          .span10
+            = @supplier_financial_document.posting_date
+        .row-fluid
+          .span2
+            %b
+              Range start date
+          .span10
+            = @supplier_financial_document.range_start_date
+        .row-fluid
+          .span2
+            %b
+              Range end date
+          .span10
+            = @supplier_financial_document.range_end_date
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @supplier_financial_document.tax_type
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @supplier_financial_document.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Payable gross amount
+          .span10
+            = @supplier_financial_document.payable_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Payable gross home amount
+          .span10
+            = @supplier_financial_document.payable_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable commission amount
+          .span10
+            = @supplier_financial_document.payable_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Payable commission home amount
+          .span10
+            = @supplier_financial_document.payable_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable nett amount
+          .span10
+            = @supplier_financial_document.payable_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Payable nett home amount
+          .span10
+            = @supplier_financial_document.payable_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable intermediary margin amount
+          .span10
+            = @supplier_financial_document.payable_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Payable intermediary margin home amount
+          .span10
+            = @supplier_financial_document.payable_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable actual nett amount
+          .span10
+            = @supplier_financial_document.payable_actual_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Payable actual nett home amount
+          .span10
+            = @supplier_financial_document.payable_actual_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable actual nett tax amount
+          .span10
+            = @supplier_financial_document.payable_actual_nett_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Payable actual nett tax home amount
+          .span10
+            = @supplier_financial_document.payable_actual_nett_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Payable actual nett inc tax amount
+          .span10
+            = @supplier_financial_document.payable_actual_nett_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Payable actual nett inc tax home amount
+          .span10
+            = @supplier_financial_document.payable_actual_nett_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted gross amount
+          .span10
+            = @supplier_financial_document.wanted_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted home gross amount
+          .span10
+            = @supplier_financial_document.wanted_home_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted commission amount
+          .span10
+            = @supplier_financial_document.wanted_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted commission home amount
+          .span10
+            = @supplier_financial_document.wanted_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted nett amount
+          .span10
+            = @supplier_financial_document.wanted_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted nett home amount
+          .span10
+            = @supplier_financial_document.wanted_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted intermediary margin amount
+          .span10
+            = @supplier_financial_document.wanted_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted intermediary margin home amount
+          .span10
+            = @supplier_financial_document.wanted_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted actual nett amount
+          .span10
+            = @supplier_financial_document.wanted_actual_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted actual nett home amount
+          .span10
+            = @supplier_financial_document.wanted_actual_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted actual nett tax amount
+          .span10
+            = @supplier_financial_document.wanted_actual_nett_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted actual nett tax home amount
+          .span10
+            = @supplier_financial_document.wanted_actual_nett_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted actual nett inc tax amount
+          .span10
+            = @supplier_financial_document.wanted_actual_nett_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Wanted actual nett inc tax home amount
+          .span10
+            = @supplier_financial_document.wanted_actual_nett_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon gross amount
+          .span10
+            = @supplier_financial_document.recon_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Recon gross home amount
+          .span10
+            = @supplier_financial_document.recon_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon gross tax amount
+          .span10
+            = @supplier_financial_document.recon_gross_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Recon gross tax home amount
+          .span10
+            = @supplier_financial_document.recon_gross_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon gross inc tax amount
+          .span10
+            = @supplier_financial_document.recon_gross_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Recon gross inc tax home amount
+          .span10
+            = @supplier_financial_document.recon_gross_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon commission percentage
+          .span10
+            = @supplier_financial_document.recon_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Recon commission amount
+          .span10
+            = @supplier_financial_document.recon_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Recon commission home amount
+          .span10
+            = @supplier_financial_document.recon_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon nett amount
+          .span10
+            = @supplier_financial_document.recon_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Recon nett home amount
+          .span10
+            = @supplier_financial_document.recon_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon nett tax amount
+          .span10
+            = @supplier_financial_document.recon_nett_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Recon nett tax home amount
+          .span10
+            = @supplier_financial_document.recon_nett_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon nett inc tax amount
+          .span10
+            = @supplier_financial_document.recon_nett_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Recon nett inc tax home amount
+          .span10
+            = @supplier_financial_document.recon_nett_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon intermediary margin percentage
+          .span10
+            = @supplier_financial_document.recon_intermediary_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Recon intermediary margin amount
+          .span10
+            = @supplier_financial_document.recon_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Recon intermediary margin home amount
+          .span10
+            = @supplier_financial_document.recon_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon actual nett amount
+          .span10
+            = @supplier_financial_document.recon_actual_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Recon actual nett home amount
+          .span10
+            = @supplier_financial_document.recon_actual_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon actual nett tax amount
+          .span10
+            = @supplier_financial_document.recon_actual_nett_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Recon actual nett tax home amount
+          .span10
+            = @supplier_financial_document.recon_actual_nett_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Recon actual nett inc tax amount
+          .span10
+            = @supplier_financial_document.recon_actual_nett_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Recon actual nett inc tax home amount
+          .span10
+            = @supplier_financial_document.recon_actual_nett_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Provision gross home amount
+          .span10
+            = @supplier_financial_document.provision_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Provision commission home amount
+          .span10
+            = @supplier_financial_document.provision_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Provision nett home amount
+          .span10
+            = @supplier_financial_document.provision_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @supplier_financial_document.notes
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement code
+          .span10
+            = @supplier_financial_document.campaign_schedule_placement_code
+        .row-fluid
+          .span2
+            %b
+              Campaign code
+          .span10
+            = @supplier_financial_document.campaign_code
+        .row-fluid
+          .span2
+            %b
+              Media space contract code
+          .span10
+            = @supplier_financial_document.media_space_contract_code
+        .row-fluid
+          .span2
+            %b
+              Client invoice code
+          .span10
+            = @supplier_financial_document.client_invoice_code
+        .row-fluid
+          .span2
+            %b
+              Advert no
+          .span10
+            = @supplier_financial_document.advert_no
+        .row-fluid
+          .span2
+            %b
+              Supplier order request code
+          .span10
+            = @supplier_financial_document.supplier_order_request_code
+        .row-fluid
+          .span2
+            %b
+              Supplier order code
+          .span10
+            = @supplier_financial_document.supplier_order_code
+        .row-fluid
+          .span2
+            %b
+              Client search name
+          .span10
+            = @supplier_financial_document.client_search_name
+        .row-fluid
+          .span2
+            %b
+              Status reason
+          .span10
+            = @supplier_financial_document.status_reason
+        .row-fluid
+          .span2
+            %b
+              Grid layout x m l
+          .span10
+            = @supplier_financial_document.grid_layout_x_m_l
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_financial_document.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_financial_document.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_financial_document.updated_at)

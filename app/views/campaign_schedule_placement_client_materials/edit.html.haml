@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_client_materials
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_client_materials_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_client_material_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @campaign_schedule_placement_client_material do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

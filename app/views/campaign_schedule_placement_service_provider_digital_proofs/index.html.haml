@@ -1,0 +1,121 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_service_provider_digital_proofs
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), campaign_schedule_placement_service_provider_digital_proofs_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), campaign_schedule_placement_service_provider_digital_proofs_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => campaign_schedule_placement_service_provider_digital_proofs_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Uid
+          %th
+            Campaign schedule placement
+          %th
+            Service prover digital proof
+          %th
+            Service provider size
+          %th
+            Service provider columns
+          %th
+            Service provider colour
+          %th
+            Service provider position
+          %th
+            Service provider position no
+          %th
+            Service provider advert no
+          %th
+            Service provider advert title
+          %th
+            Service provider advert language
+          %th
+            Media agency status
+          %th
+            Is accepted by media agency
+          %th
+            Service provider modified date
+          %th
+            Status system app user
+          %th
+            Status date
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @campaign_schedule_placement_service_provider_digital_proofs.each do |campaign_schedule_placement_service_provider_digital_proof|
+          %tr
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.code
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.uid
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.campaign_schedule_placement
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_prover_digital_proof
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_size
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_columns
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_colour
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_position
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_position_no
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_advert_no
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_advert_title
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_advert_language
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.media_agency_status
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.is_accepted_by_media_agency
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.service_provider_modified_date
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.status_system_app_user
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.status_date
+            %td
+              = campaign_schedule_placement_service_provider_digital_proof.eis_sync_date
+            %td
+              .btn-group
+                = link_to campaign_schedule_placement_service_provider_digital_proof, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_campaign_schedule_placement_service_provider_digital_proof_path(campaign_schedule_placement_service_provider_digital_proof), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to campaign_schedule_placement_service_provider_digital_proof, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@campaign_schedule_placement_service_provider_digital_proofs)
+
+  #new.tab-pane
+    = render 'form'

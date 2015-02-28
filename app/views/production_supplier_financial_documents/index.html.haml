@@ -1,0 +1,137 @@
+.page-header
+  %h3
+    Production_supplier_financial_documents
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), production_supplier_financial_documents_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), production_supplier_financial_documents_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => production_supplier_financial_documents_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Supplier
+          %th
+            Contact
+          %th
+            Status
+          %th
+            Production wanted cost amount
+          %th
+            Production wanted cost home amount
+          %th
+            Production cost amount
+          %th
+            Production cost home amount
+          %th
+            Production cost tax amount
+          %th
+            Production cost tax home amount
+          %th
+            Production cost inc tax amount
+          %th
+            Production cost inc tax home amount
+          %th
+            Currency
+          %th
+            Exchange rate
+          %th
+            Tax type
+          %th
+            Notes
+          %th
+            Actual date
+          %th
+            Posting date
+          %th
+            Communication status
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @production_supplier_financial_documents.each do |production_supplier_financial_document|
+          %tr
+            %td
+              = production_supplier_financial_document.uid
+            %td
+              = production_supplier_financial_document.code
+            %td
+              = production_supplier_financial_document.supplier
+            %td
+              = production_supplier_financial_document.contact
+            %td
+              = production_supplier_financial_document.status
+            %td
+              = production_supplier_financial_document.production_wanted_cost_amount
+            %td
+              = production_supplier_financial_document.production_wanted_cost_home_amount
+            %td
+              = production_supplier_financial_document.production_cost_amount
+            %td
+              = production_supplier_financial_document.production_cost_home_amount
+            %td
+              = production_supplier_financial_document.production_cost_tax_amount
+            %td
+              = production_supplier_financial_document.production_cost_tax_home_amount
+            %td
+              = production_supplier_financial_document.production_cost_inc_tax_amount
+            %td
+              = production_supplier_financial_document.production_cost_inc_tax_home_amount
+            %td
+              = production_supplier_financial_document.currency
+            %td
+              = production_supplier_financial_document.exchange_rate
+            %td
+              = production_supplier_financial_document.tax_type
+            %td
+              = production_supplier_financial_document.notes
+            %td
+              = production_supplier_financial_document.actual_date
+            %td
+              = production_supplier_financial_document.posting_date
+            %td
+              = production_supplier_financial_document.communication_status
+            %td
+              = production_supplier_financial_document.creation_source
+            %td
+              = production_supplier_financial_document.eis_sync_date
+            %td
+              .btn-group
+                = link_to production_supplier_financial_document, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_production_supplier_financial_document_path(production_supplier_financial_document), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to production_supplier_financial_document, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@production_supplier_financial_documents)
+
+  #new.tab-pane
+    = render 'form'

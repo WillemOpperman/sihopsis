@@ -1,0 +1,71 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title Latest activities
+  .list-group
+    .list-group-item
+      .media-box
+        .pull-left
+          %span.fa-stack
+            %em.fa.fa-circle.fa-stack-2x.text-purple
+            %em.fa.fa-cloud-upload.fa-stack-1x.fa-inverse.text-white
+        .media-box-body.clearfix
+          %small.text-muted.pull-right.ml 15m
+          .media-box-heading
+            %a.text-purple.m0{:href => "#"} NEW FILE
+          %p.m0
+            %small
+              %a{:href => "#"} Bootstrap.xls
+    .list-group-item
+      .media-box
+        .pull-left
+          %span.fa-stack
+            %em.fa.fa-circle.fa-stack-2x.text-info
+            %em.fa.fa-file-text-o.fa-stack-1x.fa-inverse.text-white
+        .media-box-body.clearfix
+          %small.text-muted.pull-right.ml 2h
+          .media-box-heading
+            %a.text-info.m0{:href => "#"} NEW DOCUMENT
+          %p.m0
+            %small
+              %a{:href => "#"} Bootstrap.doc
+    .list-group-item
+      .media-box
+        .pull-left
+          %span.fa-stack
+            %em.fa.fa-circle.fa-stack-2x.text-danger
+            %em.fa.fa-exclamation.fa-stack-1x.fa-inverse.text-white
+        .media-box-body.clearfix
+          %small.text-muted.pull-right.ml 5h
+          .media-box-heading
+            %a.text-danger.m0{:href => "#"} BROADCAST
+          %p.m0
+            %a{:href => "#"} Read
+    .list-group-item
+      .media-box
+        .pull-left
+          %span.fa-stack
+            %em.fa.fa-circle.fa-stack-2x.text-success
+            %em.fa.fa-clock-o.fa-stack-1x.fa-inverse.text-white
+        .media-box-body.clearfix
+          %small.text-muted.pull-right.ml 15h
+          .media-box-heading
+            %a.text-success.m0{:href => "#"} NEW MEETING
+          %p.m0
+            %small
+              On
+    .list-group-item
+      .media-box
+        .pull-left
+          %span.fa-stack
+            %em.fa.fa-circle.fa-stack-2x.text-warning
+            %em.fa.fa-tasks.fa-stack-1x.fa-inverse.text-white
+        .media-box-body.clearfix
+          %small.text-muted.pull-right.ml 1w
+          .media-box-heading
+            %a.text-warning.m0{:href => "#"} TASKS COMPLETION
+          .progress-xs.m0.progress{:type => "warning", :value => "22"}
+            .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "22", "aria-valuetext" => "22%", "ng-class" => "type &amp;&amp; 'progress-bar-' + type", "ng-style" => "{width: percent + '%'}", "ng-transclude" => "", :role => "progressbar", :style => "width: 22%;"}
+              %span.ng-scope 22%
+  .panel-footer.clearfix
+    %a.pull-left{:href => "#"}
+      %small Load more

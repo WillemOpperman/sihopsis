@@ -1,0 +1,101 @@
+.page-header
+  %h3
+    Creative_agencies
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), creative_agencies_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), creative_agencies_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => creative_agencies_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Company
+          %th
+            Name
+          %th
+            Legal name
+          %th
+            Is active
+          %th
+            Postal address
+          %th
+            Physical address
+          %th
+            Phone number
+          %th
+            Fax number
+          %th
+            E mail
+          %th
+            Notes
+          %th
+            Default contact
+          %th.button3
+      %tbody
+        - @creative_agencies.each do |creative_agency|
+          %tr
+            %td
+              = creative_agency.uid
+            %td
+              = creative_agency.code
+            %td
+              = creative_agency.company
+            %td
+              = creative_agency.name
+            %td
+              = creative_agency.legal_name
+            %td
+              = creative_agency.is_active
+            %td
+              = creative_agency.postal_address
+            %td
+              = creative_agency.physical_address
+            %td
+              = creative_agency.phone_number
+            %td
+              = creative_agency.fax_number
+            %td
+              = creative_agency.e_mail
+            %td
+              = creative_agency.notes
+            %td
+              = creative_agency.default_contact
+            %td
+              .btn-group
+                = link_to creative_agency, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_creative_agency_path(creative_agency), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to creative_agency, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@creative_agencies)
+
+  #new.tab-pane
+    = render 'form'

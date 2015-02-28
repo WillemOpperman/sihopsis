@@ -1,0 +1,207 @@
+.page-header
+  %h3
+    Client_contracts
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_contracts_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_contract_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_contract_path(@client_contract) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_contract.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_contract.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @client_contract.code_external
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @client_contract.company
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @client_contract.company_division
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @client_contract.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @client_contract.client_product
+        .row-fluid
+          .span2
+            %b
+              Campaign
+          .span10
+            = @client_contract.campaign
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @client_contract.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Client contact
+          .span10
+            = @client_contract.client_contact
+        .row-fluid
+          .span2
+            %b
+              Owner user
+          .span10
+            = @client_contract.owner_user
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @client_contract.currency
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @client_contract.creation_source
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @client_contract.status
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @client_contract.communication_status
+        .row-fluid
+          .span2
+            %b
+              Actual date
+          .span10
+            = @client_contract.actual_date
+        .row-fluid
+          .span2
+            %b
+              Gross amount
+          .span10
+            = @client_contract.gross_amount
+        .row-fluid
+          .span2
+            %b
+              Commission amount
+          .span10
+            = @client_contract.commission_amount
+        .row-fluid
+          .span2
+            %b
+              Nett amount
+          .span10
+            = @client_contract.nett_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @client_contract.tax_type
+        .row-fluid
+          .span2
+            %b
+              Tax gross amount
+          .span10
+            = @client_contract.tax_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Tax nett amount
+          .span10
+            = @client_contract.tax_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @client_contract.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @client_contract.notes
+        .row-fluid
+          .span2
+            %b
+              Status reason
+          .span10
+            = @client_contract.status_reason
+        .row-fluid
+          .span2
+            %b
+              Grid layout x m l
+          .span10
+            = @client_contract.grid_layout_x_m_l
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_contract.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Revision no
+          .span10
+            = @client_contract.revision_no
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_contract.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_contract.updated_at)

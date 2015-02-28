@@ -1,0 +1,1 @@
+json.extract! @campaign_schedule_placement_status_change_rule, :id, :uid, :code, :name, :change_from_campaign_schedule_placement_status_id, :change_to_campaign_schedule_placement_status_id, :is_allowed, :is_allowed_in_change_wizard, :eis_sync_date, :created_at, :updated_at

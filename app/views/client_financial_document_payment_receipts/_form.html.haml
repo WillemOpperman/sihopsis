@@ -1,0 +1,17 @@
+= simple_form_for(@client_financial_document_payment_receipt, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :client_financial_document
+    = f.association :payment_receipt
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_financial_document_payment_receipt,
+               :cancel => client_financial_document_payment_receipts_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,125 @@
+.page-header
+  %h3
+    Client_materials
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_materials_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_materials_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_materials_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Media category
+          %th
+            Advert no
+          %th
+            Advert name
+          %th
+            Advert title
+          %th
+            Media category size
+          %th
+            Media category format
+          %th
+            Notes
+          %th
+            Creation source
+          %th
+            Creative agency
+          %th
+            Is advert title auto maintained
+          %th
+            Is active
+          %th
+            Expiry date
+          %th
+            Eis sync date
+          %th
+            Is advert name auto maintained
+          %th
+            Is ad vert number derived from code
+          %th.button3
+      %tbody
+        - @client_materials.each do |client_material|
+          %tr
+            %td
+              = client_material.uid
+            %td
+              = client_material.code
+            %td
+              = client_material.client
+            %td
+              = client_material.client_product
+            %td
+              = client_material.media_category
+            %td
+              = client_material.advert_no
+            %td
+              = client_material.advert_name
+            %td
+              = client_material.advert_title
+            %td
+              = client_material.media_category_size
+            %td
+              = client_material.media_category_format
+            %td
+              = client_material.notes
+            %td
+              = client_material.creation_source
+            %td
+              = client_material.creative_agency
+            %td
+              = client_material.is_advert_title_auto_maintained
+            %td
+              = client_material.is_active
+            %td
+              = client_material.expiry_date
+            %td
+              = client_material.eis_sync_date
+            %td
+              = client_material.is_advert_name_auto_maintained
+            %td
+              = client_material.is_ad_vert_number_derived_from_code
+            %td
+              .btn-group
+                = link_to client_material, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_material_path(client_material), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_material, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_materials)
+
+  #new.tab-pane
+    = render 'form'

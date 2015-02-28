@@ -1,0 +1,25 @@
+= simple_form_for(@media_space, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :media_owner
+    = f.association :media_category
+    = f.association :frequency_type
+    = f.input :is_arbitrage
+    = f.association :default_material_deadline_days
+    = f.association :default_cancellation_days
+    = f.association :business_unit
+    = f.association :creation_source
+    = f.input :eis_sync_date
+    = f.input :is_active
+    = f.association :m_b_r_integration_export_prover
+    = f.association :m_i_integration_export_prover
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_space,
+               :cancel => media_spaces_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,12 @@
+%form{:role => "form"}
+  .form-group.has-feedback
+    %input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}
+      %span.fa.fa-lock.form-control-feedback.text-muted
+  .clearfix
+    .pull-left.mt-sm
+      %a.text-muted{:href => "#/page/recover", "ui-sref" => "page.recover"}
+        %small Forgot your password?
+    .pull-right
+      - unlock_url = url_for :controller => 'lock_session', :action => 'unlock'
+      = link_to unlock_url, :class => 'btn btn-sm btn-primary', :type => :button do
+        Unlock

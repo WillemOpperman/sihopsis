@@ -1,0 +1,73 @@
+.page-header
+  %h3
+    Business_units
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), business_units_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), business_units_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => business_units_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Is active
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @business_units.each do |business_unit|
+          %tr
+            %td
+              = business_unit.uid
+            %td
+              = business_unit.code
+            %td
+              = business_unit.name
+            %td
+              = business_unit.is_active
+            %td
+              = business_unit.creation_source
+            %td
+              = business_unit.eis_sync_date
+            %td
+              .btn-group
+                = link_to business_unit, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_business_unit_path(business_unit), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to business_unit, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@business_units)
+
+  #new.tab-pane
+    = render 'form'

@@ -1,0 +1,201 @@
+.page-header
+  %h3
+    Supplier_orders
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_orders_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_order_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_order_path(@supplier_order) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_order.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_order.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @supplier_order.code_external
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @supplier_order.company_division
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @supplier_order.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @supplier_order.supplier
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @supplier_order.media_space
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @supplier_order.contact
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @supplier_order.communication_status
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier_order.creation_source
+        .row-fluid
+          .span2
+            %b
+              Revision no
+          .span10
+            = @supplier_order.revision_no
+        .row-fluid
+          .span2
+            %b
+              Order gross amount
+          .span10
+            = @supplier_order.order_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Order commission amount
+          .span10
+            = @supplier_order.order_commission_amount
+        .row-fluid
+          .span2
+            %b
+              Order nett amount
+          .span10
+            = @supplier_order.order_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @supplier_order.tax_type
+        .row-fluid
+          .span2
+            %b
+              Tax gross amount
+          .span10
+            = @supplier_order.tax_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Tax nett amount
+          .span10
+            = @supplier_order.tax_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_order.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Order gross amount home
+          .span10
+            = @supplier_order.order_gross_amount_home
+        .row-fluid
+          .span2
+            %b
+              Order commission amount home
+          .span10
+            = @supplier_order.order_commission_amount_home
+        .row-fluid
+          .span2
+            %b
+              Order nett amount home
+          .span10
+            = @supplier_order.order_nett_amount_home
+        .row-fluid
+          .span2
+            %b
+              Tax gross amount home
+          .span10
+            = @supplier_order.tax_gross_amount_home
+        .row-fluid
+          .span2
+            %b
+              Tax nett amount home
+          .span10
+            = @supplier_order.tax_nett_amount_home
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @supplier_order.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @supplier_order.currency
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @supplier_order.status
+        .row-fluid
+          .span2
+            %b
+              Order nett inc tax amount
+          .span10
+            = @supplier_order.order_nett_inc_tax_amount
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_order.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_order.updated_at)

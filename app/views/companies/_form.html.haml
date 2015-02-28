@@ -1,0 +1,25 @@
+= simple_form_for(@company, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :default_currency
+    = f.input :c_e_i_s_password
+    = f.input :c_e_i_s_media_placement_data_web_service_address
+    = f.input :c_e_i_s_digital_proof_item_web_service_address
+    = f.input :sup_inv_paid_to_billed_tolerance
+    = f.input :is_multi_branch_paying_allowed
+    = f.association :campaign_no_of_days_open_ahead
+    = f.association :campaign_no_of_days_open_behind
+    = f.input :no_of_digits_for_codes
+    = f.input :client_invoice_credit_note_billed_payed_tolerance
+    = f.input :is_client_group_security_enabled
+    = f.input :is_division_group_security_enabled
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @company,
+               :cancel => companies_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

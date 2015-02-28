@@ -1,0 +1,157 @@
+.page-header
+  %h3
+    Supplier_orders
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), supplier_orders_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), supplier_orders_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => supplier_orders_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Company division
+          %th
+            Campaign schedule
+          %th
+            Supplier
+          %th
+            Media space
+          %th
+            Contact
+          %th
+            Communication status
+          %th
+            Creation source
+          %th
+            Revision no
+          %th
+            Order gross amount
+          %th
+            Order commission amount
+          %th
+            Order nett amount
+          %th
+            Tax type
+          %th
+            Tax gross amount
+          %th
+            Tax nett amount
+          %th
+            Eis sync date
+          %th
+            Order gross amount home
+          %th
+            Order commission amount home
+          %th
+            Order nett amount home
+          %th
+            Tax gross amount home
+          %th
+            Tax nett amount home
+          %th
+            Exchange rate
+          %th
+            Currency
+          %th
+            Status
+          %th
+            Order nett inc tax amount
+          %th.button3
+      %tbody
+        - @supplier_orders.each do |supplier_order|
+          %tr
+            %td
+              = supplier_order.uid
+            %td
+              = supplier_order.code
+            %td
+              = supplier_order.code_external
+            %td
+              = supplier_order.company_division
+            %td
+              = supplier_order.campaign_schedule
+            %td
+              = supplier_order.supplier
+            %td
+              = supplier_order.media_space
+            %td
+              = supplier_order.contact
+            %td
+              = supplier_order.communication_status
+            %td
+              = supplier_order.creation_source
+            %td
+              = supplier_order.revision_no
+            %td
+              = supplier_order.order_gross_amount
+            %td
+              = supplier_order.order_commission_amount
+            %td
+              = supplier_order.order_nett_amount
+            %td
+              = supplier_order.tax_type
+            %td
+              = supplier_order.tax_gross_amount
+            %td
+              = supplier_order.tax_nett_amount
+            %td
+              = supplier_order.eis_sync_date
+            %td
+              = supplier_order.order_gross_amount_home
+            %td
+              = supplier_order.order_commission_amount_home
+            %td
+              = supplier_order.order_nett_amount_home
+            %td
+              = supplier_order.tax_gross_amount_home
+            %td
+              = supplier_order.tax_nett_amount_home
+            %td
+              = supplier_order.exchange_rate
+            %td
+              = supplier_order.currency
+            %td
+              = supplier_order.status
+            %td
+              = supplier_order.order_nett_inc_tax_amount
+            %td
+              .btn-group
+                = link_to supplier_order, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_supplier_order_path(supplier_order), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to supplier_order, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@supplier_orders)
+
+  #new.tab-pane
+    = render 'form'

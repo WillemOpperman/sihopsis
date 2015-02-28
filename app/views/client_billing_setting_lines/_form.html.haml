@@ -1,0 +1,29 @@
+= simple_form_for(@client_billing_setting_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :client_billing_setting
+    = f.association :client_billing_type
+    = f.association :media_category
+    = f.input :is_order_no_required
+    = f.input :is_m_i_required
+    = f.input :is_media_space_contract_code_required_to_bill
+    = f.input :is_d_p_i_required_to_bill
+    = f.input :is_billed_by_billable_days
+    = f.input :is_billing_restricted_to_live_start_date
+    = f.association :m_inv_custom_report
+    = f.association :m_inv_ad_nt_custom_report
+    = f.association :m_cr_nt_custom_report
+    = f.association :m_cr_nt_ad_nt_custom_report
+    = f.association :m_com_cr_dr_nt_report
+    = f.input :is_placement_ordered_required_to_bill
+    = f.input :is_billable
+    = f.input :custom_logo_path
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_billing_setting_line,
+               :cancel => client_billing_setting_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

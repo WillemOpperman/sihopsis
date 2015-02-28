@@ -1,0 +1,77 @@
+.page-header
+  %h3
+    Supplier_financial_document_payment_receipts
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), supplier_financial_document_payment_receipts_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), supplier_financial_document_payment_receipts_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => supplier_financial_document_payment_receipts_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Supplier financial document
+          %th
+            Payment receipt
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @supplier_financial_document_payment_receipts.each do |supplier_financial_document_payment_receipt|
+          %tr
+            %td
+              = supplier_financial_document_payment_receipt.uid
+            %td
+              = supplier_financial_document_payment_receipt.code
+            %td
+              = supplier_financial_document_payment_receipt.name
+            %td
+              = supplier_financial_document_payment_receipt.supplier_financial_document
+            %td
+              = supplier_financial_document_payment_receipt.payment_receipt
+            %td
+              = supplier_financial_document_payment_receipt.creation_source
+            %td
+              = supplier_financial_document_payment_receipt.eis_sync_date
+            %td
+              .btn-group
+                = link_to supplier_financial_document_payment_receipt, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_supplier_financial_document_payment_receipt_path(supplier_financial_document_payment_receipt), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to supplier_financial_document_payment_receipt, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@supplier_financial_document_payment_receipts)
+
+  #new.tab-pane
+    = render 'form'

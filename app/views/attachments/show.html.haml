@@ -1,0 +1,93 @@
+.page-header
+  %h3
+    Attachments
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to attachments_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_attachment_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_attachment_path(@attachment) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @attachment.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @attachment.code
+        .row-fluid
+          .span2
+            %b
+              Type
+          .span10
+            = @attachment.type
+        .row-fluid
+          .span2
+            %b
+              Is stored in document share
+          .span10
+            = @attachment.is_stored_in_document_share
+        .row-fluid
+          .span2
+            %b
+              File path
+          .span10
+            = @attachment.file_path
+        .row-fluid
+          .span2
+            %b
+              Description
+          .span10
+            = @attachment.description
+        .row-fluid
+          .span2
+            %b
+              Item entity view
+          .span10
+            = @attachment.item_entity_view
+        .row-fluid
+          .span2
+            %b
+              Related item
+          .span10
+            = @attachment.related_item
+        .row-fluid
+          .span2
+            %b
+              Is auto attached when parent is emailed
+          .span10
+            = @attachment.is_auto_attached_when_parent_is_emailed
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@attachment.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@attachment.updated_at)

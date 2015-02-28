@@ -1,0 +1,579 @@
+.page-header
+  %h3
+    Company_divisions
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to company_divisions_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_company_division_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_company_division_path(@company_division) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @company_division.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @company_division.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @company_division.name
+        .row-fluid
+          .span2
+            %b
+              Legal name
+          .span10
+            = @company_division.legal_name
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @company_division.company
+        .row-fluid
+          .span2
+            %b
+              Default media category
+          .span10
+            = @company_division.default_media_category
+        .row-fluid
+          .span2
+            %b
+              Item no suffix
+          .span10
+            = @company_division.item_no_suffix
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @company_division.is_active
+        .row-fluid
+          .span2
+            %b
+              Is test division
+          .span10
+            = @company_division.is_test_division
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @company_division.contact
+        .row-fluid
+          .span2
+            %b
+              Default media region
+          .span10
+            = @company_division.default_media_region
+        .row-fluid
+          .span2
+            %b
+              Phone number
+          .span10
+            = @company_division.phone_number
+        .row-fluid
+          .span2
+            %b
+              Phone number2
+          .span10
+            = @company_division.phone_number2
+        .row-fluid
+          .span2
+            %b
+              Fax number
+          .span10
+            = @company_division.fax_number
+        .row-fluid
+          .span2
+            %b
+              E mail
+          .span10
+            = @company_division.e_mail
+        .row-fluid
+          .span2
+            %b
+              Website
+          .span10
+            = @company_division.website
+        .row-fluid
+          .span2
+            %b
+              Postal address
+          .span10
+            = @company_division.postal_address
+        .row-fluid
+          .span2
+            %b
+              Physical address
+          .span10
+            = @company_division.physical_address
+        .row-fluid
+          .span2
+            %b
+              Company registration no
+          .span10
+            = @company_division.company_registration_no
+        .row-fluid
+          .span2
+            %b
+              Tax registration no
+          .span10
+            = @company_division.tax_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default tax type
+          .span10
+            = @company_division.default_tax_type
+        .row-fluid
+          .span2
+            %b
+              Default agency commission type
+          .span10
+            = @company_division.default_agency_commission_type
+        .row-fluid
+          .span2
+            %b
+              Default agency commission percentage
+          .span10
+            = @company_division.default_agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Bank details
+          .span10
+            = @company_division.bank_details
+        .row-fluid
+          .span2
+            %b
+              Payment terms default
+          .span10
+            = @company_division.payment_terms_default
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @company_division.notes
+        .row-fluid
+          .span2
+            %b
+              Report footer
+          .span10
+            = @company_division.report_footer
+        .row-fluid
+          .span2
+            %b
+              G l acc no sales
+          .span10
+            = @company_division.g_l_acc_no_sales
+        .row-fluid
+          .span2
+            %b
+              G l acc no purchases
+          .span10
+            = @company_division.g_l_acc_no_purchases
+        .row-fluid
+          .span2
+            %b
+              G l acc no creditors control
+          .span10
+            = @company_division.g_l_acc_no_creditors_control
+        .row-fluid
+          .span2
+            %b
+              G l acc no receivable credit control
+          .span10
+            = @company_division.g_l_acc_no_receivable_credit_control
+        .row-fluid
+          .span2
+            %b
+              G l acc no provision for costs
+          .span10
+            = @company_division.g_l_acc_no_provision_for_costs
+        .row-fluid
+          .span2
+            %b
+              G l acc no deferred commission
+          .span10
+            = @company_division.g_l_acc_no_deferred_commission
+        .row-fluid
+          .span2
+            %b
+              G l acc no output tax type
+          .span10
+            = @company_division.g_l_acc_no_output_tax_type
+        .row-fluid
+          .span2
+            %b
+              G l acc no output adjustment tax type
+          .span10
+            = @company_division.g_l_acc_no_output_adjustment_tax_type
+        .row-fluid
+          .span2
+            %b
+              G l acc no inter comp
+          .span10
+            = @company_division.g_l_acc_no_inter_comp
+        .row-fluid
+          .span2
+            %b
+              G l acc no local inter comp
+          .span10
+            = @company_division.g_l_acc_no_local_inter_comp
+        .row-fluid
+          .span2
+            %b
+              G l acc no receivable credit control3
+          .span10
+            = @company_division.g_l_acc_no_receivable_credit_control3
+        .row-fluid
+          .span2
+            %b
+              G l acc no cost of sales
+          .span10
+            = @company_division.g_l_acc_no_cost_of_sales
+        .row-fluid
+          .span2
+            %b
+              G l acc no stock
+          .span10
+            = @company_division.g_l_acc_no_stock
+        .row-fluid
+          .span2
+            %b
+              Account default work type alt ref no
+          .span10
+            = @company_division.account_default_work_type_alt_ref_no
+        .row-fluid
+          .span2
+            %b
+              Account default media fees alt ref no
+          .span10
+            = @company_division.account_default_media_fees_alt_ref_no
+        .row-fluid
+          .span2
+            %b
+              Logo file name
+          .span10
+            = @company_division.logo_file_name
+        .row-fluid
+          .span2
+            %b
+              Logo alignment
+          .span10
+            = @company_division.logo_alignment
+        .row-fluid
+          .span2
+            %b
+              Logo resizing
+          .span10
+            = @company_division.logo_resizing
+        .row-fluid
+          .span2
+            %b
+              M i show only revised placements
+          .span10
+            = @company_division.m_i_show_only_revised_placements
+        .row-fluid
+          .span2
+            %b
+              M i create by media product
+          .span10
+            = @company_division.m_i_create_by_media_product
+        .row-fluid
+          .span2
+            %b
+              Is m p with order no cancel allowed
+          .span10
+            = @company_division.is_m_p_with_order_no_cancel_allowed
+        .row-fluid
+          .span2
+            %b
+              M p with order no cancel allowed exception
+          .span10
+            = @company_division.m_p_with_order_no_cancel_allowed_exception
+        .row-fluid
+          .span2
+            %b
+              Is placement book only allowed if product region specified
+          .span10
+            = @company_division.is_placement_book_only_allowed_if_product_region_specified
+        .row-fluid
+          .span2
+            %b
+              Is placement exchange rate updated b4 billing
+          .span10
+            = @company_division.is_placement_exchange_rate_updated_b4_billing
+        .row-fluid
+          .span2
+            %b
+              Is placement size and columns controlled
+          .span10
+            = @company_division.is_placement_size_and_columns_controlled
+        .row-fluid
+          .span2
+            %b
+              Is placement order no locked
+          .span10
+            = @company_division.is_placement_order_no_locked
+        .row-fluid
+          .span2
+            %b
+              Is campaign order no copied to schedule
+          .span10
+            = @company_division.is_campaign_order_no_copied_to_schedule
+        .row-fluid
+          .span2
+            %b
+              Is order no required for billing default
+          .span10
+            = @company_division.is_order_no_required_for_billing_default
+        .row-fluid
+          .span2
+            %b
+              Is client credit profile system enabled
+          .span10
+            = @company_division.is_client_credit_profile_system_enabled
+        .row-fluid
+          .span2
+            %b
+              Default currency
+          .span10
+            = @company_division.default_currency
+        .row-fluid
+          .span2
+            %b
+              Financial year end
+          .span10
+            = @company_division.financial_year_end
+        .row-fluid
+          .span2
+            %b
+              Is forex system enabled
+          .span10
+            = @company_division.is_forex_system_enabled
+        .row-fluid
+          .span2
+            %b
+              Is client fees system enabled
+          .span10
+            = @company_division.is_client_fees_system_enabled
+        .row-fluid
+          .span2
+            %b
+              Is rate cards system enabled
+          .span10
+            = @company_division.is_rate_cards_system_enabled
+        .row-fluid
+          .span2
+            %b
+              Is discount cards system enabled
+          .span10
+            = @company_division.is_discount_cards_system_enabled
+        .row-fluid
+          .span2
+            %b
+              Is global agency commission enforced
+          .span10
+            = @company_division.is_global_agency_commission_enforced
+        .row-fluid
+          .span2
+            %b
+              Is supplier financial document finalize required
+          .span10
+            = @company_division.is_supplier_financial_document_finalize_required
+        .row-fluid
+          .span2
+            %b
+              Is chase list required to create production purchase order
+          .span10
+            = @company_division.is_chase_list_required_to_create_production_purchase_order
+        .row-fluid
+          .span2
+            %b
+              C eis sync date
+          .span10
+            = @company_division.c_eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Allow overpay of placement
+          .span10
+            = @company_division.allow_overpay_of_placement
+        .row-fluid
+          .span2
+            %b
+              Is campaign schedule end date end of month
+          .span10
+            = @company_division.is_campaign_schedule_end_date_end_of_month
+        .row-fluid
+          .span2
+            %b
+              Server export path
+          .span10
+            = @company_division.server_export_path
+        .row-fluid
+          .span2
+            %b
+              Client financial document footer
+          .span10
+            = @company_division.client_financial_document_footer
+        .row-fluid
+          .span2
+            %b
+              Client cost estimate footer
+          .span10
+            = @company_division.client_cost_estimate_footer
+        .row-fluid
+          .span2
+            %b
+              Legal notice
+          .span10
+            = @company_division.legal_notice
+        .row-fluid
+          .span2
+            %b
+              Client purchase order footer
+          .span10
+            = @company_division.client_purchase_order_footer
+        .row-fluid
+          .span2
+            %b
+              Production supplier purchase order footer
+          .span10
+            = @company_division.production_supplier_purchase_order_footer
+        .row-fluid
+          .span2
+            %b
+              Supplier order request footer
+          .span10
+            = @company_division.supplier_order_request_footer
+        .row-fluid
+          .span2
+            %b
+              Supplier order footer
+          .span10
+            = @company_division.supplier_order_footer
+        .row-fluid
+          .span2
+            %b
+              Is quantity for display auto maintained
+          .span10
+            = @company_division.is_quantity_for_display_auto_maintained
+        .row-fluid
+          .span2
+            %b
+              Chase list footer
+          .span10
+            = @company_division.chase_list_footer
+        .row-fluid
+          .span2
+            %b
+              Client contract footer
+          .span10
+            = @company_division.client_contract_footer
+        .row-fluid
+          .span2
+            %b
+              Postal address1
+          .span10
+            = @company_division.postal_address1
+        .row-fluid
+          .span2
+            %b
+              Postal address2
+          .span10
+            = @company_division.postal_address2
+        .row-fluid
+          .span2
+            %b
+              Physical address1
+          .span10
+            = @company_division.physical_address1
+        .row-fluid
+          .span2
+            %b
+              Physical address2
+          .span10
+            = @company_division.physical_address2
+        .row-fluid
+          .span2
+            %b
+              Phone number3
+          .span10
+            = @company_division.phone_number3
+        .row-fluid
+          .span2
+            %b
+              Phone number4
+          .span10
+            = @company_division.phone_number4
+        .row-fluid
+          .span2
+            %b
+              Fax number1
+          .span10
+            = @company_division.fax_number1
+        .row-fluid
+          .span2
+            %b
+              Fax number2
+          .span10
+            = @company_division.fax_number2
+        .row-fluid
+          .span2
+            %b
+              E mail1
+          .span10
+            = @company_division.e_mail1
+        .row-fluid
+          .span2
+            %b
+              E mail2
+          .span10
+            = @company_division.e_mail2
+        .row-fluid
+          .span2
+            %b
+              Is campaign schedule placement grouped for chase list wizard
+          .span10
+            = @company_division.is_campaign_schedule_placement_grouped_for_chase_list_wizard
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@company_division.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@company_division.updated_at)

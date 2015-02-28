@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Service_provider_digital_proofs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to service_provider_digital_proofs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_service_provider_digital_proof_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_service_provider_digital_proof_path(@service_provider_digital_proof) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @service_provider_digital_proof.code
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @service_provider_digital_proof.uid
+        .row-fluid
+          .span2
+            %b
+              Service prover
+          .span10
+            = @service_provider_digital_proof.service_prover
+        .row-fluid
+          .span2
+            %b
+              Url
+          .span10
+            = @service_provider_digital_proof.url
+        .row-fluid
+          .span2
+            %b
+              Source name
+          .span10
+            = @service_provider_digital_proof.source_name
+        .row-fluid
+          .span2
+            %b
+              Source location
+          .span10
+            = @service_provider_digital_proof.source_location
+        .row-fluid
+          .span2
+            %b
+              Source location2
+          .span10
+            = @service_provider_digital_proof.source_location2
+        .row-fluid
+          .span2
+            %b
+              Local server file name
+          .span10
+            = @service_provider_digital_proof.local_server_file_name
+        .row-fluid
+          .span2
+            %b
+              Appearance date
+          .span10
+            = @service_provider_digital_proof.appearance_date
+        .row-fluid
+          .span2
+            %b
+              Service provider modified date
+          .span10
+            = @service_provider_digital_proof.service_provider_modified_date
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @service_provider_digital_proof.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@service_provider_digital_proof.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@service_provider_digital_proof.updated_at)

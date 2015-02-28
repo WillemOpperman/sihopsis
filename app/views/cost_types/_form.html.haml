@@ -1,0 +1,16 @@
+= simple_form_for(@cost_type, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_gross
+    = f.input :is_nett
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @cost_type,
+               :cancel => cost_types_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

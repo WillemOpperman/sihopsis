@@ -1,0 +1,22 @@
+= simple_form_for(@media_category_size, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :media_category
+    = f.association :media_space
+    = f.association :height
+    = f.association :columns
+    = f.input :height_unit_of_measure
+    = f.input :columns_unit_of_measure
+    = f.input :is_name_auto_maintained
+    = f.input :is_active
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_category_size,
+               :cancel => media_category_sizes_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

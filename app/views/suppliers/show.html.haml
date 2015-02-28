@@ -1,0 +1,183 @@
+.page-header
+  %h3
+    Suppliers
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to suppliers_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_path(@supplier) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @supplier.code_external
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier.uid
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @supplier.name
+        .row-fluid
+          .span2
+            %b
+              Offical name
+          .span10
+            = @supplier.offical_name
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @supplier.company
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @supplier.company_division
+        .row-fluid
+          .span2
+            %b
+              Company registration no
+          .span10
+            = @supplier.company_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default contact
+          .span10
+            = @supplier.default_contact
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier.creation_source
+        .row-fluid
+          .span2
+            %b
+              Type
+          .span10
+            = @supplier.type
+        .row-fluid
+          .span2
+            %b
+              Phone number
+          .span10
+            = @supplier.phone_number
+        .row-fluid
+          .span2
+            %b
+              Fax number
+          .span10
+            = @supplier.fax_number
+        .row-fluid
+          .span2
+            %b
+              E mail
+          .span10
+            = @supplier.e_mail
+        .row-fluid
+          .span2
+            %b
+              Postal address
+          .span10
+            = @supplier.postal_address
+        .row-fluid
+          .span2
+            %b
+              Physical address
+          .span10
+            = @supplier.physical_address
+        .row-fluid
+          .span2
+            %b
+              Payment terms
+          .span10
+            = @supplier.payment_terms
+        .row-fluid
+          .span2
+            %b
+              Tax registration no
+          .span10
+            = @supplier.tax_registration_no
+        .row-fluid
+          .span2
+            %b
+              Default tax type
+          .span10
+            = @supplier.default_tax_type
+        .row-fluid
+          .span2
+            %b
+              Financial year end
+          .span10
+            = @supplier.financial_year_end
+        .row-fluid
+          .span2
+            %b
+              Commission percentage default
+          .span10
+            = @supplier.commission_percentage_default
+        .row-fluid
+          .span2
+            %b
+              Default currency
+          .span10
+            = @supplier.default_currency
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @supplier.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier.updated_at)

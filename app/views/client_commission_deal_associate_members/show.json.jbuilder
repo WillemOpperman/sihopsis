@@ -1,0 +1,1 @@
+json.extract! @client_commission_deal_associate_member, :id, :uid, :code, :client_commission_deal_id, :associate_id, :associate_product_id, :member_commission_split_percentage, :created_at, :updated_at

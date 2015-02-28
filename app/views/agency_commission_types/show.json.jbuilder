@@ -1,0 +1,1 @@
+json.extract! @agency_commission_type, :id, :uid, :code, :name, :media_category_id, :is_calculated_as_nett_marked_up_by_agency_comm_perc, :is_calculated_as_gross_marked_up_by_agency_comm_perc, :is_default, :eis_sync_date, :created_at, :updated_at

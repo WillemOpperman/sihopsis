@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Client_links
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_links_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_link_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_link_path(@client_link) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_link.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_link.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @client_link.name
+        .row-fluid
+          .span2
+            %b
+              Is to advertiser
+          .span10
+            = @client_link.is_to_advertiser
+        .row-fluid
+          .span2
+            %b
+              Is to media agency
+          .span10
+            = @client_link.is_to_media_agency
+        .row-fluid
+          .span2
+            %b
+              Is to natural client
+          .span10
+            = @client_link.is_to_natural_client
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @client_link.is_default
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_link.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_link.updated_at)

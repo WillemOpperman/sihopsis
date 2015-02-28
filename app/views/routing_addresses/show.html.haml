@@ -1,0 +1,75 @@
+.page-header
+  %h3
+    Routing_addresses
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to routing_addresses_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_routing_address_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_routing_address_path(@routing_address) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @routing_address.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @routing_address.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @routing_address.name
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @routing_address.company
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @routing_address.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @routing_address.is_active
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@routing_address.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@routing_address.updated_at)

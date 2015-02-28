@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Associate_financial_document_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to associate_financial_document_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_associate_financial_document_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_associate_financial_document_line_path(@associate_financial_document_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @associate_financial_document_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @associate_financial_document_line.code
+        .row-fluid
+          .span2
+            %b
+              Associate financial document
+          .span10
+            = @associate_financial_document_line.associate_financial_document
+        .row-fluid
+          .span2
+            %b
+              Client financial document line
+          .span10
+            = @associate_financial_document_line.client_financial_document_line
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @associate_financial_document_line.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Client commission deal associate member
+          .span10
+            = @associate_financial_document_line.client_commission_deal_associate_member
+        .row-fluid
+          .span2
+            %b
+              Client billing setting line
+          .span10
+            = @associate_financial_document_line.client_billing_setting_line
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @associate_financial_document_line.media_category
+        .row-fluid
+          .span2
+            %b
+              Amount
+          .span10
+            = @associate_financial_document_line.amount
+        .row-fluid
+          .span2
+            %b
+              Amount home
+          .span10
+            = @associate_financial_document_line.amount_home
+        .row-fluid
+          .span2
+            %b
+              Tax amount
+          .span10
+            = @associate_financial_document_line.tax_amount
+        .row-fluid
+          .span2
+            %b
+              Amount inc tax amount
+          .span10
+            = @associate_financial_document_line.amount_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Amount inc tax home amount
+          .span10
+            = @associate_financial_document_line.amount_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @associate_financial_document_line.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate_financial_document_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate_financial_document_line.updated_at)

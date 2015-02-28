@@ -1,0 +1,25 @@
+%ul.nav.navbar-nav.navbar-right
+  -# Search icon
+  %li
+    %a{:class => "toggle-search-form"}
+      %span{:class => icon_class('search')}
+  -# Fullscreen (only desktops)
+  %li.visible-lg
+    %a{:href => "#", "toggle-fullscreen" => "toggle-fullscreen"}
+      %span{:class => icon_class('expand')}
+  -# START Alert menu
+  %li.dropdown.dropdown-list
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => '#'}}
+      %span{:class => icon_class('bell-o')}
+      .label.label-danger 11
+    = render :partial => 'layouts/partials/alerts'
+
+= render :partial => 'layouts/partials/search_form'
+
+:javascript
+  $(document).ready(function() {
+    $('.toggle-search-form').on('click', function(e){
+      document.getElementById("search_form").style["top"] = "-8%";
+    });
+  });
+

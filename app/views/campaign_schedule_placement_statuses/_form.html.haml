@@ -1,0 +1,43 @@
+= simple_form_for(@campaign_schedule_placement_status, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_placement_active
+    = f.input :is_placement_proposed
+    = f.input :is_placement_client_ordered
+    = f.input :is_placement_client_approved
+    = f.input :is_placement_requested
+    = f.input :is_placement_ordered
+    = f.input :is_placement_rescheduled
+    = f.input :is_placement_live
+    = f.input :is_placement_paused
+    = f.input :is_placement_suspended
+    = f.input :is_placement_restarted
+    = f.input :is_placement_stopped
+    = f.input :is_placement_finished
+    = f.input :is_placement_instructed
+    = f.input :is_placement_part_of_credit_exposure
+    = f.input :is_placement_part_of_p_o_exposure
+    = f.input :is_placement_rejected
+    = f.input :is_placement_taken_to_super_profit
+    = f.input :is_placement_temporary
+    = f.input :is_reason_required_to_change_to
+    = f.input :is_attachment_required_to_change_to
+    = f.input :is_default
+    = f.input :eis_sync_date
+    = f.input :is_active
+    = f.association :media_category
+    = f.input :is_placement_disputed
+    = f.input :is_placement_reviewed
+    = f.input :is_placement_awaiting_client_material
+    = f.association :company_division
+    = f.input :is_placement_billable
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_status,
+               :cancel => campaign_schedule_placement_statuses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

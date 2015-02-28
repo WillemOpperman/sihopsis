@@ -1,0 +1,43 @@
+= simple_form_for(@supplier_financial_document_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :supplier_financial_document
+    = f.association :campaign_schedule_placement
+    = f.input :payable_gross_amount
+    = f.input :payable_gross_home_amount
+    = f.input :payable_commission_amount
+    = f.input :payable_commission_home_amount
+    = f.input :payable_nett_amount
+    = f.input :payable_nett_home_amount
+    = f.input :payable_intermediary_margin_amount
+    = f.input :payable_intermediary_margin_home_amount
+    = f.input :payable_actual_nett_amount
+    = f.input :payable_actual_nett_home_amount
+    = f.input :wanted_gross_amount
+    = f.input :wanted_home_gross_amount
+    = f.input :wanted_commission_amount
+    = f.input :wanted_commission_home_amount
+    = f.input :wanted_nett_amount
+    = f.input :wanted_nett_home_amount
+    = f.input :wanted_intermediary_margin_amount
+    = f.input :wanted_intermediary_margin_home_amount
+    = f.input :wanted_actual_nett_amount
+    = f.input :wanted_actual_nett_home_amount
+    = f.input :provision_exchange_rate
+    = f.input :provision_gross_home_amount
+    = f.input :provision_commission_home_amount
+    = f.input :provision_nett_home_amount
+    = f.input :eis_sync_date
+    = f.association :additional_company_cost_centre
+    = f.association :company_cost_centre
+    = f.input :payable_intermediary_margin_percentage
+    = f.input :wanted_intermediary_margin_percentage
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_financial_document_line,
+               :cancel => supplier_financial_document_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

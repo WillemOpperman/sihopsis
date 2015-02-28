@@ -1,0 +1,87 @@
+.page-header
+  %h3
+    Supplier_default_contacts
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to supplier_default_contacts_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_supplier_default_contact_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_supplier_default_contact_path(@supplier_default_contact) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @supplier_default_contact.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @supplier_default_contact.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @supplier_default_contact.name
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @supplier_default_contact.supplier
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @supplier_default_contact.contact
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @supplier_default_contact.is_active
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @supplier_default_contact.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @supplier_default_contact.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_default_contact.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@supplier_default_contact.updated_at)

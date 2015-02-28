@@ -1,0 +1,303 @@
+.page-header
+  %h3
+    Media_category_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_category_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_category_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_category_type_path(@media_category_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_category_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_category_type.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @media_category_type.code_external
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_category_type.name
+        .row-fluid
+          .span2
+            %b
+              Is columns enabled
+          .span10
+            = @media_category_type.is_columns_enabled
+        .row-fluid
+          .span2
+            %b
+              Is order no enabled
+          .span10
+            = @media_category_type.is_order_no_enabled
+        .row-fluid
+          .span2
+            %b
+              Is contract no enabled
+          .span10
+            = @media_category_type.is_contract_no_enabled
+        .row-fluid
+          .span2
+            %b
+              Is from to time enabled
+          .span10
+            = @media_category_type.is_from_to_time_enabled
+        .row-fluid
+          .span2
+            %b
+              Is colour enabled
+          .span10
+            = @media_category_type.is_colour_enabled
+        .row-fluid
+          .span2
+            %b
+              Is edition enabled
+          .span10
+            = @media_category_type.is_edition_enabled
+        .row-fluid
+          .span2
+            %b
+              Is type size enabled
+          .span10
+            = @media_category_type.is_type_size_enabled
+        .row-fluid
+          .span2
+            %b
+              Is trim size enabled
+          .span10
+            = @media_category_type.is_trim_size_enabled
+        .row-fluid
+          .span2
+            %b
+              Is bleed size enabled
+          .span10
+            = @media_category_type.is_bleed_size_enabled
+        .row-fluid
+          .span2
+            %b
+              Is language enabled
+          .span10
+            = @media_category_type.is_language_enabled
+        .row-fluid
+          .span2
+            %b
+              Is material type enabled
+          .span10
+            = @media_category_type.is_material_type_enabled
+        .row-fluid
+          .span2
+            %b
+              Is added value enabled
+          .span10
+            = @media_category_type.is_added_value_enabled
+        .row-fluid
+          .span2
+            %b
+              Instruction name
+          .span10
+            = @media_category_type.instruction_name
+        .row-fluid
+          .span2
+            %b
+              Is only revised placements shown on m i
+          .span10
+            = @media_category_type.is_only_revised_placements_shown_on_m_i
+        .row-fluid
+          .span2
+            %b
+              Is valid for data entry
+          .span10
+            = @media_category_type.is_valid_for_data_entry
+        .row-fluid
+          .span2
+            %b
+              Is size on media advert enabled
+          .span10
+            = @media_category_type.is_size_on_media_advert_enabled
+        .row-fluid
+          .span2
+            %b
+              Is colour on media advert enabled
+          .span10
+            = @media_category_type.is_colour_on_media_advert_enabled
+        .row-fluid
+          .span2
+            %b
+              Is position no enabled
+          .span10
+            = @media_category_type.is_position_no_enabled
+        .row-fluid
+          .span2
+            %b
+              Is quantity per unit rate enabled
+          .span10
+            = @media_category_type.is_quantity_per_unit_rate_enabled
+        .row-fluid
+          .span2
+            %b
+              Quantity per unit rate default
+          .span10
+            = @media_category_type.quantity_per_unit_rate_default
+        .row-fluid
+          .span2
+            %b
+              Is quantity enabled
+          .span10
+            = @media_category_type.is_quantity_enabled
+        .row-fluid
+          .span2
+            %b
+              Quantity default
+          .span10
+            = @media_category_type.quantity_default
+        .row-fluid
+          .span2
+            %b
+              Default material deadline days
+          .span10
+            = @media_category_type.default_material_deadline_days
+        .row-fluid
+          .span2
+            %b
+              Default cancellation days
+          .span10
+            = @media_category_type.default_cancellation_days
+        .row-fluid
+          .span2
+            %b
+              Is m i required for billing default
+          .span10
+            = @media_category_type.is_m_i_required_for_billing_default
+        .row-fluid
+          .span2
+            %b
+              Is digital proof enabled
+          .span10
+            = @media_category_type.is_digital_proof_enabled
+        .row-fluid
+          .span2
+            %b
+              Is contract no required for m i
+          .span10
+            = @media_category_type.is_contract_no_required_for_m_i
+        .row-fluid
+          .span2
+            %b
+              Is billed by live days
+          .span10
+            = @media_category_type.is_billed_by_live_days
+        .row-fluid
+          .span2
+            %b
+              Is multiple material allowed
+          .span10
+            = @media_category_type.is_multiple_material_allowed
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_category_type.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is on street date enabled
+          .span10
+            = @media_category_type.is_on_street_date_enabled
+        .row-fluid
+          .span2
+            %b
+              Is placement routing address required to book
+          .span10
+            = @media_category_type.is_placement_routing_address_required_to_book
+        .row-fluid
+          .span2
+            %b
+              Is placement zero unit rate allowed
+          .span10
+            = @media_category_type.is_placement_zero_unit_rate_allowed
+        .row-fluid
+          .span2
+            %b
+              Is client material required to bill
+          .span10
+            = @media_category_type.is_client_material_required_to_bill
+        .row-fluid
+          .span2
+            %b
+              Is client material required to create chase list
+          .span10
+            = @media_category_type.is_client_material_required_to_create_chase_list
+        .row-fluid
+          .span2
+            %b
+              Is client company cost center required to book
+          .span10
+            = @media_category_type.is_client_company_cost_center_required_to_book
+        .row-fluid
+          .span2
+            %b
+              Is placement ordered required to bill
+          .span10
+            = @media_category_type.is_placement_ordered_required_to_bill
+        .row-fluid
+          .span2
+            %b
+              Is billable
+          .span10
+            = @media_category_type.is_billable
+        .row-fluid
+          .span2
+            %b
+              Is media space contract code required
+          .span10
+            = @media_category_type.is_media_space_contract_code_required
+        .row-fluid
+          .span2
+            %b
+              Is client contract placement code required
+          .span10
+            = @media_category_type.is_client_contract_placement_code_required
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_category_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_category_type.updated_at)

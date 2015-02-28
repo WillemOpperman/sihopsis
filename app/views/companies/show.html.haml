@@ -1,0 +1,129 @@
+.page-header
+  %h3
+    Companies
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to companies_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_company_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_company_path(@company) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @company.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @company.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @company.name
+        .row-fluid
+          .span2
+            %b
+              Default currency
+          .span10
+            = @company.default_currency
+        .row-fluid
+          .span2
+            %b
+              C e i s password
+          .span10
+            = @company.c_e_i_s_password
+        .row-fluid
+          .span2
+            %b
+              C e i s media placement data web service address
+          .span10
+            = @company.c_e_i_s_media_placement_data_web_service_address
+        .row-fluid
+          .span2
+            %b
+              C e i s digital proof item web service address
+          .span10
+            = @company.c_e_i_s_digital_proof_item_web_service_address
+        .row-fluid
+          .span2
+            %b
+              Sup inv paid to billed tolerance
+          .span10
+            = @company.sup_inv_paid_to_billed_tolerance
+        .row-fluid
+          .span2
+            %b
+              Is multi branch paying allowed
+          .span10
+            = @company.is_multi_branch_paying_allowed
+        .row-fluid
+          .span2
+            %b
+              Campaign no of days open ahead
+          .span10
+            = @company.campaign_no_of_days_open_ahead
+        .row-fluid
+          .span2
+            %b
+              Campaign no of days open behind
+          .span10
+            = @company.campaign_no_of_days_open_behind
+        .row-fluid
+          .span2
+            %b
+              No of digits for codes
+          .span10
+            = @company.no_of_digits_for_codes
+        .row-fluid
+          .span2
+            %b
+              Client invoice credit note billed payed tolerance
+          .span10
+            = @company.client_invoice_credit_note_billed_payed_tolerance
+        .row-fluid
+          .span2
+            %b
+              Is client group security enabled
+          .span10
+            = @company.is_client_group_security_enabled
+        .row-fluid
+          .span2
+            %b
+              Is division group security enabled
+          .span10
+            = @company.is_division_group_security_enabled
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@company.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@company.updated_at)

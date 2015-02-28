@@ -1,0 +1,1 @@
+json.extract! @media_space_supplier, :id, :uid, :code, :media_space_id, :supplier_id, :cost_type_id, :commission_percentage, :minimum_intermediary_margin_percentage, :eis_sync_date, :is_active, :created_at, :updated_at

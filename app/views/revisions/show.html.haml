@@ -1,0 +1,93 @@
+.page-header
+  %h3
+    Revisions
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to revisions_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_revision_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_revision_path(@revision) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @revision.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @revision.code
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @revision.company_division
+        .row-fluid
+          .span2
+            %b
+              Parent
+          .span10
+            = @revision.parent
+        .row-fluid
+          .span2
+            %b
+              Parent entity view
+          .span10
+            = @revision.parent_entity_view
+        .row-fluid
+          .span2
+            %b
+              Change h t m l report
+          .span10
+            = @revision.change_h_t_m_l_report
+        .row-fluid
+          .span2
+            %b
+              Change x m l
+          .span10
+            = @revision.change_x_m_l
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @revision.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @revision.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@revision.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@revision.updated_at)

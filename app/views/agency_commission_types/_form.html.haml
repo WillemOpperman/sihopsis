@@ -1,0 +1,18 @@
+= simple_form_for(@agency_commission_type, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :media_category
+    = f.input :is_calculated_as_nett_marked_up_by_agency_comm_perc
+    = f.input :is_calculated_as_gross_marked_up_by_agency_comm_perc
+    = f.input :is_default
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @agency_commission_type,
+               :cancel => agency_commission_types_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

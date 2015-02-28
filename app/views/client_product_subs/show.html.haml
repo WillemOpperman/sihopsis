@@ -1,0 +1,111 @@
+.page-header
+  %h3
+    Client_product_subs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_product_subs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_product_sub_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_product_sub_path(@client_product_sub) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_product_sub.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @client_product_sub.code_external
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_product_sub.uid
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @client_product_sub.name
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @client_product_sub.client_product
+        .row-fluid
+          .span2
+            %b
+              Default contact
+          .span10
+            = @client_product_sub.default_contact
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @client_product_sub.creation_source
+        .row-fluid
+          .span2
+            %b
+              Default agency commission percentage
+          .span10
+            = @client_product_sub.default_agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Tax registration no
+          .span10
+            = @client_product_sub.tax_registration_no
+        .row-fluid
+          .span2
+            %b
+              Region
+          .span10
+            = @client_product_sub.region
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @client_product_sub.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_product_sub.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_product_sub.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_product_sub.updated_at)

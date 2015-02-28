@@ -1,0 +1,20 @@
+= simple_form_for(@supplier_order_request_status, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_status_active
+    = f.input :is_issued
+    = f.input :is_cancelled
+    = f.input :is_default
+    = f.input :is_active
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_order_request_status,
+               :cancel => supplier_order_request_statuses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

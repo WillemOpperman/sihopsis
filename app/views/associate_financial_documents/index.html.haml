@@ -1,0 +1,161 @@
+.page-header
+  %h3
+    Associate_financial_documents
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), associate_financial_documents_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), associate_financial_documents_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => associate_financial_documents_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Company
+          %th
+            Company division
+          %th
+            Associate
+          %th
+            Contact
+          %th
+            Campaign
+          %th
+            Campaign schedule
+          %th
+            Owner user
+          %th
+            Currency
+          %th
+            Creation source
+          %th
+            Status
+          %th
+            Communication status
+          %th
+            Company cost centre
+          %th
+            Actual date
+          %th
+            Posting date
+          %th
+            Amount
+          %th
+            Amount home
+          %th
+            Tax amount
+          %th
+            Amount inc tax amount
+          %th
+            Amount inc tax home amount
+          %th
+            Tax type
+          %th
+            Exchange rate
+          %th
+            Notes
+          %th
+            Status reason
+          %th
+            Grid layout x m l
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @associate_financial_documents.each do |associate_financial_document|
+          %tr
+            %td
+              = associate_financial_document.uid
+            %td
+              = associate_financial_document.code
+            %td
+              = associate_financial_document.code_external
+            %td
+              = associate_financial_document.company
+            %td
+              = associate_financial_document.company_division
+            %td
+              = associate_financial_document.associate
+            %td
+              = associate_financial_document.contact
+            %td
+              = associate_financial_document.campaign
+            %td
+              = associate_financial_document.campaign_schedule
+            %td
+              = associate_financial_document.owner_user
+            %td
+              = associate_financial_document.currency
+            %td
+              = associate_financial_document.creation_source
+            %td
+              = associate_financial_document.status
+            %td
+              = associate_financial_document.communication_status
+            %td
+              = associate_financial_document.company_cost_centre
+            %td
+              = associate_financial_document.actual_date
+            %td
+              = associate_financial_document.posting_date
+            %td
+              = associate_financial_document.amount
+            %td
+              = associate_financial_document.amount_home
+            %td
+              = associate_financial_document.tax_amount
+            %td
+              = associate_financial_document.amount_inc_tax_amount
+            %td
+              = associate_financial_document.amount_inc_tax_home_amount
+            %td
+              = associate_financial_document.tax_type
+            %td
+              = associate_financial_document.exchange_rate
+            %td
+              = associate_financial_document.notes
+            %td
+              = associate_financial_document.status_reason
+            %td
+              = associate_financial_document.grid_layout_x_m_l
+            %td
+              = associate_financial_document.eis_sync_date
+            %td
+              .btn-group
+                = link_to associate_financial_document, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_associate_financial_document_path(associate_financial_document), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to associate_financial_document, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@associate_financial_documents)
+
+  #new.tab-pane
+    = render 'form'

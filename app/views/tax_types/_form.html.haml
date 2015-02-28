@@ -1,0 +1,18 @@
+= simple_form_for(@tax_type, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :creation_source
+    = f.input :tax_rate
+    = f.input :is_locked
+    = f.input :is_active
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @tax_type,
+               :cancel => tax_types_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

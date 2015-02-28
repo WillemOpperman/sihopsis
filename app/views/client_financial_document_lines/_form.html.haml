@@ -1,0 +1,63 @@
+= simple_form_for(@client_financial_document_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :client_financial_document
+    = f.association :campaign_schedule_placement
+    = f.association :client_commission_deal
+    = f.association :client_billing_setting_line
+    = f.association :media_category
+    = f.input :cost_gross_amount
+    = f.input :cost_commission_amount
+    = f.input :cost_nett_amount
+    = f.input :cost_gross_home_amount
+    = f.input :cost_commission_home_amount
+    = f.input :cost_nett_home_amount
+    = f.input :production_costs_amount
+    = f.input :production_costs_home_amount
+    = f.input :production_costs_margin_amount
+    = f.input :production_costs_margin_home_amount
+    = f.input :gross_amount
+    = f.input :commission_amount
+    = f.input :fees_amount
+    = f.input :production_costs_with_margin_amount
+    = f.input :nett_amount
+    = f.input :tax_amount
+    = f.input :nett_inc_tax_amount
+    = f.input :gross_home_amount
+    = f.input :commission_home_amount
+    = f.input :fees_home_amount
+    = f.input :production_costs_with_margin_home_amount
+    = f.input :nett_home_amount
+    = f.input :nett_inc_tax_home_amount
+    = f.input :eis_sync_date
+    = f.input :rate_card_unit_cost_gross
+    = f.input :rate_card_unit_cost_gross_home
+    = f.input :rate_card_unit_cost_nett
+    = f.input :rate_card_unit_cost_nett_home
+    = f.input :rate_card_cost_gross
+    = f.input :rate_card_cost_gross_home
+    = f.input :rate_card_cost_nett
+    = f.input :rate_card_cost_nett_home
+    = f.input :commission_agency_amount
+    = f.input :commission_agency_home_amount
+    = f.input :effective_discount_amount
+    = f.input :effective_discount_home_amount
+    = f.input :effective_discount_to_client_amount
+    = f.input :effective_discount_to_client_home_amount
+    = f.input :cost_minimum_intermediary_margin_percentage
+    = f.input :cost_minimum_intermediary_margin_amount
+    = f.input :cost_minimum_intermediary_margin_home_amount
+    = f.input :actual_cost_nett
+    = f.input :actual_cost_nett_home
+    = f.association :additional_company_cost_centre
+    = f.association :company_cost_centre
+    = f.input :notes
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_financial_document_line,
+               :cancel => client_financial_document_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,171 @@
+.page-header
+  %h3
+    Production_supplier_purchase_orders
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to production_supplier_purchase_orders_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_production_supplier_purchase_order_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_production_supplier_purchase_order_path(@production_supplier_purchase_order) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @production_supplier_purchase_order.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @production_supplier_purchase_order.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @production_supplier_purchase_order.name
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @production_supplier_purchase_order.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @production_supplier_purchase_order.supplier
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @production_supplier_purchase_order.contact
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @production_supplier_purchase_order.status
+        .row-fluid
+          .span2
+            %b
+              Postal address
+          .span10
+            = @production_supplier_purchase_order.postal_address
+        .row-fluid
+          .span2
+            %b
+              Physical address
+          .span10
+            = @production_supplier_purchase_order.physical_address
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @production_supplier_purchase_order.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @production_supplier_purchase_order.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost tax amount
+          .span10
+            = @production_supplier_purchase_order.production_cost_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost tax home amount
+          .span10
+            = @production_supplier_purchase_order.production_cost_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost inc tax amount
+          .span10
+            = @production_supplier_purchase_order.production_cost_inc_tax_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost inc tax home amount
+          .span10
+            = @production_supplier_purchase_order.production_cost_inc_tax_home_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @production_supplier_purchase_order.tax_type
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @production_supplier_purchase_order.currency
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @production_supplier_purchase_order.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @production_supplier_purchase_order.notes
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @production_supplier_purchase_order.communication_status
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @production_supplier_purchase_order.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @production_supplier_purchase_order.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_supplier_purchase_order.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@production_supplier_purchase_order.updated_at)

@@ -1,0 +1,11 @@
+- content_for(:title_name) do
+  %h3
+    Home Dashboard
+    %small Welcome to sihopsis !
+
+
+.row
+  .col-lg-6
+    = render :partial => 'activity_feed'
+  .col-lg-6
+    = render :partial => 'notification_feed'

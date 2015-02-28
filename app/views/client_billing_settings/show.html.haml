@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Client_billing_settings
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_billing_settings_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_billing_setting_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_billing_setting_path(@client_billing_setting) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_billing_setting.code
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_billing_setting.uid
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @client_billing_setting.company_division
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @client_billing_setting.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @client_billing_setting.client_product
+        .row-fluid
+          .span2
+            %b
+              Start date
+          .span10
+            = @client_billing_setting.start_date
+        .row-fluid
+          .span2
+            %b
+              Expiry date
+          .span10
+            = @client_billing_setting.expiry_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @client_billing_setting.is_active
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @client_billing_setting.media_category
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @client_billing_setting.supplier
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @client_billing_setting.media_space
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_billing_setting.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_billing_setting.updated_at)

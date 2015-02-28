@@ -1,0 +1,213 @@
+.page-header
+  %h3
+    Associates
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), associates_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), associates_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => associates_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Uid
+          %th
+            Name
+          %th
+            Offical name
+          %th
+            Company division
+          %th
+            Company registration no
+          %th
+            Default contact
+          %th
+            Phone number
+          %th
+            Fax number
+          %th
+            E mail
+          %th
+            Postal address
+          %th
+            Physical address
+          %th
+            Payment terms
+          %th
+            Tax registration no
+          %th
+            Default tax type
+          %th
+            Financial year end
+          %th
+            Default agency commission percentage
+          %th
+            Default currency
+          %th
+            Default creative agency
+          %th
+            Exposure current
+          %th
+            Exposure30
+          %th
+            Exposure60
+          %th
+            Exposure90
+          %th
+            Exposure120
+          %th
+            Exposure date modified
+          %th
+            Bank name
+          %th
+            Bank account no
+          %th
+            Bank branch no
+          %th
+            Bank branch name
+          %th
+            Media debit note name
+          %th
+            Media credit note name
+          %th
+            Is digital proof required
+          %th
+            Is digital proof preview required
+          %th
+            Is physical proof required
+          %th
+            Is purchase order user editable
+          %th
+            Is purchase order required to book
+          %th
+            Is purchase order approval required to use
+          %th
+            Is purchase order amount enforced
+          %th
+            Is active
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @associates.each do |associate|
+          %tr
+            %td
+              = associate.code
+            %td
+              = associate.code_external
+            %td
+              = associate.uid
+            %td
+              = associate.name
+            %td
+              = associate.offical_name
+            %td
+              = associate.company_division
+            %td
+              = associate.company_registration_no
+            %td
+              = associate.default_contact
+            %td
+              = associate.phone_number
+            %td
+              = associate.fax_number
+            %td
+              = associate.e_mail
+            %td
+              = associate.postal_address
+            %td
+              = associate.physical_address
+            %td
+              = associate.payment_terms
+            %td
+              = associate.tax_registration_no
+            %td
+              = associate.default_tax_type
+            %td
+              = associate.financial_year_end
+            %td
+              = associate.default_agency_commission_percentage
+            %td
+              = associate.default_currency
+            %td
+              = associate.default_creative_agency
+            %td
+              = associate.exposure_current
+            %td
+              = associate.exposure30
+            %td
+              = associate.exposure60
+            %td
+              = associate.exposure90
+            %td
+              = associate.exposure120
+            %td
+              = associate.exposure_date_modified
+            %td
+              = associate.bank_name
+            %td
+              = associate.bank_account_no
+            %td
+              = associate.bank_branch_no
+            %td
+              = associate.bank_branch_name
+            %td
+              = associate.media_debit_note_name
+            %td
+              = associate.media_credit_note_name
+            %td
+              = associate.is_digital_proof_required
+            %td
+              = associate.is_digital_proof_preview_required
+            %td
+              = associate.is_physical_proof_required
+            %td
+              = associate.is_purchase_order_user_editable
+            %td
+              = associate.is_purchase_order_required_to_book
+            %td
+              = associate.is_purchase_order_approval_required_to_use
+            %td
+              = associate.is_purchase_order_amount_enforced
+            %td
+              = associate.is_active
+            %td
+              = associate.eis_sync_date
+            %td
+              .btn-group
+                = link_to associate, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_associate_path(associate), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to associate, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@associates)
+
+  #new.tab-pane
+    = render 'form'

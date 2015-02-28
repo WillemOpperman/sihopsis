@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Client_financial_document_line_fee_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_financial_document_line_fee_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_financial_document_line_fee_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_financial_document_line_fee_line_path(@client_financial_document_line_fee_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_financial_document_line_fee_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_financial_document_line_fee_line.code
+        .row-fluid
+          .span2
+            %b
+              Client financial document line
+          .span10
+            = @client_financial_document_line_fee_line.client_financial_document_line
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement fee line
+          .span10
+            = @client_financial_document_line_fee_line.campaign_schedule_placement_fee_line
+        .row-fluid
+          .span2
+            %b
+              Fee amount
+          .span10
+            = @client_financial_document_line_fee_line.fee_amount
+        .row-fluid
+          .span2
+            %b
+              Fee home amount
+          .span10
+            = @client_financial_document_line_fee_line.fee_home_amount
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_financial_document_line_fee_line.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_financial_document_line_fee_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_financial_document_line_fee_line.updated_at)

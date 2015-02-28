@@ -1,0 +1,56 @@
+= simple_form_for(@supplier_recon_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :supplier_recon
+    = f.association :supplier
+    = f.association :supplier_financial_document_line
+    = f.association :production_supplier_financial_document_line
+    = f.input :notes
+    = f.input :media_payable_gross_amount
+    = f.input :media_payable_gross_home_amount
+    = f.input :media_payable_commission_amount
+    = f.input :media_payable_commission_home_amount
+    = f.input :media_payable_nett_amount
+    = f.input :media_payable_nett_home_amount
+    = f.input :media_payable_intermediary_margin_amount
+    = f.input :media_payable_intermediary_margin_home_amount
+    = f.input :media_payable_actual_nett_amount
+    = f.input :media_payable_actual_nett_home_amount
+    = f.input :production_cost_amount
+    = f.input :production_cost_home_amount
+    = f.input :payable_recon_amount
+    = f.input :payable_recon_home_amount
+    = f.input :payable_recon_tax_amount
+    = f.input :payable_recon_tax_home_amount
+    = f.input :payable_recon_inc_tax_amount
+    = f.input :payable_recon_inc_tax_home_amount
+    = f.input :wanted_media_payable_gross_amount
+    = f.input :wanted_media_payable_gross_home_amount
+    = f.input :wanted_media_payable_commission_amount
+    = f.input :wanted_media_payable_commission_home_amount
+    = f.input :wanted_media_payable_nett_amount
+    = f.input :wanted_media_payable_nett_home_amount
+    = f.input :wanted_media_payable_intermediary_margin_amount
+    = f.input :wanted_media_payable_intermediary_margin_home_amount
+    = f.input :wanted_media_payable_actual_nett_amount
+    = f.input :wanted_media_payable_actual_nett_home_amount
+    = f.input :wanted_production_cost_amount
+    = f.input :wanted_production_cost_home_amount
+    = f.input :wanted_recon_amount
+    = f.input :wanted_recon_home_amount
+    = f.input :wanted_recon_tax_amount
+    = f.input :wanted_recon_tax_home_amount
+    = f.input :wanted_recon_inc_tax_amount
+    = f.input :wanted_recon_inc_tax_home_amount
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_recon_line,
+               :cancel => supplier_recon_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

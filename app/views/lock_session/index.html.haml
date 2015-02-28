@@ -1,0 +1,16 @@
+/ START panel
+.p
+  - url = asset_url('logo-single.png')
+  %img.img-thumbnail.img-circle.center-block{:alt => "Avatar", :height => "60", :src => url, :width => "60"}
+.panel.widget.b0
+  .panel-body
+    %p.text-center Please login to unlock your screen.
+    = render :partial => 'form'
+/ END panel
+.p-lg.text-center
+  %span ©
+  %span 2014
+  %span -
+  %span sihopsis
+  %br
+    %span Media management system

@@ -1,0 +1,97 @@
+.page-header
+  %h3
+    Client_product_subs
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_product_subs_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_product_subs_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_product_subs_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Uid
+          %th
+            Name
+          %th
+            Client product
+          %th
+            Default contact
+          %th
+            Creation source
+          %th
+            Default agency commission percentage
+          %th
+            Tax registration no
+          %th
+            Region
+          %th
+            Is active
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @client_product_subs.each do |client_product_sub|
+          %tr
+            %td
+              = client_product_sub.code
+            %td
+              = client_product_sub.code_external
+            %td
+              = client_product_sub.uid
+            %td
+              = client_product_sub.name
+            %td
+              = client_product_sub.client_product
+            %td
+              = client_product_sub.default_contact
+            %td
+              = client_product_sub.creation_source
+            %td
+              = client_product_sub.default_agency_commission_percentage
+            %td
+              = client_product_sub.tax_registration_no
+            %td
+              = client_product_sub.region
+            %td
+              = client_product_sub.is_active
+            %td
+              = client_product_sub.eis_sync_date
+            %td
+              .btn-group
+                = link_to client_product_sub, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_product_sub_path(client_product_sub), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_product_sub, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_product_subs)
+
+  #new.tab-pane
+    = render 'form'

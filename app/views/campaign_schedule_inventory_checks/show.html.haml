@@ -1,0 +1,141 @@
+.page-header
+  %h3
+    Campaign_schedule_inventory_checks
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_inventory_checks_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_inventory_check_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_inventory_check_path(@campaign_schedule_inventory_check) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_inventory_check.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_inventory_check.code
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @campaign_schedule_inventory_check.company_division
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @campaign_schedule_inventory_check.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @campaign_schedule_inventory_check.supplier
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @campaign_schedule_inventory_check.media_space
+        .row-fluid
+          .span2
+            %b
+              Contact
+          .span10
+            = @campaign_schedule_inventory_check.contact
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @campaign_schedule_inventory_check.communication_status
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @campaign_schedule_inventory_check.creation_source
+        .row-fluid
+          .span2
+            %b
+              Gross amount
+          .span10
+            = @campaign_schedule_inventory_check.gross_amount
+        .row-fluid
+          .span2
+            %b
+              Commission amount
+          .span10
+            = @campaign_schedule_inventory_check.commission_amount
+        .row-fluid
+          .span2
+            %b
+              Nett amount
+          .span10
+            = @campaign_schedule_inventory_check.nett_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @campaign_schedule_inventory_check.tax_type
+        .row-fluid
+          .span2
+            %b
+              Tax gross amount
+          .span10
+            = @campaign_schedule_inventory_check.tax_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Tax nett amount
+          .span10
+            = @campaign_schedule_inventory_check.tax_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Description
+          .span10
+            = @campaign_schedule_inventory_check.description
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_inventory_check.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_inventory_check.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_inventory_check.updated_at)

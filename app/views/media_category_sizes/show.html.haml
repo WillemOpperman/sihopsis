@@ -1,0 +1,111 @@
+.page-header
+  %h3
+    Media_category_sizes
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_category_sizes_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_category_size_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_category_size_path(@media_category_size) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_category_size.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_category_size.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_category_size.name
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @media_category_size.media_category
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @media_category_size.media_space
+        .row-fluid
+          .span2
+            %b
+              Height
+          .span10
+            = @media_category_size.height
+        .row-fluid
+          .span2
+            %b
+              Columns
+          .span10
+            = @media_category_size.columns
+        .row-fluid
+          .span2
+            %b
+              Height unit of measure
+          .span10
+            = @media_category_size.height_unit_of_measure
+        .row-fluid
+          .span2
+            %b
+              Columns unit of measure
+          .span10
+            = @media_category_size.columns_unit_of_measure
+        .row-fluid
+          .span2
+            %b
+              Is name auto maintained
+          .span10
+            = @media_category_size.is_name_auto_maintained
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_category_size.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_category_size.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_category_size.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_category_size.updated_at)

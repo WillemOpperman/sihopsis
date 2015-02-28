@@ -1,0 +1,21 @@
+= simple_form_for(@service_provider_digital_proof, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :code
+    = f.input :uid
+    = f.association :service_prover
+    = f.input :url
+    = f.input :source_name
+    = f.input :source_location
+    = f.input :source_location2
+    = f.input :local_server_file_name
+    = f.input :appearance_date
+    = f.input :service_provider_modified_date
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @service_provider_digital_proof,
+               :cancel => service_provider_digital_proofs_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

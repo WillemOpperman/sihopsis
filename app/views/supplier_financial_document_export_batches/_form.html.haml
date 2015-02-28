@@ -1,0 +1,15 @@
+= simple_form_for(@supplier_financial_document_export_batch, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :supplier_financial_document
+    = f.input :is_success
+    = f.input :result_message
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_financial_document_export_batch,
+               :cancel => supplier_financial_document_export_batches_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

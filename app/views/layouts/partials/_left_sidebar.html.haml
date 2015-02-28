@@ -1,0 +1,63 @@
+%aside.aside
+  / START Sidebar (left)
+  .aside-inner
+    %nav.sidebar
+      / START sidebar nav
+      %ul.nav
+        %li.nav-heading
+          %span Main Navigation
+        %li.active
+          %a
+            -#  fa-lg
+            %em.sidebar-icon{:class => icon_class('bank')}
+            %span Home
+        %li
+          %a
+            %em.sidebar-icon{:class => icon_class('th-large')}
+            -#.label.label-success.pull-right 30
+            %span Settings
+        %li.nav-heading
+          %span Dashboards
+        %li
+          %a
+            %em.sidebar-icon{:class => icon_class('users')}
+            %span Client
+        %li
+          %a
+            %em.sidebar-icon{:class => icon_class('gears')}
+            %span Media
+        %li
+          %a
+            %em.sidebar-icon{:class => icon_class('slideshare')}
+            %span Supplier
+        %li
+          %a
+            %em.sidebar-icon{:class => icon_class('bar-chart')}
+            %span Report
+          %ul.nav.sidebar-subnav.collapse{:style => "height: 0px;"}
+            %li.sidebar-subnav-header Elements
+            %li
+              %a{:title => "Buttons"}
+                %em
+                %span Report 1
+            %li
+              %a{:title => "Font Icons"}
+                %em
+                .label.label-success.pull-right +400
+                %span Report 2
+        %li
+          %a
+            %em.sidebar-icon{:class => icon_class('paw')}
+            %span Activity
+
+
+:javascript
+  $(document).ready(function(){
+    $('.sidebar li').on('click', function(e){
+      $('.sidebar li').removeClass('active');
+      $('.sidebar li').children('ul .nav.sidebar-subnav.collapse').removeClass('in');
+      $(this).addClass('active');
+
+      $(this).children('ul .nav.sidebar-subnav.collapse').addClass('in');
+    })
+  });

@@ -1,0 +1,17 @@
+= simple_form_for(@client_link, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_to_advertiser
+    = f.input :is_to_media_agency
+    = f.input :is_to_natural_client
+    = f.input :is_default
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_link,
+               :cancel => client_links_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

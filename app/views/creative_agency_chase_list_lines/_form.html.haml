@@ -1,0 +1,26 @@
+= simple_form_for(@creative_agency_chase_list_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :creative_agency_chase_list
+    = f.association :campaign_schedule_placement
+    = f.association :material_contact
+    = f.input :material_delivery_method
+    = f.input :material_delivery_address
+    = f.input :routing_address_summary
+    = f.input :material_production_date
+    = f.association :media_space_part_type
+    = f.input :revision_no
+    = f.input :is_changed_in_current_revision
+    = f.input :revision_change_details
+    = f.input :eis_sync_date
+    = f.input :notes
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @creative_agency_chase_list_line,
+               :cancel => creative_agency_chase_list_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

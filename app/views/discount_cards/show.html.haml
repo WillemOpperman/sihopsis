@@ -1,0 +1,189 @@
+.page-header
+  %h3
+    Discount_cards
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to discount_cards_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_discount_card_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_discount_card_path(@discount_card) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @discount_card.uid
+        .row-fluid
+          .span2
+            %b
+              Discount standard
+          .span10
+            = @discount_card.discount_standard
+        .row-fluid
+          .span2
+            %b
+              Discount negotiated
+          .span10
+            = @discount_card.discount_negotiated
+        .row-fluid
+          .span2
+            %b
+              Discount early booking
+          .span10
+            = @discount_card.discount_early_booking
+        .row-fluid
+          .span2
+            %b
+              Discount other1
+          .span10
+            = @discount_card.discount_other1
+        .row-fluid
+          .span2
+            %b
+              Discount other2
+          .span10
+            = @discount_card.discount_other2
+        .row-fluid
+          .span2
+            %b
+              Specific company division
+          .span10
+            = @discount_card.specific_company_division
+        .row-fluid
+          .span2
+            %b
+              Supplier group
+          .span10
+            = @discount_card.supplier_group
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @discount_card.supplier
+        .row-fluid
+          .span2
+            %b
+              Supplier product
+          .span10
+            = @discount_card.supplier_product
+        .row-fluid
+          .span2
+            %b
+              Client group
+          .span10
+            = @discount_card.client_group
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @discount_card.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @discount_card.client_product
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @discount_card.media_space
+        .row-fluid
+          .span2
+            %b
+              Media space part
+          .span10
+            = @discount_card.media_space_part
+        .row-fluid
+          .span2
+            %b
+              Media space section
+          .span10
+            = @discount_card.media_space_section
+        .row-fluid
+          .span2
+            %b
+              Media category size
+          .span10
+            = @discount_card.media_category_size
+        .row-fluid
+          .span2
+            %b
+              Media category format
+          .span10
+            = @discount_card.media_category_format
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @discount_card.is_active
+        .row-fluid
+          .span2
+            %b
+              Start date
+          .span10
+            = @discount_card.start_date
+        .row-fluid
+          .span2
+            %b
+              Expiry date
+          .span10
+            = @discount_card.expiry_date
+        .row-fluid
+          .span2
+            %b
+              Description
+          .span10
+            = @discount_card.description
+        .row-fluid
+          .span2
+            %b
+              Supplier contact
+          .span10
+            = @discount_card.supplier_contact
+        .row-fluid
+          .span2
+            %b
+              Is calculated
+          .span10
+            = @discount_card.is_calculated
+        .row-fluid
+          .span2
+            %b
+              Is gross
+          .span10
+            = @discount_card.is_gross
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@discount_card.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@discount_card.updated_at)

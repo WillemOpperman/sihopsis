@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Creative_agency_chase_lists
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to creative_agency_chase_lists_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_creative_agency_chase_list_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_creative_agency_chase_list_path(@creative_agency_chase_list) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @creative_agency_chase_list.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @creative_agency_chase_list.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @creative_agency_chase_list.name
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @creative_agency_chase_list.status
+        .row-fluid
+          .span2
+            %b
+              Material contact
+          .span10
+            = @creative_agency_chase_list.material_contact
+        .row-fluid
+          .span2
+            %b
+              Creative agency
+          .span10
+            = @creative_agency_chase_list.creative_agency
+        .row-fluid
+          .span2
+            %b
+              Creative agency contact
+          .span10
+            = @creative_agency_chase_list.creative_agency_contact
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @creative_agency_chase_list.media_category
+        .row-fluid
+          .span2
+            %b
+              Issued date
+          .span10
+            = @creative_agency_chase_list.issued_date
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @creative_agency_chase_list.notes
+        .row-fluid
+          .span2
+            %b
+              Revision no
+          .span10
+            = @creative_agency_chase_list.revision_no
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @creative_agency_chase_list.creation_source
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @creative_agency_chase_list.communication_status
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @creative_agency_chase_list.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@creative_agency_chase_list.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@creative_agency_chase_list.updated_at)

@@ -1,0 +1,87 @@
+.page-header
+  %h3
+    Tax_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to tax_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_tax_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_tax_type_path(@tax_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @tax_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @tax_type.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @tax_type.name
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @tax_type.creation_source
+        .row-fluid
+          .span2
+            %b
+              Tax rate
+          .span10
+            = @tax_type.tax_rate
+        .row-fluid
+          .span2
+            %b
+              Is locked
+          .span10
+            = @tax_type.is_locked
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @tax_type.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @tax_type.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@tax_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@tax_type.updated_at)

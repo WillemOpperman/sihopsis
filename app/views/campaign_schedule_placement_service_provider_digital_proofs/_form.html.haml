@@ -1,0 +1,28 @@
+= simple_form_for(@campaign_schedule_placement_service_provider_digital_proof, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :code
+    = f.input :uid
+    = f.association :campaign_schedule_placement
+    = f.association :service_prover_digital_proof
+    = f.input :service_provider_size
+    = f.input :service_provider_columns
+    = f.input :service_provider_colour
+    = f.input :service_provider_position
+    = f.input :service_provider_position_no
+    = f.input :service_provider_advert_no
+    = f.input :service_provider_advert_title
+    = f.input :service_provider_advert_language
+    = f.input :media_agency_status
+    = f.input :is_accepted_by_media_agency
+    = f.input :service_provider_modified_date
+    = f.association :status_system_app_user
+    = f.input :status_date
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_service_provider_digital_proof,
+               :cancel => campaign_schedule_placement_service_provider_digital_proofs_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

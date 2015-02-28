@@ -1,0 +1,723 @@
+.page-header
+  %h3
+    Campaign_schedule_placements
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placements_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_path(@campaign_schedule_placement) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @campaign_schedule_placement.code_external
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @campaign_schedule_placement.media_category
+        .row-fluid
+          .span2
+            %b
+              Campaign
+          .span10
+            = @campaign_schedule_placement.campaign
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @campaign_schedule_placement.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @campaign_schedule_placement.client_product
+        .row-fluid
+          .span2
+            %b
+              Client product sub
+          .span10
+            = @campaign_schedule_placement.client_product_sub
+        .row-fluid
+          .span2
+            %b
+              Client contact
+          .span10
+            = @campaign_schedule_placement.client_contact
+        .row-fluid
+          .span2
+            %b
+              Creative agency
+          .span10
+            = @campaign_schedule_placement.creative_agency
+        .row-fluid
+          .span2
+            %b
+              Creative agency contact
+          .span10
+            = @campaign_schedule_placement.creative_agency_contact
+        .row-fluid
+          .span2
+            %b
+              Media agency client
+          .span10
+            = @campaign_schedule_placement.media_agency_client
+        .row-fluid
+          .span2
+            %b
+              Media agency client contact
+          .span10
+            = @campaign_schedule_placement.media_agency_client_contact
+        .row-fluid
+          .span2
+            %b
+              Natural client
+          .span10
+            = @campaign_schedule_placement.natural_client
+        .row-fluid
+          .span2
+            %b
+              Natural client product
+          .span10
+            = @campaign_schedule_placement.natural_client_product
+        .row-fluid
+          .span2
+            %b
+              Natural client contact
+          .span10
+            = @campaign_schedule_placement.natural_client_contact
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @campaign_schedule_placement.media_space
+        .row-fluid
+          .span2
+            %b
+              Business unit
+          .span10
+            = @campaign_schedule_placement.business_unit
+        .row-fluid
+          .span2
+            %b
+              Media space section
+          .span10
+            = @campaign_schedule_placement.media_space_section
+        .row-fluid
+          .span2
+            %b
+              Media space part
+          .span10
+            = @campaign_schedule_placement.media_space_part
+        .row-fluid
+          .span2
+            %b
+              Media category size
+          .span10
+            = @campaign_schedule_placement.media_category_size
+        .row-fluid
+          .span2
+            %b
+              Media category format
+          .span10
+            = @campaign_schedule_placement.media_category_format
+        .row-fluid
+          .span2
+            %b
+              Media frequency cap type
+          .span10
+            = @campaign_schedule_placement.media_frequency_cap_type
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @campaign_schedule_placement.supplier
+        .row-fluid
+          .span2
+            %b
+              Supplier contact
+          .span10
+            = @campaign_schedule_placement.supplier_contact
+        .row-fluid
+          .span2
+            %b
+              Owner user
+          .span10
+            = @campaign_schedule_placement.owner_user
+        .row-fluid
+          .span2
+            %b
+              Manager user
+          .span10
+            = @campaign_schedule_placement.manager_user
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @campaign_schedule_placement.currency
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @campaign_schedule_placement.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Rate type
+          .span10
+            = @campaign_schedule_placement.rate_type
+        .row-fluid
+          .span2
+            %b
+              Rate card line
+          .span10
+            = @campaign_schedule_placement.rate_card_line
+        .row-fluid
+          .span2
+            %b
+              Cost type
+          .span10
+            = @campaign_schedule_placement.cost_type
+        .row-fluid
+          .span2
+            %b
+              Quantity per unit rate
+          .span10
+            = @campaign_schedule_placement.quantity_per_unit_rate
+        .row-fluid
+          .span2
+            %b
+              Quantity
+          .span10
+            = @campaign_schedule_placement.quantity
+        .row-fluid
+          .span2
+            %b
+              Rate card unit cost gross
+          .span10
+            = @campaign_schedule_placement.rate_card_unit_cost_gross
+        .row-fluid
+          .span2
+            %b
+              Rate card unit cost gross home
+          .span10
+            = @campaign_schedule_placement.rate_card_unit_cost_gross_home
+        .row-fluid
+          .span2
+            %b
+              Rate card unit cost nett
+          .span10
+            = @campaign_schedule_placement.rate_card_unit_cost_nett
+        .row-fluid
+          .span2
+            %b
+              Rate card unit cost nett home
+          .span10
+            = @campaign_schedule_placement.rate_card_unit_cost_nett_home
+        .row-fluid
+          .span2
+            %b
+              Rate card cost gross
+          .span10
+            = @campaign_schedule_placement.rate_card_cost_gross
+        .row-fluid
+          .span2
+            %b
+              Rate card cost gross home
+          .span10
+            = @campaign_schedule_placement.rate_card_cost_gross_home
+        .row-fluid
+          .span2
+            %b
+              Rate card cost nett
+          .span10
+            = @campaign_schedule_placement.rate_card_cost_nett
+        .row-fluid
+          .span2
+            %b
+              Rate card cost nett home
+          .span10
+            = @campaign_schedule_placement.rate_card_cost_nett_home
+        .row-fluid
+          .span2
+            %b
+              Commission supplier percentage
+          .span10
+            = @campaign_schedule_placement.commission_supplier_percentage
+        .row-fluid
+          .span2
+            %b
+              Commission supplier amount
+          .span10
+            = @campaign_schedule_placement.commission_supplier_amount
+        .row-fluid
+          .span2
+            %b
+              Commission supplier home amount
+          .span10
+            = @campaign_schedule_placement.commission_supplier_home_amount
+        .row-fluid
+          .span2
+            %b
+              Commission agency percentage
+          .span10
+            = @campaign_schedule_placement.commission_agency_percentage
+        .row-fluid
+          .span2
+            %b
+              Commission agency amount
+          .span10
+            = @campaign_schedule_placement.commission_agency_amount
+        .row-fluid
+          .span2
+            %b
+              Commission agency home amount
+          .span10
+            = @campaign_schedule_placement.commission_agency_home_amount
+        .row-fluid
+          .span2
+            %b
+              Effective discount percentage
+          .span10
+            = @campaign_schedule_placement.effective_discount_percentage
+        .row-fluid
+          .span2
+            %b
+              Effective discount amount
+          .span10
+            = @campaign_schedule_placement.effective_discount_amount
+        .row-fluid
+          .span2
+            %b
+              Effective discount home amount
+          .span10
+            = @campaign_schedule_placement.effective_discount_home_amount
+        .row-fluid
+          .span2
+            %b
+              Effective discount to client percentage
+          .span10
+            = @campaign_schedule_placement.effective_discount_to_client_percentage
+        .row-fluid
+          .span2
+            %b
+              Effective discount to client amount
+          .span10
+            = @campaign_schedule_placement.effective_discount_to_client_amount
+        .row-fluid
+          .span2
+            %b
+              Effective discount to client home amount
+          .span10
+            = @campaign_schedule_placement.effective_discount_to_client_home_amount
+        .row-fluid
+          .span2
+            %b
+              Cost gross
+          .span10
+            = @campaign_schedule_placement.cost_gross
+        .row-fluid
+          .span2
+            %b
+              Cost gross home
+          .span10
+            = @campaign_schedule_placement.cost_gross_home
+        .row-fluid
+          .span2
+            %b
+              Cost nett
+          .span10
+            = @campaign_schedule_placement.cost_nett
+        .row-fluid
+          .span2
+            %b
+              Cost nett home
+          .span10
+            = @campaign_schedule_placement.cost_nett_home
+        .row-fluid
+          .span2
+            %b
+              Minimum intermediary margin percentage
+          .span10
+            = @campaign_schedule_placement.minimum_intermediary_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Minimum intermediary margin amount
+          .span10
+            = @campaign_schedule_placement.minimum_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Minimum intermediary margin home amount
+          .span10
+            = @campaign_schedule_placement.minimum_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Effective intermediary margin percentage
+          .span10
+            = @campaign_schedule_placement.effective_intermediary_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Effective intermediary margin amount
+          .span10
+            = @campaign_schedule_placement.effective_intermediary_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Effective intermediary margin home amount
+          .span10
+            = @campaign_schedule_placement.effective_intermediary_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Actual cost nett
+          .span10
+            = @campaign_schedule_placement.actual_cost_nett
+        .row-fluid
+          .span2
+            %b
+              Actual cost nett home
+          .span10
+            = @campaign_schedule_placement.actual_cost_nett_home
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced cost to date amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_cost_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced cost to date home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_cost_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced cost commission to date amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_cost_commission_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced cost commission to date home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_cost_commission_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced cost nett to date amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_cost_nett_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced cost nett to date home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_cost_nett_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced intermediary margin to date amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_intermediary_margin_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced intermediary margin to date home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_intermediary_margin_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced actual cost nett to date amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_actual_cost_nett_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced actual cost nett to date home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_actual_cost_nett_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Fees
+          .span10
+            = @campaign_schedule_placement.fees
+        .row-fluid
+          .span2
+            %b
+              Fees home
+          .span10
+            = @campaign_schedule_placement.fees_home
+        .row-fluid
+          .span2
+            %b
+              Fees to date
+          .span10
+            = @campaign_schedule_placement.fees_to_date
+        .row-fluid
+          .span2
+            %b
+              Fees to date home
+          .span10
+            = @campaign_schedule_placement.fees_to_date_home
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @campaign_schedule_placement.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @campaign_schedule_placement.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Ordered production cost amount to date
+          .span10
+            = @campaign_schedule_placement.ordered_production_cost_amount_to_date
+        .row-fluid
+          .span2
+            %b
+              Ordered production cost amount to date home
+          .span10
+            = @campaign_schedule_placement.ordered_production_cost_amount_to_date_home
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced production cost to date amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_production_cost_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced production cost to date home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_production_cost_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Effective production cost margin percentage
+          .span10
+            = @campaign_schedule_placement.effective_production_cost_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Production cost margin amount
+          .span10
+            = @campaign_schedule_placement.production_cost_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin home amount
+          .span10
+            = @campaign_schedule_placement.production_cost_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin to date amount
+          .span10
+            = @campaign_schedule_placement.production_cost_margin_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin to date home amount
+          .span10
+            = @campaign_schedule_placement.production_cost_margin_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production client billable amount
+          .span10
+            = @campaign_schedule_placement.production_client_billable_amount
+        .row-fluid
+          .span2
+            %b
+              Production client billable home amount
+          .span10
+            = @campaign_schedule_placement.production_client_billable_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production client invoiced to date amount
+          .span10
+            = @campaign_schedule_placement.production_client_invoiced_to_date_amount
+        .row-fluid
+          .span2
+            %b
+              Production client invoiced to date home amount
+          .span10
+            = @campaign_schedule_placement.production_client_invoiced_to_date_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client billable gross amount
+          .span10
+            = @campaign_schedule_placement.client_billable_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Client billable gross home amount
+          .span10
+            = @campaign_schedule_placement.client_billable_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client billable nett amount
+          .span10
+            = @campaign_schedule_placement.client_billable_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Client billable nett home amount
+          .span10
+            = @campaign_schedule_placement.client_billable_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date cost gross home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_cost_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date cost commission home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_cost_commission_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date cost nett home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_cost_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date gross amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date gross home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_gross_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date fees amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_fees_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date fees home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_fees_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date production costs with margin amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_production_costs_with_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date production costs with margin home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_production_costs_with_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date nett amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Client invoiced to date nett home amount
+          .span10
+            = @campaign_schedule_placement.client_invoiced_to_date_nett_home_amount
+        .row-fluid
+          .span2
+            %b
+              Cost billing gross home difference amount
+          .span10
+            = @campaign_schedule_placement.cost_billing_gross_home_difference_amount
+        .row-fluid
+          .span2
+            %b
+              Cost billing commission home difference amount
+          .span10
+            = @campaign_schedule_placement.cost_billing_commission_home_difference_amount
+        .row-fluid
+          .span2
+            %b
+              Cost billing nett home difference amount
+          .span10
+            = @campaign_schedule_placement.cost_billing_nett_home_difference_amount
+        .row-fluid
+          .span2
+            %b
+              Supplier invoiced provision gross home amount
+          .span10
+            = @campaign_schedule_placement.supplier_invoiced_provision_gross_home_amount
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement.updated_at)

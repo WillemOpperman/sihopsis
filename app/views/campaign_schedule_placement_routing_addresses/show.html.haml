@@ -1,0 +1,93 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_routing_addresses
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_routing_addresses_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_routing_address_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_routing_address_path(@campaign_schedule_placement_routing_address) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_routing_address.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_routing_address.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @campaign_schedule_placement_routing_address.name
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_routing_address.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Routing address source type
+          .span10
+            = @campaign_schedule_placement_routing_address.routing_address_source_type
+        .row-fluid
+          .span2
+            %b
+              Routing address type
+          .span10
+            = @campaign_schedule_placement_routing_address.routing_address_type
+        .row-fluid
+          .span2
+            %b
+              Routing address
+          .span10
+            = @campaign_schedule_placement_routing_address.routing_address
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @campaign_schedule_placement_routing_address.notes
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_routing_address.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_routing_address.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_routing_address.updated_at)

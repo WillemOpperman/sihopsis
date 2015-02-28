@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Media_space_parts
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_space_parts_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_space_parts_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_space_parts_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Media space
+          %th
+            Creation source
+          %th
+            Type
+          %th
+            Media space section
+          %th
+            Media space date
+          %th
+            From time
+          %th
+            To time
+          %th
+            Default material deadline days
+          %th
+            Default cancellation days
+          %th
+            Eis sync date
+          %th
+            Media category
+          %th.button3
+      %tbody
+        - @media_space_parts.each do |media_space_part|
+          %tr
+            %td
+              = media_space_part.uid
+            %td
+              = media_space_part.code
+            %td
+              = media_space_part.name
+            %td
+              = media_space_part.media_space
+            %td
+              = media_space_part.creation_source
+            %td
+              = media_space_part.type
+            %td
+              = media_space_part.media_space_section
+            %td
+              = media_space_part.media_space_date
+            %td
+              = media_space_part.from_time
+            %td
+              = media_space_part.to_time
+            %td
+              = media_space_part.default_material_deadline_days
+            %td
+              = media_space_part.default_cancellation_days
+            %td
+              = media_space_part.eis_sync_date
+            %td
+              = media_space_part.media_category
+            %td
+              .btn-group
+                = link_to media_space_part, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_space_part_path(media_space_part), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_space_part, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_space_parts)
+
+  #new.tab-pane
+    = render 'form'

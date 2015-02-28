@@ -1,0 +1,89 @@
+.page-header
+  %h3
+    Journals_document_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), journals_document_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), journals_document_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => journals_document_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Journals document
+          %th
+            Debit account no
+          %th
+            Credit account no
+          %th
+            Amount
+          %th
+            Comments
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @journals_document_lines.each do |journals_document_line|
+          %tr
+            %td
+              = journals_document_line.uid
+            %td
+              = journals_document_line.code
+            %td
+              = journals_document_line.name
+            %td
+              = journals_document_line.journals_document
+            %td
+              = journals_document_line.debit_account_no
+            %td
+              = journals_document_line.credit_account_no
+            %td
+              = journals_document_line.amount
+            %td
+              = journals_document_line.comments
+            %td
+              = journals_document_line.creation_source
+            %td
+              = journals_document_line.eis_sync_date
+            %td
+              .btn-group
+                = link_to journals_document_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_journals_document_line_path(journals_document_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to journals_document_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@journals_document_lines)
+
+  #new.tab-pane
+    = render 'form'

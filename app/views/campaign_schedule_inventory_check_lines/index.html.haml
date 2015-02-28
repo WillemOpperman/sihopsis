@@ -1,0 +1,89 @@
+.page-header
+  %h3
+    Campaign_schedule_inventory_check_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), campaign_schedule_inventory_check_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), campaign_schedule_inventory_check_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => campaign_schedule_inventory_check_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Revision no
+          %th
+            Campaign schedule inventory check
+          %th
+            Campaign schedule placement
+          %th
+            Gross amount
+          %th
+            Commission amount
+          %th
+            Nett amount
+          %th
+            Commission percent
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @campaign_schedule_inventory_check_lines.each do |campaign_schedule_inventory_check_line|
+          %tr
+            %td
+              = campaign_schedule_inventory_check_line.uid
+            %td
+              = campaign_schedule_inventory_check_line.code
+            %td
+              = campaign_schedule_inventory_check_line.revision_no
+            %td
+              = campaign_schedule_inventory_check_line.campaign_schedule_inventory_check
+            %td
+              = campaign_schedule_inventory_check_line.campaign_schedule_placement
+            %td
+              = campaign_schedule_inventory_check_line.gross_amount
+            %td
+              = campaign_schedule_inventory_check_line.commission_amount
+            %td
+              = campaign_schedule_inventory_check_line.nett_amount
+            %td
+              = campaign_schedule_inventory_check_line.commission_percent
+            %td
+              = campaign_schedule_inventory_check_line.eis_sync_date
+            %td
+              .btn-group
+                = link_to campaign_schedule_inventory_check_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_campaign_schedule_inventory_check_line_path(campaign_schedule_inventory_check_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to campaign_schedule_inventory_check_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@campaign_schedule_inventory_check_lines)
+
+  #new.tab-pane
+    = render 'form'

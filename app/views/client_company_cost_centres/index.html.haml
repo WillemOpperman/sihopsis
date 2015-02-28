@@ -1,0 +1,85 @@
+.page-header
+  %h3
+    Client_company_cost_centres
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_company_cost_centres_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_company_cost_centres_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_company_cost_centres_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Client
+          %th
+            Company cost centre
+          %th
+            Is active
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th
+            Additional company cost centre
+          %th.button3
+      %tbody
+        - @client_company_cost_centres.each do |client_company_cost_centre|
+          %tr
+            %td
+              = client_company_cost_centre.uid
+            %td
+              = client_company_cost_centre.code
+            %td
+              = client_company_cost_centre.name
+            %td
+              = client_company_cost_centre.client
+            %td
+              = client_company_cost_centre.company_cost_centre
+            %td
+              = client_company_cost_centre.is_active
+            %td
+              = client_company_cost_centre.creation_source
+            %td
+              = client_company_cost_centre.eis_sync_date
+            %td
+              = client_company_cost_centre.additional_company_cost_centre
+            %td
+              .btn-group
+                = link_to client_company_cost_centre, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_company_cost_centre_path(client_company_cost_centre), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_company_cost_centre, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_company_cost_centres)
+
+  #new.tab-pane
+    = render 'form'

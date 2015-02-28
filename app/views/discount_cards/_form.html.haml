@@ -1,0 +1,35 @@
+= simple_form_for(@discount_card, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :discount_standard
+    = f.input :discount_negotiated
+    = f.input :discount_early_booking
+    = f.input :discount_other1
+    = f.input :discount_other2
+    = f.association :specific_company_division
+    = f.association :supplier_group
+    = f.association :supplier
+    = f.association :supplier_product
+    = f.association :client_group
+    = f.association :client
+    = f.association :client_product
+    = f.association :media_space
+    = f.association :media_space_part
+    = f.association :media_space_section
+    = f.association :media_category_size
+    = f.association :media_category_format
+    = f.input :is_active
+    = f.input :start_date
+    = f.input :expiry_date
+    = f.input :description
+    = f.association :supplier_contact
+    = f.input :is_calculated
+    = f.input :is_gross
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @discount_card,
+               :cancel => discount_cards_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

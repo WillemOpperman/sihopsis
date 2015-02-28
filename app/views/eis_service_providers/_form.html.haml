@@ -1,0 +1,17 @@
+= simple_form_for(@eis_service_provider, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :code_external
+    = f.input :name
+    = f.input :is_this_agency
+    = f.input :service_provider_modified_date
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @eis_service_provider,
+               :cancel => eis_service_providers_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

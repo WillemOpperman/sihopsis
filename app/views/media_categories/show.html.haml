@@ -1,0 +1,147 @@
+.page-header
+  %h3
+    Media_categories
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_categories_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_category_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_category_path(@media_category) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_category.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_category.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @media_category.code_external
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_category.name
+        .row-fluid
+          .span2
+            %b
+              Type
+          .span10
+            = @media_category.type
+        .row-fluid
+          .span2
+            %b
+              Parent
+          .span10
+            = @media_category.parent
+        .row-fluid
+          .span2
+            %b
+              G l acc no media rev by media type
+          .span10
+            = @media_category.g_l_acc_no_media_rev_by_media_type
+        .row-fluid
+          .span2
+            %b
+              G l acc no media billing control
+          .span10
+            = @media_category.g_l_acc_no_media_billing_control
+        .row-fluid
+          .span2
+            %b
+              G l acc no commission revenue
+          .span10
+            = @media_category.g_l_acc_no_commission_revenue
+        .row-fluid
+          .span2
+            %b
+              G l acc no commission revenue rebate to client
+          .span10
+            = @media_category.g_l_acc_no_commission_revenue_rebate_to_client
+        .row-fluid
+          .span2
+            %b
+              G l acc no commission to associates expense
+          .span10
+            = @media_category.g_l_acc_no_commission_to_associates_expense
+        .row-fluid
+          .span2
+            %b
+              Default material deadline days
+          .span10
+            = @media_category.default_material_deadline_days
+        .row-fluid
+          .span2
+            %b
+              Default cancellation days
+          .span10
+            = @media_category.default_cancellation_days
+        .row-fluid
+          .span2
+            %b
+              Colour
+          .span10
+            = @media_category.colour
+        .row-fluid
+          .span2
+            %b
+              Default d p i e i s service prover
+          .span10
+            = @media_category.default_d_p_i_e_i_s_service_prover
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_category.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Default media advert source
+          .span10
+            = @media_category.default_media_advert_source
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_category.is_active
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_category.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_category.updated_at)

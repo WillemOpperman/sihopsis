@@ -1,0 +1,93 @@
+.page-header
+  %h3
+    Client_billing_settings
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_billing_settings_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_billing_settings_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_billing_settings_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Uid
+          %th
+            Company division
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Start date
+          %th
+            Expiry date
+          %th
+            Is active
+          %th
+            Media category
+          %th
+            Supplier
+          %th
+            Media space
+          %th.button3
+      %tbody
+        - @client_billing_settings.each do |client_billing_setting|
+          %tr
+            %td
+              = client_billing_setting.code
+            %td
+              = client_billing_setting.uid
+            %td
+              = client_billing_setting.company_division
+            %td
+              = client_billing_setting.client
+            %td
+              = client_billing_setting.client_product
+            %td
+              = client_billing_setting.start_date
+            %td
+              = client_billing_setting.expiry_date
+            %td
+              = client_billing_setting.is_active
+            %td
+              = client_billing_setting.media_category
+            %td
+              = client_billing_setting.supplier
+            %td
+              = client_billing_setting.media_space
+            %td
+              .btn-group
+                = link_to client_billing_setting, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_billing_setting_path(client_billing_setting), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_billing_setting, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_billing_settings)
+
+  #new.tab-pane
+    = render 'form'

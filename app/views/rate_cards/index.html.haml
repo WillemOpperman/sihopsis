@@ -1,0 +1,101 @@
+.page-header
+  %h3
+    Rate_cards
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), rate_cards_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), rate_cards_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => rate_cards_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Specific company division
+          %th
+            Supplier group
+          %th
+            Supplier
+          %th
+            Media space
+          %th
+            Client group
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Is active
+          %th
+            Start date
+          %th
+            Expiry date
+          %th
+            Supplier contact
+          %th.button3
+      %tbody
+        - @rate_cards.each do |rate_card|
+          %tr
+            %td
+              = rate_card.uid
+            %td
+              = rate_card.code
+            %td
+              = rate_card.specific_company_division
+            %td
+              = rate_card.supplier_group
+            %td
+              = rate_card.supplier
+            %td
+              = rate_card.media_space
+            %td
+              = rate_card.client_group
+            %td
+              = rate_card.client
+            %td
+              = rate_card.client_product
+            %td
+              = rate_card.is_active
+            %td
+              = rate_card.start_date
+            %td
+              = rate_card.expiry_date
+            %td
+              = rate_card.supplier_contact
+            %td
+              .btn-group
+                = link_to rate_card, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_rate_card_path(rate_card), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to rate_card, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@rate_cards)
+
+  #new.tab-pane
+    = render 'form'

@@ -1,0 +1,111 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_discount_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_discount_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_discount_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_discount_line_path(@campaign_schedule_placement_discount_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_discount_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_discount_line.code
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_discount_line.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Media discount surcharge type
+          .span10
+            = @campaign_schedule_placement_discount_line.media_discount_surcharge_type
+        .row-fluid
+          .span2
+            %b
+              Media discount surcharge type client deal
+          .span10
+            = @campaign_schedule_placement_discount_line.media_discount_surcharge_type_client_deal
+        .row-fluid
+          .span2
+            %b
+              Discount percent
+          .span10
+            = @campaign_schedule_placement_discount_line.discount_percent
+        .row-fluid
+          .span2
+            %b
+              Discount amount
+          .span10
+            = @campaign_schedule_placement_discount_line.discount_amount
+        .row-fluid
+          .span2
+            %b
+              Discount to client percent
+          .span10
+            = @campaign_schedule_placement_discount_line.discount_to_client_percent
+        .row-fluid
+          .span2
+            %b
+              Discount to client amount
+          .span10
+            = @campaign_schedule_placement_discount_line.discount_to_client_amount
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @campaign_schedule_placement_discount_line.is_default
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_discount_line.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Apply after
+          .span10
+            = @campaign_schedule_placement_discount_line.apply_after
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_discount_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_discount_line.updated_at)

@@ -1,0 +1,49 @@
+FactoryGirl.define do
+  factory :media_category_type do
+    uid ""
+code "MyString"
+code_external "MyString"
+name "MyString"
+is_columns_enabled false
+is_order_no_enabled false
+is_contract_no_enabled false
+is_from_to_time_enabled false
+is_colour_enabled false
+is_edition_enabled false
+is_type_size_enabled false
+is_trim_size_enabled false
+is_bleed_size_enabled false
+is_language_enabled false
+is_material_type_enabled false
+is_added_value_enabled false
+instruction_name "MyString"
+is_only_revised_placements_shown_on_m_i false
+is_valid_for_data_entry false
+is_size_on_media_advert_enabled false
+is_colour_on_media_advert_enabled false
+is_position_no_enabled false
+is_quantity_per_unit_rate_enabled false
+quantity_per_unit_rate_default "9.99"
+is_quantity_enabled false
+quantity_default "9.99"
+default_material_deadline_days nil
+default_cancellation_days nil
+is_m_i_required_for_billing_default false
+is_digital_proof_enabled false
+is_contract_no_required_for_m_i false
+is_billed_by_live_days false
+is_multiple_material_allowed false
+eis_sync_date "2014-12-25 16:42:11"
+is_on_street_date_enabled false
+is_placement_routing_address_required_to_book false
+is_placement_zero_unit_rate_allowed false
+is_client_material_required_to_bill false
+is_client_material_required_to_create_chase_list false
+is_client_company_cost_center_required_to_book false
+is_placement_ordered_required_to_bill false
+is_billable false
+is_media_space_contract_code_required false
+is_client_contract_placement_code_required false
+  end
+
+end

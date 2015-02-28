@@ -1,0 +1,113 @@
+.page-header
+  %h3
+    Rate_card_lines
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), rate_card_lines_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), rate_card_lines_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => rate_card_lines_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Rate card
+          %th
+            Rate type
+          %th
+            Desired minimum rate
+          %th
+            Cost type
+          %th
+            Actual unit cost gross
+          %th
+            Overriding supplier commission percentage
+          %th
+            Actual unit cost nett
+          %th
+            Agency commission type
+          %th
+            Agency commission percentage
+          %th
+            Media space part
+          %th
+            Media space section
+          %th
+            Media category size
+          %th
+            Media category format
+          %th
+            Description
+          %th.button3
+      %tbody
+        - @rate_card_lines.each do |rate_card_line|
+          %tr
+            %td
+              = rate_card_line.uid
+            %td
+              = rate_card_line.code
+            %td
+              = rate_card_line.rate_card
+            %td
+              = rate_card_line.rate_type
+            %td
+              = rate_card_line.desired_minimum_rate
+            %td
+              = rate_card_line.cost_type
+            %td
+              = rate_card_line.actual_unit_cost_gross
+            %td
+              = rate_card_line.overriding_supplier_commission_percentage
+            %td
+              = rate_card_line.actual_unit_cost_nett
+            %td
+              = rate_card_line.agency_commission_type
+            %td
+              = rate_card_line.agency_commission_percentage
+            %td
+              = rate_card_line.media_space_part
+            %td
+              = rate_card_line.media_space_section
+            %td
+              = rate_card_line.media_category_size
+            %td
+              = rate_card_line.media_category_format
+            %td
+              = rate_card_line.description
+            %td
+              .btn-group
+                = link_to rate_card_line, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_rate_card_line_path(rate_card_line), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to rate_card_line, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@rate_card_lines)
+
+  #new.tab-pane
+    = render 'form'

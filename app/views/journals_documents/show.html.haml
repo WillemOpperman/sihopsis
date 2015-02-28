@@ -1,0 +1,117 @@
+.page-header
+  %h3
+    Journals_documents
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to journals_documents_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_journals_document_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_journals_document_path(@journals_document) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @journals_document.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @journals_document.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @journals_document.name
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @journals_document.status
+        .row-fluid
+          .span2
+            %b
+              Company cost centre
+          .span10
+            = @journals_document.company_cost_centre
+        .row-fluid
+          .span2
+            %b
+              Company accounting period
+          .span10
+            = @journals_document.company_accounting_period
+        .row-fluid
+          .span2
+            %b
+              Internal comments
+          .span10
+            = @journals_document.internal_comments
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @journals_document.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @journals_document.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Posting date
+          .span10
+            = @journals_document.posting_date
+        .row-fluid
+          .span2
+            %b
+              Actual date
+          .span10
+            = @journals_document.actual_date
+        .row-fluid
+          .span2
+            %b
+              Campaign
+          .span10
+            = @journals_document.campaign
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @journals_document.media_category
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@journals_document.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@journals_document.updated_at)

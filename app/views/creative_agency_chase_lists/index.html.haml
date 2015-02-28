@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Creative_agency_chase_lists
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), creative_agency_chase_lists_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), creative_agency_chase_lists_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => creative_agency_chase_lists_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Status
+          %th
+            Material contact
+          %th
+            Creative agency
+          %th
+            Creative agency contact
+          %th
+            Media category
+          %th
+            Issued date
+          %th
+            Notes
+          %th
+            Revision no
+          %th
+            Creation source
+          %th
+            Communication status
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @creative_agency_chase_lists.each do |creative_agency_chase_list|
+          %tr
+            %td
+              = creative_agency_chase_list.uid
+            %td
+              = creative_agency_chase_list.code
+            %td
+              = creative_agency_chase_list.name
+            %td
+              = creative_agency_chase_list.status
+            %td
+              = creative_agency_chase_list.material_contact
+            %td
+              = creative_agency_chase_list.creative_agency
+            %td
+              = creative_agency_chase_list.creative_agency_contact
+            %td
+              = creative_agency_chase_list.media_category
+            %td
+              = creative_agency_chase_list.issued_date
+            %td
+              = creative_agency_chase_list.notes
+            %td
+              = creative_agency_chase_list.revision_no
+            %td
+              = creative_agency_chase_list.creation_source
+            %td
+              = creative_agency_chase_list.communication_status
+            %td
+              = creative_agency_chase_list.eis_sync_date
+            %td
+              .btn-group
+                = link_to creative_agency_chase_list, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_creative_agency_chase_list_path(creative_agency_chase_list), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to creative_agency_chase_list, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@creative_agency_chase_lists)
+
+  #new.tab-pane
+    = render 'form'

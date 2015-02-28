@@ -1,0 +1,101 @@
+.page-header
+  %h3
+    Journals_documents
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), journals_documents_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), journals_documents_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => journals_documents_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Status
+          %th
+            Company cost centre
+          %th
+            Company accounting period
+          %th
+            Internal comments
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th
+            Posting date
+          %th
+            Actual date
+          %th
+            Campaign
+          %th
+            Media category
+          %th.button3
+      %tbody
+        - @journals_documents.each do |journals_document|
+          %tr
+            %td
+              = journals_document.uid
+            %td
+              = journals_document.code
+            %td
+              = journals_document.name
+            %td
+              = journals_document.status
+            %td
+              = journals_document.company_cost_centre
+            %td
+              = journals_document.company_accounting_period
+            %td
+              = journals_document.internal_comments
+            %td
+              = journals_document.creation_source
+            %td
+              = journals_document.eis_sync_date
+            %td
+              = journals_document.posting_date
+            %td
+              = journals_document.actual_date
+            %td
+              = journals_document.campaign
+            %td
+              = journals_document.media_category
+            %td
+              .btn-group
+                = link_to journals_document, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_journals_document_path(journals_document), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to journals_document, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@journals_documents)
+
+  #new.tab-pane
+    = render 'form'

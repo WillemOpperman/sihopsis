@@ -1,0 +1,85 @@
+.page-header
+  %h3
+    Attachments
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), attachments_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), attachments_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => attachments_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Type
+          %th
+            Is stored in document share
+          %th
+            File path
+          %th
+            Description
+          %th
+            Item entity view
+          %th
+            Related item
+          %th
+            Is auto attached when parent is emailed
+          %th.button3
+      %tbody
+        - @attachments.each do |attachment|
+          %tr
+            %td
+              = attachment.uid
+            %td
+              = attachment.code
+            %td
+              = attachment.type
+            %td
+              = attachment.is_stored_in_document_share
+            %td
+              = attachment.file_path
+            %td
+              = attachment.description
+            %td
+              = attachment.item_entity_view
+            %td
+              = attachment.related_item
+            %td
+              = attachment.is_auto_attached_when_parent_is_emailed
+            %td
+              .btn-group
+                = link_to attachment, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_attachment_path(attachment), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to attachment, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@attachments)
+
+  #new.tab-pane
+    = render 'form'

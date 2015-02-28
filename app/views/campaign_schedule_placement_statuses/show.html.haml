@@ -1,0 +1,237 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_statuses
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_statuses_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_status_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_status_path(@campaign_schedule_placement_status) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_status.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_status.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @campaign_schedule_placement_status.name
+        .row-fluid
+          .span2
+            %b
+              Is placement active
+          .span10
+            = @campaign_schedule_placement_status.is_placement_active
+        .row-fluid
+          .span2
+            %b
+              Is placement proposed
+          .span10
+            = @campaign_schedule_placement_status.is_placement_proposed
+        .row-fluid
+          .span2
+            %b
+              Is placement client ordered
+          .span10
+            = @campaign_schedule_placement_status.is_placement_client_ordered
+        .row-fluid
+          .span2
+            %b
+              Is placement client approved
+          .span10
+            = @campaign_schedule_placement_status.is_placement_client_approved
+        .row-fluid
+          .span2
+            %b
+              Is placement requested
+          .span10
+            = @campaign_schedule_placement_status.is_placement_requested
+        .row-fluid
+          .span2
+            %b
+              Is placement ordered
+          .span10
+            = @campaign_schedule_placement_status.is_placement_ordered
+        .row-fluid
+          .span2
+            %b
+              Is placement rescheduled
+          .span10
+            = @campaign_schedule_placement_status.is_placement_rescheduled
+        .row-fluid
+          .span2
+            %b
+              Is placement live
+          .span10
+            = @campaign_schedule_placement_status.is_placement_live
+        .row-fluid
+          .span2
+            %b
+              Is placement paused
+          .span10
+            = @campaign_schedule_placement_status.is_placement_paused
+        .row-fluid
+          .span2
+            %b
+              Is placement suspended
+          .span10
+            = @campaign_schedule_placement_status.is_placement_suspended
+        .row-fluid
+          .span2
+            %b
+              Is placement restarted
+          .span10
+            = @campaign_schedule_placement_status.is_placement_restarted
+        .row-fluid
+          .span2
+            %b
+              Is placement stopped
+          .span10
+            = @campaign_schedule_placement_status.is_placement_stopped
+        .row-fluid
+          .span2
+            %b
+              Is placement finished
+          .span10
+            = @campaign_schedule_placement_status.is_placement_finished
+        .row-fluid
+          .span2
+            %b
+              Is placement instructed
+          .span10
+            = @campaign_schedule_placement_status.is_placement_instructed
+        .row-fluid
+          .span2
+            %b
+              Is placement part of credit exposure
+          .span10
+            = @campaign_schedule_placement_status.is_placement_part_of_credit_exposure
+        .row-fluid
+          .span2
+            %b
+              Is placement part of p o exposure
+          .span10
+            = @campaign_schedule_placement_status.is_placement_part_of_p_o_exposure
+        .row-fluid
+          .span2
+            %b
+              Is placement rejected
+          .span10
+            = @campaign_schedule_placement_status.is_placement_rejected
+        .row-fluid
+          .span2
+            %b
+              Is placement taken to super profit
+          .span10
+            = @campaign_schedule_placement_status.is_placement_taken_to_super_profit
+        .row-fluid
+          .span2
+            %b
+              Is placement temporary
+          .span10
+            = @campaign_schedule_placement_status.is_placement_temporary
+        .row-fluid
+          .span2
+            %b
+              Is reason required to change to
+          .span10
+            = @campaign_schedule_placement_status.is_reason_required_to_change_to
+        .row-fluid
+          .span2
+            %b
+              Is attachment required to change to
+          .span10
+            = @campaign_schedule_placement_status.is_attachment_required_to_change_to
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @campaign_schedule_placement_status.is_default
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_status.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @campaign_schedule_placement_status.is_active
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @campaign_schedule_placement_status.media_category
+        .row-fluid
+          .span2
+            %b
+              Is placement disputed
+          .span10
+            = @campaign_schedule_placement_status.is_placement_disputed
+        .row-fluid
+          .span2
+            %b
+              Is placement reviewed
+          .span10
+            = @campaign_schedule_placement_status.is_placement_reviewed
+        .row-fluid
+          .span2
+            %b
+              Is placement awaiting client material
+          .span10
+            = @campaign_schedule_placement_status.is_placement_awaiting_client_material
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @campaign_schedule_placement_status.company_division
+        .row-fluid
+          .span2
+            %b
+              Is placement billable
+          .span10
+            = @campaign_schedule_placement_status.is_placement_billable
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_status.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_status.updated_at)

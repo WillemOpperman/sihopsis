@@ -1,0 +1,181 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_statuses
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), campaign_schedule_placement_statuses_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), campaign_schedule_placement_statuses_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => campaign_schedule_placement_statuses_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Is placement active
+          %th
+            Is placement proposed
+          %th
+            Is placement client ordered
+          %th
+            Is placement client approved
+          %th
+            Is placement requested
+          %th
+            Is placement ordered
+          %th
+            Is placement rescheduled
+          %th
+            Is placement live
+          %th
+            Is placement paused
+          %th
+            Is placement suspended
+          %th
+            Is placement restarted
+          %th
+            Is placement stopped
+          %th
+            Is placement finished
+          %th
+            Is placement instructed
+          %th
+            Is placement part of credit exposure
+          %th
+            Is placement part of p o exposure
+          %th
+            Is placement rejected
+          %th
+            Is placement taken to super profit
+          %th
+            Is placement temporary
+          %th
+            Is reason required to change to
+          %th
+            Is attachment required to change to
+          %th
+            Is default
+          %th
+            Eis sync date
+          %th
+            Is active
+          %th
+            Media category
+          %th
+            Is placement disputed
+          %th
+            Is placement reviewed
+          %th
+            Is placement awaiting client material
+          %th
+            Company division
+          %th
+            Is placement billable
+          %th.button3
+      %tbody
+        - @campaign_schedule_placement_statuses.each do |campaign_schedule_placement_status|
+          %tr
+            %td
+              = campaign_schedule_placement_status.uid
+            %td
+              = campaign_schedule_placement_status.code
+            %td
+              = campaign_schedule_placement_status.name
+            %td
+              = campaign_schedule_placement_status.is_placement_active
+            %td
+              = campaign_schedule_placement_status.is_placement_proposed
+            %td
+              = campaign_schedule_placement_status.is_placement_client_ordered
+            %td
+              = campaign_schedule_placement_status.is_placement_client_approved
+            %td
+              = campaign_schedule_placement_status.is_placement_requested
+            %td
+              = campaign_schedule_placement_status.is_placement_ordered
+            %td
+              = campaign_schedule_placement_status.is_placement_rescheduled
+            %td
+              = campaign_schedule_placement_status.is_placement_live
+            %td
+              = campaign_schedule_placement_status.is_placement_paused
+            %td
+              = campaign_schedule_placement_status.is_placement_suspended
+            %td
+              = campaign_schedule_placement_status.is_placement_restarted
+            %td
+              = campaign_schedule_placement_status.is_placement_stopped
+            %td
+              = campaign_schedule_placement_status.is_placement_finished
+            %td
+              = campaign_schedule_placement_status.is_placement_instructed
+            %td
+              = campaign_schedule_placement_status.is_placement_part_of_credit_exposure
+            %td
+              = campaign_schedule_placement_status.is_placement_part_of_p_o_exposure
+            %td
+              = campaign_schedule_placement_status.is_placement_rejected
+            %td
+              = campaign_schedule_placement_status.is_placement_taken_to_super_profit
+            %td
+              = campaign_schedule_placement_status.is_placement_temporary
+            %td
+              = campaign_schedule_placement_status.is_reason_required_to_change_to
+            %td
+              = campaign_schedule_placement_status.is_attachment_required_to_change_to
+            %td
+              = campaign_schedule_placement_status.is_default
+            %td
+              = campaign_schedule_placement_status.eis_sync_date
+            %td
+              = campaign_schedule_placement_status.is_active
+            %td
+              = campaign_schedule_placement_status.media_category
+            %td
+              = campaign_schedule_placement_status.is_placement_disputed
+            %td
+              = campaign_schedule_placement_status.is_placement_reviewed
+            %td
+              = campaign_schedule_placement_status.is_placement_awaiting_client_material
+            %td
+              = campaign_schedule_placement_status.company_division
+            %td
+              = campaign_schedule_placement_status.is_placement_billable
+            %td
+              .btn-group
+                = link_to campaign_schedule_placement_status, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_campaign_schedule_placement_status_path(campaign_schedule_placement_status), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to campaign_schedule_placement_status, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@campaign_schedule_placement_statuses)
+
+  #new.tab-pane
+    = render 'form'

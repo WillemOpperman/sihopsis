@@ -1,0 +1,22 @@
+= simple_form_for(@campaign_schedule_placement_discount_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :campaign_schedule_placement
+    = f.association :media_discount_surcharge_type
+    = f.association :media_discount_surcharge_type_client_deal
+    = f.input :discount_percent
+    = f.input :discount_amount
+    = f.input :discount_to_client_percent
+    = f.input :discount_to_client_amount
+    = f.input :is_default
+    = f.input :eis_sync_date
+    = f.association :apply_after
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_discount_line,
+               :cancel => campaign_schedule_placement_discount_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

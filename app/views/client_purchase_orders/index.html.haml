@@ -1,0 +1,137 @@
+.page-header
+  %h3
+    Client_purchase_orders
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_purchase_orders_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_purchase_orders_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_purchase_orders_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Description
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Status
+          %th
+            Gross amount
+          %th
+            Commission amount
+          %th
+            Nett amount
+          %th
+            Order date
+          %th
+            Order expiry date
+          %th
+            Owner user
+          %th
+            Related
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th
+            Currency
+          %th
+            Exchange rate
+          %th
+            Gross home amount
+          %th
+            Commission home amount
+          %th
+            Nett home amount
+          %th
+            Pre billing manual client financial document code
+          %th.button3
+      %tbody
+        - @client_purchase_orders.each do |client_purchase_order|
+          %tr
+            %td
+              = client_purchase_order.uid
+            %td
+              = client_purchase_order.code
+            %td
+              = client_purchase_order.code_external
+            %td
+              = client_purchase_order.description
+            %td
+              = client_purchase_order.client
+            %td
+              = client_purchase_order.client_product
+            %td
+              = client_purchase_order.status
+            %td
+              = client_purchase_order.gross_amount
+            %td
+              = client_purchase_order.commission_amount
+            %td
+              = client_purchase_order.nett_amount
+            %td
+              = client_purchase_order.order_date
+            %td
+              = client_purchase_order.order_expiry_date
+            %td
+              = client_purchase_order.owner_user
+            %td
+              = client_purchase_order.related
+            %td
+              = client_purchase_order.creation_source
+            %td
+              = client_purchase_order.eis_sync_date
+            %td
+              = client_purchase_order.currency
+            %td
+              = client_purchase_order.exchange_rate
+            %td
+              = client_purchase_order.gross_home_amount
+            %td
+              = client_purchase_order.commission_home_amount
+            %td
+              = client_purchase_order.nett_home_amount
+            %td
+              = client_purchase_order.pre_billing_manual_client_financial_document_code
+            %td
+              .btn-group
+                = link_to client_purchase_order, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_purchase_order_path(client_purchase_order), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_purchase_order, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_purchase_orders)
+
+  #new.tab-pane
+    = render 'form'

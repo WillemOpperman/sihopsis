@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Media_space_parts
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_space_parts_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_part_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_part_path(@media_space_part) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space_part.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space_part.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_space_part.name
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @media_space_part.media_space
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @media_space_part.creation_source
+        .row-fluid
+          .span2
+            %b
+              Type
+          .span10
+            = @media_space_part.type
+        .row-fluid
+          .span2
+            %b
+              Media space section
+          .span10
+            = @media_space_part.media_space_section
+        .row-fluid
+          .span2
+            %b
+              Media space date
+          .span10
+            = @media_space_part.media_space_date
+        .row-fluid
+          .span2
+            %b
+              From time
+          .span10
+            = @media_space_part.from_time
+        .row-fluid
+          .span2
+            %b
+              To time
+          .span10
+            = @media_space_part.to_time
+        .row-fluid
+          .span2
+            %b
+              Default material deadline days
+          .span10
+            = @media_space_part.default_material_deadline_days
+        .row-fluid
+          .span2
+            %b
+              Default cancellation days
+          .span10
+            = @media_space_part.default_cancellation_days
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_space_part.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Media category
+          .span10
+            = @media_space_part.media_category
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_part.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_part.updated_at)

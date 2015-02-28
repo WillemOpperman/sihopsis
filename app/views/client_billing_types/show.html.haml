@@ -1,0 +1,141 @@
+.page-header
+  %h3
+    Client_billing_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_billing_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_billing_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_billing_type_path(@client_billing_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_billing_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_billing_type.code
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @client_billing_type.company_division
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @client_billing_type.name
+        .row-fluid
+          .span2
+            %b
+              Sort order
+          .span10
+            = @client_billing_type.sort_order
+        .row-fluid
+          .span2
+            %b
+              Is split by client
+          .span10
+            = @client_billing_type.is_split_by_client
+        .row-fluid
+          .span2
+            %b
+              Is split by campaign
+          .span10
+            = @client_billing_type.is_split_by_campaign
+        .row-fluid
+          .span2
+            %b
+              Is split by campaign schedule
+          .span10
+            = @client_billing_type.is_split_by_campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Is split by order no
+          .span10
+            = @client_billing_type.is_split_by_order_no
+        .row-fluid
+          .span2
+            %b
+              Is split by campaign schedule placement
+          .span10
+            = @client_billing_type.is_split_by_campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Is split by media space
+          .span10
+            = @client_billing_type.is_split_by_media_space
+        .row-fluid
+          .span2
+            %b
+              Is split by client material
+          .span10
+            = @client_billing_type.is_split_by_client_material
+        .row-fluid
+          .span2
+            %b
+              Is split by week
+          .span10
+            = @client_billing_type.is_split_by_week
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @client_billing_type.company
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @client_billing_type.is_default
+        .row-fluid
+          .span2
+            %b
+              Is split by month
+          .span10
+            = @client_billing_type.is_split_by_month
+        .row-fluid
+          .span2
+            %b
+              Is split by year
+          .span10
+            = @client_billing_type.is_split_by_year
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_billing_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_billing_type.updated_at)

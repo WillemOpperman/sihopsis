@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Creative_agency_chase_list_statuses
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), creative_agency_chase_list_statuses_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), creative_agency_chase_list_statuses_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => creative_agency_chase_list_statuses_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Is active
+          %th
+            Is cancelled
+          %th
+            Is revised
+          %th
+            Is default
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @creative_agency_chase_list_statuses.each do |creative_agency_chase_list_status|
+          %tr
+            %td
+              = creative_agency_chase_list_status.uid
+            %td
+              = creative_agency_chase_list_status.code
+            %td
+              = creative_agency_chase_list_status.name
+            %td
+              = creative_agency_chase_list_status.is_active
+            %td
+              = creative_agency_chase_list_status.is_cancelled
+            %td
+              = creative_agency_chase_list_status.is_revised
+            %td
+              = creative_agency_chase_list_status.is_default
+            %td
+              = creative_agency_chase_list_status.eis_sync_date
+            %td
+              .btn-group
+                = link_to creative_agency_chase_list_status, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_creative_agency_chase_list_status_path(creative_agency_chase_list_status), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to creative_agency_chase_list_status, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@creative_agency_chase_list_statuses)
+
+  #new.tab-pane
+    = render 'form'

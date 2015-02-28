@@ -1,0 +1,1 @@
+json.extract! @client_billing_setting, :id, :code, :uid, :company_division_id, :client_id, :client_product_id, :start_date, :expiry_date, :is_active, :media_category_id, :supplier_id, :media_space_id, :created_at, :updated_at

@@ -1,0 +1,321 @@
+.page-header
+  %h3
+    Client_financial_documents
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), client_financial_documents_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), client_financial_documents_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => client_financial_documents_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Company
+          %th
+            Company division
+          %th
+            Client
+          %th
+            Client product
+          %th
+            Contact
+          %th
+            Campaign
+          %th
+            Campaign schedule
+          %th
+            Owner user
+          %th
+            Currency
+          %th
+            Creation source
+          %th
+            Status
+          %th
+            Communication status
+          %th
+            Actual date
+          %th
+            Posting date
+          %th
+            Cost gross amount
+          %th
+            Cost commission amount
+          %th
+            Cost nett amount
+          %th
+            Cost gross home amount
+          %th
+            Cost commission home amount
+          %th
+            Cost nett home amount
+          %th
+            Production costs amount
+          %th
+            Production costs home amount
+          %th
+            Production costs margin amount
+          %th
+            Production costs margin home amount
+          %th
+            Gross amount
+          %th
+            Commission amount
+          %th
+            Fees amount
+          %th
+            Production costs with margin amount
+          %th
+            Nett amount
+          %th
+            Nett inc tax amount
+          %th
+            Gross home amount
+          %th
+            Commission home amount
+          %th
+            Fees home amount
+          %th
+            Production costs with margin home amount
+          %th
+            Nett home amount
+          %th
+            Nett inc tax home amount
+          %th
+            Tax type
+          %th
+            Tax gross amount
+          %th
+            Tax nett amount
+          %th
+            Exchange rate
+          %th
+            Notes
+          %th
+            Status reason
+          %th
+            Grid layout x m l
+          %th
+            Eis sync date
+          %th
+            Rate card unit cost gross
+          %th
+            Rate card unit cost gross home
+          %th
+            Rate card unit cost nett
+          %th
+            Rate card unit cost nett home
+          %th
+            Rate card cost gross
+          %th
+            Rate card cost gross home
+          %th
+            Rate card cost nett
+          %th
+            Rate card cost nett home
+          %th
+            Commission agency amount
+          %th
+            Commission agency home amount
+          %th
+            Effective discount amount
+          %th
+            Effective discount home amount
+          %th
+            Effective discount to client amount
+          %th
+            Effective discount to client home amount
+          %th
+            Client purchase order
+          %th
+            Cost minimum intermediary margin percentage
+          %th
+            Cost minimum intermediary margin amount
+          %th
+            Cost minimum intermediary margin home amount
+          %th
+            Actual cost nett
+          %th
+            Actual cost nett home
+          %th
+            Company cost centre
+          %th.button3
+      %tbody
+        - @client_financial_documents.each do |client_financial_document|
+          %tr
+            %td
+              = client_financial_document.uid
+            %td
+              = client_financial_document.code
+            %td
+              = client_financial_document.code_external
+            %td
+              = client_financial_document.company
+            %td
+              = client_financial_document.company_division
+            %td
+              = client_financial_document.client
+            %td
+              = client_financial_document.client_product
+            %td
+              = client_financial_document.contact
+            %td
+              = client_financial_document.campaign
+            %td
+              = client_financial_document.campaign_schedule
+            %td
+              = client_financial_document.owner_user
+            %td
+              = client_financial_document.currency
+            %td
+              = client_financial_document.creation_source
+            %td
+              = client_financial_document.status
+            %td
+              = client_financial_document.communication_status
+            %td
+              = client_financial_document.actual_date
+            %td
+              = client_financial_document.posting_date
+            %td
+              = client_financial_document.cost_gross_amount
+            %td
+              = client_financial_document.cost_commission_amount
+            %td
+              = client_financial_document.cost_nett_amount
+            %td
+              = client_financial_document.cost_gross_home_amount
+            %td
+              = client_financial_document.cost_commission_home_amount
+            %td
+              = client_financial_document.cost_nett_home_amount
+            %td
+              = client_financial_document.production_costs_amount
+            %td
+              = client_financial_document.production_costs_home_amount
+            %td
+              = client_financial_document.production_costs_margin_amount
+            %td
+              = client_financial_document.production_costs_margin_home_amount
+            %td
+              = client_financial_document.gross_amount
+            %td
+              = client_financial_document.commission_amount
+            %td
+              = client_financial_document.fees_amount
+            %td
+              = client_financial_document.production_costs_with_margin_amount
+            %td
+              = client_financial_document.nett_amount
+            %td
+              = client_financial_document.nett_inc_tax_amount
+            %td
+              = client_financial_document.gross_home_amount
+            %td
+              = client_financial_document.commission_home_amount
+            %td
+              = client_financial_document.fees_home_amount
+            %td
+              = client_financial_document.production_costs_with_margin_home_amount
+            %td
+              = client_financial_document.nett_home_amount
+            %td
+              = client_financial_document.nett_inc_tax_home_amount
+            %td
+              = client_financial_document.tax_type
+            %td
+              = client_financial_document.tax_gross_amount
+            %td
+              = client_financial_document.tax_nett_amount
+            %td
+              = client_financial_document.exchange_rate
+            %td
+              = client_financial_document.notes
+            %td
+              = client_financial_document.status_reason
+            %td
+              = client_financial_document.grid_layout_x_m_l
+            %td
+              = client_financial_document.eis_sync_date
+            %td
+              = client_financial_document.rate_card_unit_cost_gross
+            %td
+              = client_financial_document.rate_card_unit_cost_gross_home
+            %td
+              = client_financial_document.rate_card_unit_cost_nett
+            %td
+              = client_financial_document.rate_card_unit_cost_nett_home
+            %td
+              = client_financial_document.rate_card_cost_gross
+            %td
+              = client_financial_document.rate_card_cost_gross_home
+            %td
+              = client_financial_document.rate_card_cost_nett
+            %td
+              = client_financial_document.rate_card_cost_nett_home
+            %td
+              = client_financial_document.commission_agency_amount
+            %td
+              = client_financial_document.commission_agency_home_amount
+            %td
+              = client_financial_document.effective_discount_amount
+            %td
+              = client_financial_document.effective_discount_home_amount
+            %td
+              = client_financial_document.effective_discount_to_client_amount
+            %td
+              = client_financial_document.effective_discount_to_client_home_amount
+            %td
+              = client_financial_document.client_purchase_order
+            %td
+              = client_financial_document.cost_minimum_intermediary_margin_percentage
+            %td
+              = client_financial_document.cost_minimum_intermediary_margin_amount
+            %td
+              = client_financial_document.cost_minimum_intermediary_margin_home_amount
+            %td
+              = client_financial_document.actual_cost_nett
+            %td
+              = client_financial_document.actual_cost_nett_home
+            %td
+              = client_financial_document.company_cost_centre
+            %td
+              .btn-group
+                = link_to client_financial_document, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_client_financial_document_path(client_financial_document), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to client_financial_document, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@client_financial_documents)
+
+  #new.tab-pane
+    = render 'form'

@@ -1,0 +1,27 @@
+= simple_form_for(@media_space_frequency_type, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.input :is_secondly
+    = f.input :is_minutely
+    = f.input :is_hourly
+    = f.input :is_daily
+    = f.input :is_weekly
+    = f.input :is_bi_weekly
+    = f.input :is_monthly
+    = f.input :is_bi_monthly
+    = f.input :is_quarterly
+    = f.input :is_annually
+    = f.input :is_bi_annually
+    = f.input :is_custom_days
+    = f.input :custom_days
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_space_frequency_type,
+               :cancel => media_space_frequency_types_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

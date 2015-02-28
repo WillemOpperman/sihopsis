@@ -1,0 +1,207 @@
+.page-header
+  %h3
+    Client_cost_estimates
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_cost_estimates_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_cost_estimate_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_cost_estimate_path(@client_cost_estimate) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_cost_estimate.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_cost_estimate.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @client_cost_estimate.code_external
+        .row-fluid
+          .span2
+            %b
+              Company
+          .span10
+            = @client_cost_estimate.company
+        .row-fluid
+          .span2
+            %b
+              Company division
+          .span10
+            = @client_cost_estimate.company_division
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @client_cost_estimate.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @client_cost_estimate.client_product
+        .row-fluid
+          .span2
+            %b
+              Campaign
+          .span10
+            = @client_cost_estimate.campaign
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @client_cost_estimate.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Client contact
+          .span10
+            = @client_cost_estimate.client_contact
+        .row-fluid
+          .span2
+            %b
+              Owner user
+          .span10
+            = @client_cost_estimate.owner_user
+        .row-fluid
+          .span2
+            %b
+              Currency
+          .span10
+            = @client_cost_estimate.currency
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @client_cost_estimate.creation_source
+        .row-fluid
+          .span2
+            %b
+              Status
+          .span10
+            = @client_cost_estimate.status
+        .row-fluid
+          .span2
+            %b
+              Communication status
+          .span10
+            = @client_cost_estimate.communication_status
+        .row-fluid
+          .span2
+            %b
+              Actual date
+          .span10
+            = @client_cost_estimate.actual_date
+        .row-fluid
+          .span2
+            %b
+              Gross amount
+          .span10
+            = @client_cost_estimate.gross_amount
+        .row-fluid
+          .span2
+            %b
+              Commission amount
+          .span10
+            = @client_cost_estimate.commission_amount
+        .row-fluid
+          .span2
+            %b
+              Nett amount
+          .span10
+            = @client_cost_estimate.nett_amount
+        .row-fluid
+          .span2
+            %b
+              Tax type
+          .span10
+            = @client_cost_estimate.tax_type
+        .row-fluid
+          .span2
+            %b
+              Tax gross amount
+          .span10
+            = @client_cost_estimate.tax_gross_amount
+        .row-fluid
+          .span2
+            %b
+              Tax nett amount
+          .span10
+            = @client_cost_estimate.tax_nett_amount
+        .row-fluid
+          .span2
+            %b
+              Exchange rate
+          .span10
+            = @client_cost_estimate.exchange_rate
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @client_cost_estimate.notes
+        .row-fluid
+          .span2
+            %b
+              Status reason
+          .span10
+            = @client_cost_estimate.status_reason
+        .row-fluid
+          .span2
+            %b
+              Grid layout x m l
+          .span10
+            = @client_cost_estimate.grid_layout_x_m_l
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_cost_estimate.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Revision no
+          .span10
+            = @client_cost_estimate.revision_no
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_cost_estimate.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_cost_estimate.updated_at)

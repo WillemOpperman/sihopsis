@@ -1,0 +1,23 @@
+= simple_form_for(@media_space_time_band, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :media_space
+    = f.input :time_band_name
+    = f.input :from_time
+    = f.input :to_time
+    = f.input :is_monday
+    = f.input :is_tuesday
+    = f.input :is_wednesday
+    = f.input :is_thursday
+    = f.input :is_friday
+    = f.input :is_saturday
+    = f.input :is_sunday
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_space_time_band,
+               :cancel => media_space_time_bands_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

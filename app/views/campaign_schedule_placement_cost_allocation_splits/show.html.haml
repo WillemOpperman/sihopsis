@@ -1,0 +1,117 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_cost_allocation_splits
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_cost_allocation_splits_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_cost_allocation_split_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_cost_allocation_split_path(@campaign_schedule_placement_cost_allocation_split) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.name
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Company cost centre
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.company_cost_centre
+        .row-fluid
+          .span2
+            %b
+              Company accounting period
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.company_accounting_period
+        .row-fluid
+          .span2
+            %b
+              Split percentage
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.split_percentage
+        .row-fluid
+          .span2
+            %b
+              Is taken
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.is_taken
+        .row-fluid
+          .span2
+            %b
+              Taken date time
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.taken_date_time
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Additional company cost centre
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.additional_company_cost_centre
+        .row-fluid
+          .span2
+            %b
+              Journals document line
+          .span10
+            = @campaign_schedule_placement_cost_allocation_split.journals_document_line
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_cost_allocation_split.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_cost_allocation_split.updated_at)

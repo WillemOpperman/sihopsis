@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Associate_products
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to associate_products_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_associate_product_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_associate_product_path(@associate_product) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @associate_product.code
+        .row-fluid
+          .span2
+            %b
+              Code external
+          .span10
+            = @associate_product.code_external
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @associate_product.uid
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @associate_product.name
+        .row-fluid
+          .span2
+            %b
+              Associate
+          .span10
+            = @associate_product.associate
+        .row-fluid
+          .span2
+            %b
+              Default contact
+          .span10
+            = @associate_product.default_contact
+        .row-fluid
+          .span2
+            %b
+              Default agency commission percentage
+          .span10
+            = @associate_product.default_agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Tax registration no
+          .span10
+            = @associate_product.tax_registration_no
+        .row-fluid
+          .span2
+            %b
+              Region
+          .span10
+            = @associate_product.region
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @associate_product.is_active
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @associate_product.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate_product.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@associate_product.updated_at)

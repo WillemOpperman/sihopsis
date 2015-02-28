@@ -1,0 +1,23 @@
+= simple_form_for(@creative_agency, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :company
+    = f.input :name
+    = f.input :legal_name
+    = f.input :is_active
+    = f.input :postal_address
+    = f.input :physical_address
+    = f.input :phone_number
+    = f.input :fax_number
+    = f.input :e_mail
+    = f.input :notes
+    = f.association :default_contact
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @creative_agency,
+               :cancel => creative_agencies_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

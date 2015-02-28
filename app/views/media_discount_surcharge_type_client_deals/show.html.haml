@@ -1,0 +1,117 @@
+.page-header
+  %h3
+    Media_discount_surcharge_type_client_deals
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_discount_surcharge_type_client_deals_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_discount_surcharge_type_client_deal_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_discount_surcharge_type_client_deal_path(@media_discount_surcharge_type_client_deal) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_discount_surcharge_type_client_deal.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_discount_surcharge_type_client_deal.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_discount_surcharge_type_client_deal.name
+        .row-fluid
+          .span2
+            %b
+              Media discount surcharge type
+          .span10
+            = @media_discount_surcharge_type_client_deal.media_discount_surcharge_type
+        .row-fluid
+          .span2
+            %b
+              Client
+          .span10
+            = @media_discount_surcharge_type_client_deal.client
+        .row-fluid
+          .span2
+            %b
+              Client product
+          .span10
+            = @media_discount_surcharge_type_client_deal.client_product
+        .row-fluid
+          .span2
+            %b
+              Is client share calculated off rate
+          .span10
+            = @media_discount_surcharge_type_client_deal.is_client_share_calculated_off_rate
+        .row-fluid
+          .span2
+            %b
+              Is client share amount based
+          .span10
+            = @media_discount_surcharge_type_client_deal.is_client_share_amount_based
+        .row-fluid
+          .span2
+            %b
+              Client share percentage
+          .span10
+            = @media_discount_surcharge_type_client_deal.client_share_percentage
+        .row-fluid
+          .span2
+            %b
+              Client share amount
+          .span10
+            = @media_discount_surcharge_type_client_deal.client_share_amount
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_discount_surcharge_type_client_deal.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is default
+          .span10
+            = @media_discount_surcharge_type_client_deal.is_default
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_discount_surcharge_type_client_deal.is_active
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_discount_surcharge_type_client_deal.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_discount_surcharge_type_client_deal.updated_at)

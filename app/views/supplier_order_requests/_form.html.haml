@@ -1,0 +1,37 @@
+= simple_form_for(@supplier_order_request, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :code_external
+    = f.association :company_division
+    = f.association :campaign_schedule
+    = f.association :supplier
+    = f.association :media_space
+    = f.association :contact
+    = f.association :communication_status
+    = f.association :creation_source
+    = f.input :revision_no
+    = f.input :order_gross_amount
+    = f.input :order_commission_amount
+    = f.input :order_nett_amount
+    = f.association :tax_type
+    = f.input :tax_gross_amount
+    = f.input :tax_nett_amount
+    = f.input :eis_sync_date
+    = f.input :order_gross_amount_home
+    = f.input :order_commission_amount_home
+    = f.input :order_nett_amount_home
+    = f.input :tax_gross_amount_home
+    = f.input :tax_nett_amount_home
+    = f.input :exchange_rate
+    = f.association :currency
+    = f.association :status
+    = f.input :order_nett_inc_tax_amount
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @supplier_order_request,
+               :cancel => supplier_order_requests_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

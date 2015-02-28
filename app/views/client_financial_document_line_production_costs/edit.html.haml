@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Client_financial_document_line_production_costs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_financial_document_line_production_costs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_financial_document_line_production_cost_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @client_financial_document_line_production_cost do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

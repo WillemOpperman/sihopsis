@@ -1,0 +1,51 @@
+= simple_form_for(@associate, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :code
+    = f.input :code_external
+    = f.input :uid
+    = f.input :name
+    = f.input :offical_name
+    = f.association :company_division
+    = f.input :company_registration_no
+    = f.association :default_contact
+    = f.input :phone_number
+    = f.input :fax_number
+    = f.input :e_mail
+    = f.input :postal_address
+    = f.input :physical_address
+    = f.input :payment_terms
+    = f.input :tax_registration_no
+    = f.association :default_tax_type
+    = f.input :financial_year_end
+    = f.input :default_agency_commission_percentage
+    = f.association :default_currency
+    = f.association :default_creative_agency
+    = f.input :exposure_current
+    = f.input :exposure30
+    = f.input :exposure60
+    = f.input :exposure90
+    = f.input :exposure120
+    = f.input :exposure_date_modified
+    = f.input :bank_name
+    = f.input :bank_account_no
+    = f.input :bank_branch_no
+    = f.input :bank_branch_name
+    = f.input :media_debit_note_name
+    = f.input :media_credit_note_name
+    = f.input :is_digital_proof_required
+    = f.input :is_digital_proof_preview_required
+    = f.input :is_physical_proof_required
+    = f.input :is_purchase_order_user_editable
+    = f.input :is_purchase_order_required_to_book
+    = f.input :is_purchase_order_approval_required_to_use
+    = f.input :is_purchase_order_amount_enforced
+    = f.input :is_active
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @associate,
+               :cancel => associates_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,87 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_status_change_rules
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_status_change_rules_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_status_change_rule_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_status_change_rule_path(@campaign_schedule_placement_status_change_rule) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_status_change_rule.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_status_change_rule.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @campaign_schedule_placement_status_change_rule.name
+        .row-fluid
+          .span2
+            %b
+              Change from campaign schedule placement status
+          .span10
+            = @campaign_schedule_placement_status_change_rule.change_from_campaign_schedule_placement_status
+        .row-fluid
+          .span2
+            %b
+              Change to campaign schedule placement status
+          .span10
+            = @campaign_schedule_placement_status_change_rule.change_to_campaign_schedule_placement_status
+        .row-fluid
+          .span2
+            %b
+              Is allowed
+          .span10
+            = @campaign_schedule_placement_status_change_rule.is_allowed
+        .row-fluid
+          .span2
+            %b
+              Is allowed in change wizard
+          .span10
+            = @campaign_schedule_placement_status_change_rule.is_allowed_in_change_wizard
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_status_change_rule.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_status_change_rule.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_status_change_rule.updated_at)

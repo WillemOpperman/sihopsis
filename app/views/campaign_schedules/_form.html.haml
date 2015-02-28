@@ -1,0 +1,37 @@
+= simple_form_for(@campaign_schedule, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :code_external
+    = f.input :name
+    = f.association :company_division
+    = f.association :campaign
+    = f.association :default_client_product
+    = f.association :default_client_product_sub
+    = f.association :owner_system_app_user
+    = f.association :manager_system_app_user
+    = f.association :default_client_contact
+    = f.association :default_creative_agency
+    = f.association :default_creative_agency_contact
+    = f.association :default_media_agency_client
+    = f.association :default_media_agency_client_contact
+    = f.association :default_natural_client
+    = f.association :default_natural_client_product
+    = f.association :default_natural_client_contact
+    = f.association :client_purchase_order
+    = f.association :media_category
+    = f.association :media_region
+    = f.input :comments
+    = f.input :gross_budget
+    = f.input :start_date
+    = f.input :finish_date
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule,
+               :cancel => campaign_schedules_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

@@ -1,0 +1,20 @@
+= simple_form_for(@journals_document_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :journals_document
+    = f.input :debit_account_no
+    = f.input :credit_account_no
+    = f.input :amount
+    = f.input :comments
+    = f.association :creation_source
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @journals_document_line,
+               :cancel => journals_document_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

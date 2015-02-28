@@ -1,0 +1,109 @@
+.page-header
+  %h3
+    Companies
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), companies_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), companies_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => companies_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Default currency
+          %th
+            C e i s password
+          %th
+            C e i s media placement data web service address
+          %th
+            C e i s digital proof item web service address
+          %th
+            Sup inv paid to billed tolerance
+          %th
+            Is multi branch paying allowed
+          %th
+            Campaign no of days open ahead
+          %th
+            Campaign no of days open behind
+          %th
+            No of digits for codes
+          %th
+            Client invoice credit note billed payed tolerance
+          %th
+            Is client group security enabled
+          %th
+            Is division group security enabled
+          %th.button3
+      %tbody
+        - @companies.each do |company|
+          %tr
+            %td
+              = company.uid
+            %td
+              = company.code
+            %td
+              = company.name
+            %td
+              = company.default_currency
+            %td
+              = company.c_e_i_s_password
+            %td
+              = company.c_e_i_s_media_placement_data_web_service_address
+            %td
+              = company.c_e_i_s_digital_proof_item_web_service_address
+            %td
+              = company.sup_inv_paid_to_billed_tolerance
+            %td
+              = company.is_multi_branch_paying_allowed
+            %td
+              = company.campaign_no_of_days_open_ahead
+            %td
+              = company.campaign_no_of_days_open_behind
+            %td
+              = company.no_of_digits_for_codes
+            %td
+              = company.client_invoice_credit_note_billed_payed_tolerance
+            %td
+              = company.is_client_group_security_enabled
+            %td
+              = company.is_division_group_security_enabled
+            %td
+              .btn-group
+                = link_to company, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_company_path(company), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to company, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@companies)
+
+  #new.tab-pane
+    = render 'form'

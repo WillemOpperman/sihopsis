@@ -1,0 +1,93 @@
+.page-header
+  %h3
+    Media_space_suppliers
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_space_suppliers_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_supplier_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_supplier_path(@media_space_supplier) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space_supplier.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space_supplier.code
+        .row-fluid
+          .span2
+            %b
+              Media space
+          .span10
+            = @media_space_supplier.media_space
+        .row-fluid
+          .span2
+            %b
+              Supplier
+          .span10
+            = @media_space_supplier.supplier
+        .row-fluid
+          .span2
+            %b
+              Cost type
+          .span10
+            = @media_space_supplier.cost_type
+        .row-fluid
+          .span2
+            %b
+              Commission percentage
+          .span10
+            = @media_space_supplier.commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Minimum intermediary margin percentage
+          .span10
+            = @media_space_supplier.minimum_intermediary_margin_percentage
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_space_supplier.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @media_space_supplier.is_active
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_supplier.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_supplier.updated_at)

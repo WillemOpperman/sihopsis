@@ -1,0 +1,97 @@
+.page-header
+  %h3
+    Rate_types
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), rate_types_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), rate_types_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => rate_types_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Media category
+          %th
+            Is default
+          %th
+            Is calculated as rate x size x columns
+          %th
+            Is calculated as rate x size x columns over quantity per unit rate x quantity
+          %th
+            Is calculated as rate over quantity per unit rate x quantity
+          %th
+            Is added value
+          %th
+            Default quantity per unit rate
+          %th
+            Eis sync date
+          %th
+            Is active
+          %th.button3
+      %tbody
+        - @rate_types.each do |rate_type|
+          %tr
+            %td
+              = rate_type.uid
+            %td
+              = rate_type.code
+            %td
+              = rate_type.name
+            %td
+              = rate_type.media_category
+            %td
+              = rate_type.is_default
+            %td
+              = rate_type.is_calculated_as_rate_x_size_x_columns
+            %td
+              = rate_type.is_calculated_as_rate_x_size_x_columns_over_quantity_per_unit_rate_x_quantity
+            %td
+              = rate_type.is_calculated_as_rate_over_quantity_per_unit_rate_x_quantity
+            %td
+              = rate_type.is_added_value
+            %td
+              = rate_type.default_quantity_per_unit_rate
+            %td
+              = rate_type.eis_sync_date
+            %td
+              = rate_type.is_active
+            %td
+              .btn-group
+                = link_to rate_type, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_rate_type_path(rate_type), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to rate_type, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@rate_types)
+
+  #new.tab-pane
+    = render 'form'

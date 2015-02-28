@@ -1,0 +1,16 @@
+= simple_form_for(@routing_address, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :company
+    = f.input :eis_sync_date
+    = f.input :is_active
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @routing_address,
+               :cancel => routing_addresses_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

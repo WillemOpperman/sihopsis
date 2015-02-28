@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Campaign_schedule_media_targets
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_media_targets_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_media_target_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_media_target_path(@campaign_schedule_media_target) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_media_target.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_media_target.code
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule
+          .span10
+            = @campaign_schedule_media_target.campaign_schedule
+        .row-fluid
+          .span2
+            %b
+              Media target
+          .span10
+            = @campaign_schedule_media_target.media_target
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @campaign_schedule_media_target.is_active
+        .row-fluid
+          .span2
+            %b
+              Creation source
+          .span10
+            = @campaign_schedule_media_target.creation_source
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_media_target.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_media_target.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_media_target.updated_at)

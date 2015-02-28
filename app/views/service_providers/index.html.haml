@@ -1,0 +1,81 @@
+.page-header
+  %h3
+    Service_providers
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), service_providers_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), service_providers_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => service_providers_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Code
+          %th
+            Uid
+          %th
+            Name
+          %th
+            Is this agency
+          %th
+            Default proof file extention
+          %th
+            Is active
+          %th
+            Modified date
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @service_providers.each do |service_provider|
+          %tr
+            %td
+              = service_provider.code
+            %td
+              = service_provider.uid
+            %td
+              = service_provider.name
+            %td
+              = service_provider.is_this_agency
+            %td
+              = service_provider.default_proof_file_extention
+            %td
+              = service_provider.is_active
+            %td
+              = service_provider.modified_date
+            %td
+              = service_provider.eis_sync_date
+            %td
+              .btn-group
+                = link_to service_provider, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_service_provider_path(service_provider), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to service_provider, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@service_providers)
+
+  #new.tab-pane
+    = render 'form'

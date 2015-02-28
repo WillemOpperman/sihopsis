@@ -1,0 +1,75 @@
+.page-header
+  %h3
+    Creation_sources
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to creation_sources_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_creation_source_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_creation_source_path(@creation_source) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @creation_source.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @creation_source.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @creation_source.name
+        .row-fluid
+          .span2
+            %b
+              Is user
+          .span10
+            = @creation_source.is_user
+        .row-fluid
+          .span2
+            %b
+              Is user import
+          .span10
+            = @creation_source.is_user_import
+        .row-fluid
+          .span2
+            %b
+              Is system import
+          .span10
+            = @creation_source.is_system_import
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@creation_source.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@creation_source.updated_at)

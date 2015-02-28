@@ -1,0 +1,38 @@
+= simple_form_for(@holdings_file_helper, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :holdings_file_header
+    = f.input :holdings_file_client_code
+    = f.input :holdings_file_client_name
+    = f.input :holdings_file_product_code
+    = f.input :holdings_file_product_name
+    = f.input :holdings_file_medium_code
+    = f.input :holdings_file_medium_name
+    = f.input :holdings_file_booked_date
+    = f.input :holdings_file_day_flags
+    = f.input :holdings_file_start_time
+    = f.input :holdings_file_end_time
+    = f.input :holdings_file_req_days_flags
+    = f.input :holdings_file_req_start_time
+    = f.input :holdings_file_req_end_time
+    = f.input :holdings_file_duration
+    = f.input :holdings_file_gross_rate
+    = f.input :holdings_file_gross_decimal
+    = f.input :holdings_file_program_name
+    = f.input :holdings_file_req_program_name
+    = f.input :holdings_file_name_for_matching
+    = f.input :eis_sync_date
+    = f.input :holdings_file_temp_code
+    = f.input :holdings_file_booking_code
+    = f.input :holdings_file_top_tailbooking_code
+    = f.input :holdings_file_system_client_code
+    = f.input :holdings_file_system_client_product_code
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @holdings_file_helper,
+               :cancel => holdings_file_helpers_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

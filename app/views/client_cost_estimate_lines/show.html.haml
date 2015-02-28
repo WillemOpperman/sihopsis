@@ -1,0 +1,123 @@
+.page-header
+  %h3
+    Client_cost_estimate_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_cost_estimate_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_cost_estimate_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_cost_estimate_line_path(@client_cost_estimate_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_cost_estimate_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_cost_estimate_line.code
+        .row-fluid
+          .span2
+            %b
+              Client cost estimate
+          .span10
+            = @client_cost_estimate_line.client_cost_estimate
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @client_cost_estimate_line.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Gross amount
+          .span10
+            = @client_cost_estimate_line.gross_amount
+        .row-fluid
+          .span2
+            %b
+              Commission amount
+          .span10
+            = @client_cost_estimate_line.commission_amount
+        .row-fluid
+          .span2
+            %b
+              Nett amount
+          .span10
+            = @client_cost_estimate_line.nett_amount
+        .row-fluid
+          .span2
+            %b
+              Revision no
+          .span10
+            = @client_cost_estimate_line.revision_no
+        .row-fluid
+          .span2
+            %b
+              Notes
+          .span10
+            = @client_cost_estimate_line.notes
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_cost_estimate_line.eis_sync_date
+        .row-fluid
+          .span2
+            %b
+              Is active
+          .span10
+            = @client_cost_estimate_line.is_active
+        .row-fluid
+          .span2
+            %b
+              Revision change details
+          .span10
+            = @client_cost_estimate_line.revision_change_details
+        .row-fluid
+          .span2
+            %b
+              Is changed in current revision
+          .span10
+            = @client_cost_estimate_line.is_changed_in_current_revision
+        .row-fluid
+          .span2
+            %b
+              Change reason
+          .span10
+            = @client_cost_estimate_line.change_reason
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_cost_estimate_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_cost_estimate_line.updated_at)

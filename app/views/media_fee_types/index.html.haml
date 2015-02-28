@@ -1,0 +1,109 @@
+.page-header
+  %h3
+    Media_fee_types
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), media_fee_types_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), media_fee_types_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => media_fee_types_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Name
+          %th
+            Media category
+          %th
+            Supplier
+          %th
+            Media space
+          %th
+            Media space part
+          %th
+            Media category size
+          %th
+            Media category format
+          %th
+            Is calculated off rate
+          %th
+            Is amount based
+          %th
+            Is default
+          %th
+            Is only allowed once per placement
+          %th
+            Default fee amount
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @media_fee_types.each do |media_fee_type|
+          %tr
+            %td
+              = media_fee_type.uid
+            %td
+              = media_fee_type.code
+            %td
+              = media_fee_type.name
+            %td
+              = media_fee_type.media_category
+            %td
+              = media_fee_type.supplier
+            %td
+              = media_fee_type.media_space
+            %td
+              = media_fee_type.media_space_part
+            %td
+              = media_fee_type.media_category_size
+            %td
+              = media_fee_type.media_category_format
+            %td
+              = media_fee_type.is_calculated_off_rate
+            %td
+              = media_fee_type.is_amount_based
+            %td
+              = media_fee_type.is_default
+            %td
+              = media_fee_type.is_only_allowed_once_per_placement
+            %td
+              = media_fee_type.default_fee_amount
+            %td
+              = media_fee_type.eis_sync_date
+            %td
+              .btn-group
+                = link_to media_fee_type, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_media_fee_type_path(media_fee_type), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to media_fee_type, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@media_fee_types)
+
+  #new.tab-pane
+    = render 'form'

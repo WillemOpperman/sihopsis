@@ -1,0 +1,141 @@
+.page-header
+  %h3
+    Media_space_frequency_types
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to media_space_frequency_types_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_media_space_frequency_type_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_media_space_frequency_type_path(@media_space_frequency_type) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @media_space_frequency_type.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @media_space_frequency_type.code
+        .row-fluid
+          .span2
+            %b
+              Name
+          .span10
+            = @media_space_frequency_type.name
+        .row-fluid
+          .span2
+            %b
+              Is secondly
+          .span10
+            = @media_space_frequency_type.is_secondly
+        .row-fluid
+          .span2
+            %b
+              Is minutely
+          .span10
+            = @media_space_frequency_type.is_minutely
+        .row-fluid
+          .span2
+            %b
+              Is hourly
+          .span10
+            = @media_space_frequency_type.is_hourly
+        .row-fluid
+          .span2
+            %b
+              Is daily
+          .span10
+            = @media_space_frequency_type.is_daily
+        .row-fluid
+          .span2
+            %b
+              Is weekly
+          .span10
+            = @media_space_frequency_type.is_weekly
+        .row-fluid
+          .span2
+            %b
+              Is bi weekly
+          .span10
+            = @media_space_frequency_type.is_bi_weekly
+        .row-fluid
+          .span2
+            %b
+              Is monthly
+          .span10
+            = @media_space_frequency_type.is_monthly
+        .row-fluid
+          .span2
+            %b
+              Is bi monthly
+          .span10
+            = @media_space_frequency_type.is_bi_monthly
+        .row-fluid
+          .span2
+            %b
+              Is quarterly
+          .span10
+            = @media_space_frequency_type.is_quarterly
+        .row-fluid
+          .span2
+            %b
+              Is annually
+          .span10
+            = @media_space_frequency_type.is_annually
+        .row-fluid
+          .span2
+            %b
+              Is bi annually
+          .span10
+            = @media_space_frequency_type.is_bi_annually
+        .row-fluid
+          .span2
+            %b
+              Is custom days
+          .span10
+            = @media_space_frequency_type.is_custom_days
+        .row-fluid
+          .span2
+            %b
+              Custom days
+          .span10
+            = @media_space_frequency_type.custom_days
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @media_space_frequency_type.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_frequency_type.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@media_space_frequency_type.updated_at)

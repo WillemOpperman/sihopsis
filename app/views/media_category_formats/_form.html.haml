@@ -1,0 +1,17 @@
+= simple_form_for(@media_category_format, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :media_category
+    = f.association :media_space
+    = f.input :is_active
+    = f.input :eis_sync_date
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_category_format,
+               :cancel => media_category_formats_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

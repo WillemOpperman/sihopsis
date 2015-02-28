@@ -1,0 +1,97 @@
+.page-header
+  %h3
+    Holdings_file_headers
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), holdings_file_headers_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), holdings_file_headers_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => holdings_file_headers_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Generation date
+          %th
+            Generation time
+          %th
+            Network name
+          %th
+            Agency name
+          %th
+            Detail record counter
+          %th
+            Gross rate
+          %th
+            Gross decimals
+          %th
+            Eis sync date
+          %th
+            Network code
+          %th
+            Agency code
+          %th.button3
+      %tbody
+        - @holdings_file_headers.each do |holdings_file_header|
+          %tr
+            %td
+              = holdings_file_header.uid
+            %td
+              = holdings_file_header.code
+            %td
+              = holdings_file_header.generation_date
+            %td
+              = holdings_file_header.generation_time
+            %td
+              = holdings_file_header.network_name
+            %td
+              = holdings_file_header.agency_name
+            %td
+              = holdings_file_header.detail_record_counter
+            %td
+              = holdings_file_header.gross_rate
+            %td
+              = holdings_file_header.gross_decimals
+            %td
+              = holdings_file_header.eis_sync_date
+            %td
+              = holdings_file_header.network_code
+            %td
+              = holdings_file_header.agency_code
+            %td
+              .btn-group
+                = link_to holdings_file_header, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_holdings_file_header_path(holdings_file_header), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to holdings_file_header, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@holdings_file_headers)
+
+  #new.tab-pane
+    = render 'form'

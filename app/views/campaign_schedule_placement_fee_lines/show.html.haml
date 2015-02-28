@@ -1,0 +1,87 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_fee_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_fee_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_fee_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_fee_line_path(@campaign_schedule_placement_fee_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_fee_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_fee_line.code
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_fee_line.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Media fee type
+          .span10
+            = @campaign_schedule_placement_fee_line.media_fee_type
+        .row-fluid
+          .span2
+            %b
+              Fee percent
+          .span10
+            = @campaign_schedule_placement_fee_line.fee_percent
+        .row-fluid
+          .span2
+            %b
+              Fee amount
+          .span10
+            = @campaign_schedule_placement_fee_line.fee_amount
+        .row-fluid
+          .span2
+            %b
+              Fee home amount
+          .span10
+            = @campaign_schedule_placement_fee_line.fee_home_amount
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_fee_line.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_fee_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_fee_line.updated_at)

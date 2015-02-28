@@ -1,0 +1,24 @@
+= simple_form_for(@client_contract_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :client_contract
+    = f.association :campaign_schedule_placement
+    = f.input :gross_amount
+    = f.input :commission_amount
+    = f.input :nett_amount
+    = f.input :revision_no
+    = f.input :notes
+    = f.input :eis_sync_date
+    = f.input :is_active
+    = f.input :is_changed_in_current_revision
+    = f.input :revision_change_details
+    = f.input :change_reason
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @client_contract_line,
+               :cancel => client_contract_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

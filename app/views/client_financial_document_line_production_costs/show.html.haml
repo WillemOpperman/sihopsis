@@ -1,0 +1,105 @@
+.page-header
+  %h3
+    Client_financial_document_line_production_costs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to client_financial_document_line_production_costs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_client_financial_document_line_production_cost_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_client_financial_document_line_production_cost_path(@client_financial_document_line_production_cost) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @client_financial_document_line_production_cost.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @client_financial_document_line_production_cost.code
+        .row-fluid
+          .span2
+            %b
+              Client financial document line
+          .span10
+            = @client_financial_document_line_production_cost.client_financial_document_line
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement production cost
+          .span10
+            = @client_financial_document_line_production_cost.campaign_schedule_placement_production_cost
+        .row-fluid
+          .span2
+            %b
+              Production cost amount
+          .span10
+            = @client_financial_document_line_production_cost.production_cost_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost home amount
+          .span10
+            = @client_financial_document_line_production_cost.production_cost_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin amount
+          .span10
+            = @client_financial_document_line_production_cost.production_cost_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost margin home amount
+          .span10
+            = @client_financial_document_line_production_cost.production_cost_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost with margin amount
+          .span10
+            = @client_financial_document_line_production_cost.production_cost_with_margin_amount
+        .row-fluid
+          .span2
+            %b
+              Production cost with margin home amount
+          .span10
+            = @client_financial_document_line_production_cost.production_cost_with_margin_home_amount
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @client_financial_document_line_production_cost.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_financial_document_line_production_cost.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@client_financial_document_line_production_cost.updated_at)

@@ -1,0 +1,135 @@
+.page-header
+  %h3
+    Rate_card_lines
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to rate_card_lines_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_rate_card_line_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_rate_card_line_path(@rate_card_line) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @rate_card_line.uid
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @rate_card_line.code
+        .row-fluid
+          .span2
+            %b
+              Rate card
+          .span10
+            = @rate_card_line.rate_card
+        .row-fluid
+          .span2
+            %b
+              Rate type
+          .span10
+            = @rate_card_line.rate_type
+        .row-fluid
+          .span2
+            %b
+              Desired minimum rate
+          .span10
+            = @rate_card_line.desired_minimum_rate
+        .row-fluid
+          .span2
+            %b
+              Cost type
+          .span10
+            = @rate_card_line.cost_type
+        .row-fluid
+          .span2
+            %b
+              Actual unit cost gross
+          .span10
+            = @rate_card_line.actual_unit_cost_gross
+        .row-fluid
+          .span2
+            %b
+              Overriding supplier commission percentage
+          .span10
+            = @rate_card_line.overriding_supplier_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Actual unit cost nett
+          .span10
+            = @rate_card_line.actual_unit_cost_nett
+        .row-fluid
+          .span2
+            %b
+              Agency commission type
+          .span10
+            = @rate_card_line.agency_commission_type
+        .row-fluid
+          .span2
+            %b
+              Agency commission percentage
+          .span10
+            = @rate_card_line.agency_commission_percentage
+        .row-fluid
+          .span2
+            %b
+              Media space part
+          .span10
+            = @rate_card_line.media_space_part
+        .row-fluid
+          .span2
+            %b
+              Media space section
+          .span10
+            = @rate_card_line.media_space_section
+        .row-fluid
+          .span2
+            %b
+              Media category size
+          .span10
+            = @rate_card_line.media_category_size
+        .row-fluid
+          .span2
+            %b
+              Media category format
+          .span10
+            = @rate_card_line.media_category_format
+        .row-fluid
+          .span2
+            %b
+              Description
+          .span10
+            = @rate_card_line.description
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@rate_card_line.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@rate_card_line.updated_at)

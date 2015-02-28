@@ -1,0 +1,147 @@
+.page-header
+  %h3
+    Campaign_schedule_placement_service_provider_digital_proofs
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to campaign_schedule_placement_service_provider_digital_proofs_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_campaign_schedule_placement_service_provider_digital_proof_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#show", :"data-toggle" => "tab"}
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li
+        = link_to edit_campaign_schedule_placement_service_provider_digital_proof_path(@campaign_schedule_placement_service_provider_digital_proof) do
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #show.tab-pane.active
+        .row-fluid
+          .span2
+            %b
+              Code
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.code
+        .row-fluid
+          .span2
+            %b
+              Uid
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.uid
+        .row-fluid
+          .span2
+            %b
+              Campaign schedule placement
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.campaign_schedule_placement
+        .row-fluid
+          .span2
+            %b
+              Service prover digital proof
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_prover_digital_proof
+        .row-fluid
+          .span2
+            %b
+              Service provider size
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_size
+        .row-fluid
+          .span2
+            %b
+              Service provider columns
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_columns
+        .row-fluid
+          .span2
+            %b
+              Service provider colour
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_colour
+        .row-fluid
+          .span2
+            %b
+              Service provider position
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_position
+        .row-fluid
+          .span2
+            %b
+              Service provider position no
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_position_no
+        .row-fluid
+          .span2
+            %b
+              Service provider advert no
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_advert_no
+        .row-fluid
+          .span2
+            %b
+              Service provider advert title
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_advert_title
+        .row-fluid
+          .span2
+            %b
+              Service provider advert language
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_advert_language
+        .row-fluid
+          .span2
+            %b
+              Media agency status
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.media_agency_status
+        .row-fluid
+          .span2
+            %b
+              Is accepted by media agency
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.is_accepted_by_media_agency
+        .row-fluid
+          .span2
+            %b
+              Service provider modified date
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.service_provider_modified_date
+        .row-fluid
+          .span2
+            %b
+              Status system app user
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.status_system_app_user
+        .row-fluid
+          .span2
+            %b
+              Status date
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.status_date
+        .row-fluid
+          .span2
+            %b
+              Eis sync date
+          .span10
+            = @campaign_schedule_placement_service_provider_digital_proof.eis_sync_date
+        .row-fluid
+          .span12
+            %hr
+        .row-fluid
+          .span2
+            %b
+              = t(:created_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_service_provider_digital_proof.created_at)
+        .row-fluid
+          .span2
+            %b
+              = t(:updated_at, :scope => :forms)
+          .span10
+            = time_ago_tag(@campaign_schedule_placement_service_provider_digital_proof.updated_at)

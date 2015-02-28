@@ -1,0 +1,25 @@
+.page-header
+  %h3
+    Holdings_file_headers
+.row-fluid
+  .span12
+    %ul.nav.nav-tabs
+      %li
+        = link_to holdings_file_headers_path do
+          = icon_tag('list-alt')
+          = t(:list, :scope => :tabs)
+      %li
+        = link_to new_holdings_file_header_path do
+          = icon_tag('plus')
+          = t(:add_new, :scope => :tabs)
+      %li
+        = link_to @holdings_file_header do
+          = icon_tag('eye')
+          = t(:show, :scope => :tabs)
+      %li.active
+        %a{:"data-target" => "#edit", :"data-toggle" => "tab"}
+          = icon_tag('pencil')
+          = t(:edit, :scope => :tabs)
+    .tab-content
+      #edit.tab-pane.active
+        = render 'form'

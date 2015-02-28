@@ -1,0 +1,157 @@
+.page-header
+  %h3
+    Campaign_schedules
+%ul.nav.nav-tabs
+  %li.active
+    %a{:href => '#list', :data => {:toggle => :tab}}
+      = icon_tag('list-alt')
+      = t(:list, :scope => :tabs)
+  %li
+    %a{:href => '#new', :data => {:toggle => :tab}}
+      = icon_tag('plus')
+      = t(:add_new, :scope => :tabs)
+
+  %li.dropdown.pull-right
+    %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}}
+      = icon_tag('arrow-circle-o-down')
+      = t(:download, :scope => :tabs)
+      %b.caret
+    %ul.dropdown-menu.pull-right
+      %li
+        = link_to t(:csv, :scope => :formats), campaign_schedules_path(:format => :csv)
+      %li
+        = link_to t(:xls, :scope => :formats), campaign_schedules_path(:format => :xls)
+
+.tab-content
+  #list.tab-pane.active
+    = render :partial => 'shared/grid_search', :locals => { :url => campaign_schedules_path }
+
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            Uid
+          %th
+            Code
+          %th
+            Code external
+          %th
+            Name
+          %th
+            Company division
+          %th
+            Campaign
+          %th
+            Default client product
+          %th
+            Default client product sub
+          %th
+            Owner system app user
+          %th
+            Manager system app user
+          %th
+            Default client contact
+          %th
+            Default creative agency
+          %th
+            Default creative agency contact
+          %th
+            Default media agency client
+          %th
+            Default media agency client contact
+          %th
+            Default natural client
+          %th
+            Default natural client product
+          %th
+            Default natural client contact
+          %th
+            Client purchase order
+          %th
+            Media category
+          %th
+            Media region
+          %th
+            Comments
+          %th
+            Gross budget
+          %th
+            Start date
+          %th
+            Finish date
+          %th
+            Creation source
+          %th
+            Eis sync date
+          %th.button3
+      %tbody
+        - @campaign_schedules.each do |campaign_schedule|
+          %tr
+            %td
+              = campaign_schedule.uid
+            %td
+              = campaign_schedule.code
+            %td
+              = campaign_schedule.code_external
+            %td
+              = campaign_schedule.name
+            %td
+              = campaign_schedule.company_division
+            %td
+              = campaign_schedule.campaign
+            %td
+              = campaign_schedule.default_client_product
+            %td
+              = campaign_schedule.default_client_product_sub
+            %td
+              = campaign_schedule.owner_system_app_user
+            %td
+              = campaign_schedule.manager_system_app_user
+            %td
+              = campaign_schedule.default_client_contact
+            %td
+              = campaign_schedule.default_creative_agency
+            %td
+              = campaign_schedule.default_creative_agency_contact
+            %td
+              = campaign_schedule.default_media_agency_client
+            %td
+              = campaign_schedule.default_media_agency_client_contact
+            %td
+              = campaign_schedule.default_natural_client
+            %td
+              = campaign_schedule.default_natural_client_product
+            %td
+              = campaign_schedule.default_natural_client_contact
+            %td
+              = campaign_schedule.client_purchase_order
+            %td
+              = campaign_schedule.media_category
+            %td
+              = campaign_schedule.media_region
+            %td
+              = campaign_schedule.comments
+            %td
+              = campaign_schedule.gross_budget
+            %td
+              = campaign_schedule.start_date
+            %td
+              = campaign_schedule.finish_date
+            %td
+              = campaign_schedule.creation_source
+            %td
+              = campaign_schedule.eis_sync_date
+            %td
+              .btn-group
+                = link_to campaign_schedule, :title => t(:show, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('eye')
+                = link_to edit_campaign_schedule_path(campaign_schedule), :title => t(:edit, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('pencil')
+                = link_to campaign_schedule, :method => :delete, :data => { :confirm => t(:delete_confirmation, :scope => :messages) }, :title => t(:delete, :scope => :messages), :class => [:btn, :as_tooltip] do
+                  = icon_tag('times')
+
+    .pull-right
+      = paginate(@campaign_schedules)
+
+  #new.tab-pane
+    = render 'form'

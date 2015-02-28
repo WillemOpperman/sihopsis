@@ -1,0 +1,23 @@
+= simple_form_for(@media_discount_surcharge_type_client_deal, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.input :name
+    = f.association :media_discount_surcharge_type
+    = f.association :client
+    = f.association :client_product
+    = f.input :is_client_share_calculated_off_rate
+    = f.input :is_client_share_amount_based
+    = f.input :client_share_percentage
+    = f.input :client_share_amount
+    = f.input :eis_sync_date
+    = f.input :is_default
+    = f.input :is_active
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @media_discount_surcharge_type_client_deal,
+               :cancel => media_discount_surcharge_type_client_deals_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }

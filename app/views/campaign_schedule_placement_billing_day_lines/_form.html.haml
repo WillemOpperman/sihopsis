@@ -1,0 +1,32 @@
+= simple_form_for(@campaign_schedule_placement_billing_day_line, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_messages
+
+  .form-inputs
+    = f.input :uid
+    = f.input :code
+    = f.association :campaign_schedule_placement
+    = f.input :percent_of_total
+    = f.input :quantity
+    = f.input :gross_amount
+    = f.input :commission_amount
+    = f.input :fees_amount
+    = f.input :nett_amount
+    = f.input :is_billed
+    = f.input :is_credited
+    = f.input :notes
+    = f.input :eis_sync_date
+    = f.association :client_financial_document_line
+    = f.input :billing_day_start_date
+    = f.input :billing_day_end_date
+    = f.association :creation_source
+    = f.input :gross_home_amount
+    = f.input :commission_home_amount
+    = f.input :fees_home_amount
+    = f.input :nett_home_amount
+    = f.association :parent
+
+  .form-actions
+    = f.button :wrapped,
+               :delete => @campaign_schedule_placement_billing_day_line,
+               :cancel => campaign_schedule_placement_billing_day_lines_path,
+               :data => { :disable_with => t(:saving, :scope => :forms) }
